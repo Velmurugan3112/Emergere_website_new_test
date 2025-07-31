@@ -1,10 +1,11 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: 'export',
+import type { NextConfig } from 'next';
+
+const nextConfig: NextConfig = {
+  output: 'export', // Enables static HTML export (required for Azure Static Web Apps)
   eslint: {
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: true, // Prevents ESLint from failing the build
   },
-  // Add other Next.js options here if needed
+  // You can add more config options here if needed
 };
- 
+
 export default nextConfig;
