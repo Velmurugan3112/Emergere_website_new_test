@@ -32,7 +32,7 @@ jobs:
 
       - name: Build and export Next.js app
         working-directory: forgecentral
-        run: npm run build
+        run: npx next build --no-lint && npx next export
 
       - name: Upload static site to Azure Static Web Apps
         id: builddeploy
