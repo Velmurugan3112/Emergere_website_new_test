@@ -27,9 +27,11 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
+        working-directory: frontend
         run: npm install
 
-      - name: Build and export Next.js site
+      - name: Build and export Next.js app
+        working-directory: frontend
         run: npm run build
 
       - name: Upload static site to Azure Static Web Apps
@@ -39,9 +41,9 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_WITTY_TREE_0E9F02F10 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
-          app_location: "/"
-          api_location: "" # Leave empty if not using Azure Functions
-          output_location: "out"
+          app_location: "frontend"
+          output_location: "frontend/out"
+          api_location: ""
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
