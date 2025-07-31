@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "set PORT=5000 && next dev --turbopack",
-    "build": "next build && next export",
-    "build:skip-lint": "next build --no-lint && next export",
+    "build": "next build",
+    "build:skip-lint": "next build --no-lint",
     "start": "set PORT=5000 && next start",
     "lint": "next lint"
   },
