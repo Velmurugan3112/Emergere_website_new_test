@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 
 const ApplyJob: React.FC = () => {
   const [resume, setResume] = useState<File | null>(null);
@@ -18,13 +19,13 @@ const ApplyJob: React.FC = () => {
         <div className="relative z-10 text-center pb-8">
           <h1 className="text-3xl md:text-4xl font-bold mb-2">Careers</h1>
           <p className="text-sm text-white/80">
-            <a href="/" className="text-[#6490FE]">
+            <Link href="/" className="text-[#6490FE]">
               Home
-            </a>{" "}
+            </Link>{" "}
             /{" "}
-            <a href="/" className="text-[#EFEFEF]">
+            <Link href="/" className="text-[#EFEFEF]">
               Careers
-            </a>
+            </Link>
           </p>
         </div>
       </div>

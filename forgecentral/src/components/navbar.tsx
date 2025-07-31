@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import DropdownMenu from "./dropdownmenu";
+import Link from "next/link";
 
 const NavBar = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -112,12 +113,12 @@ const NavBar = () => {
         </div>
 
         <nav className="flex gap-10 whitespace-nowrap overflow-x-auto">
-          <a href="/home" className="text-[#0047ff] font-semibold">
+          <Link href="/home" className="text-[#0047ff] font-semibold">
             Home
-          </a>
-          <a href="/about-us" className="text-[#1e1e1e] font-medium">
+          </Link>
+          <Link href="/about-us" className="text-[#1e1e1e] font-medium">
             About Us
-          </a>
+          </Link>
 
           <div
             className="relative"
@@ -150,9 +151,9 @@ const NavBar = () => {
             </button>
           </div>
 
-          <a href="/careers" className="text-[#1e1e1e] font-medium">
+          <Link href="/careers" className="text-[#1e1e1e] font-medium">
             Careers
-          </a>
+          </Link>
         </nav>
 
         <div>

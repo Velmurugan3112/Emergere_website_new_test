@@ -102,15 +102,15 @@ const Footer = () => {
           <h4 className="text-white text-xl mb-4">Contact Us</h4>
           <div className="flex items-start gap-3 mb-4">
             <img src="/Group 87.svg" className="h-8 w-8 align-middle" />
-            <a href="mailto:hello@emergertech.com" className="text-lg">
+            <Link href="mailto:hello@emergertech.com" className="text-lg">
               hello@emergertech.com
-            </a>
+            </Link>
           </div>
           <div className="flex items-start gap-3 mb-4">
             <img src="/phone.svg" className="h-8 w-8 align-middle" />
-            <a href="tel:+14694017117" className="text-lg">
+            <Link href="tel:+14694017117" className="text-lg">
               +1 469 4017117
-            </a>
+            </Link>
           </div>
         </div>
 
