@@ -8,4 +8,7 @@ module.exports = {
     ignoreDuringBuilds: true,
   },
 };
+module.exports = {
+  output: 'export',
+};
 export default nextConfig;
