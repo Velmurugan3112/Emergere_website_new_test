@@ -38,7 +38,7 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
           app_location: "forgecentral"
-          output_location: "forgecentral"
+          output_location: "forgecentral/out"
           api_location: ""
 
   close_pull_request_job:
