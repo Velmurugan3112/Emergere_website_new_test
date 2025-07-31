@@ -27,11 +27,11 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        working-directory: frontend
+        working-directory: forgecentral
         run: npm install
 
       - name: Build and export Next.js app
-        working-directory: frontend
+        working-directory: forgecentral
         run: npm run build
 
       - name: Upload static site to Azure Static Web Apps
