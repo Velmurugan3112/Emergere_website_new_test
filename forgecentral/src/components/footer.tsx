@@ -106,7 +106,7 @@ const Footer = () => {
             </Link>
           </div>
           <div className="flex items-center gap-3">
-            <img src="/phone.svg" className="h-8 w-8" />
+            <img src="/Phone.svg" className="h-8 w-8" />
             <Link href="tel:+14694017117" className="text-lg text-white">
               +1 469 4017117
             </Link>
