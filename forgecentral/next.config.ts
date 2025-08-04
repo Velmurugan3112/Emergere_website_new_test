@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true, // Prevents ESLint from failing the build
   },
+  images: {
+    unoptimized: true,
+  },
   // You can add more config options here if needed
 };
 
