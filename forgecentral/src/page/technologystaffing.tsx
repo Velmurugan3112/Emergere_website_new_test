@@ -280,8 +280,8 @@ export const TechnologyStaffing = () => {
         </section>
 
         {/* IT Consulting & Strategic Guidance Section */}
-        <section className="w-full px-4 md:px-20 py-20">
-          <div className="relative rounded-[48px] px-6 md:px-16 pt-12 pb-20 text-white overflow-hidden max-w-[1200px] mx-auto">
+        <section className="w-full px-4 md:px-20">
+          <div className="relative rounded-[48px] px-6 md:px-16 pt-12 pb-10 text-white overflow-hidden max-w-[1200px] mx-auto">
             {/* Background Pattern Image with subtle opacity */}
             <div className="absolute inset-0 z-0 ">
               <Image
@@ -331,7 +331,7 @@ export const TechnologyStaffing = () => {
         </section>
 
         {/* Why Emergere Section */}
-        <section className="w-full px-4 md:px-0 py-20 bg-[#F9F9FA] mt-[-64px] relative overflow-hidden">
+        <section className="w-full px-4 md:px-0 py-2 bg-[#F9F9FA] relative overflow-hidden">
           {/* Section Background */}
           <div className="absolute inset-0 z-0">
             <Image
