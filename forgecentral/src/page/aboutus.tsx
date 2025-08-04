@@ -8,7 +8,7 @@ type CardProps = {
 };
 
 const Card = ({ icon, bg, title, desc }: CardProps) => (
-  <div className="bg-white rounded-[32px] p-6 shadow-sm text-left flex flex-col h-full">
+  <div className="bg-white rounded-[32px] p-6 shadow-sm text-left flex flex-col h-full transform transition-transform duration-300 hover:scale-105">
     <div
       className="w-12 h-12 flex items-center justify-center rounded-xl mb-4"
       style={{ backgroundColor: bg }}
@@ -36,8 +36,8 @@ export default function AboutUs() {
             About <span className="relative z-10">Us</span>
           </h1>
           <p className="text-xs md:text-sm mt-1 font-medium">
-            <Link href="/" className="text-white/80 hover:underline">
-              Home
+            <Link href="/home">
+              <span className="text-white/80 hover:underline">Home</span>
             </Link>
             <span className="mx-2">/</span>
             <span className="text-white font-semibold">About Us</span>
@@ -86,7 +86,7 @@ export default function AboutUs() {
                 We specialize in transforming complex IT ecosystems into agile,
                 intelligent platforms that drive measurable business value.
               </p>
-
+              <br />
               <p className="text-gray-700 leading-relaxed font-medium text-justify">
                 From Data, AI & Analytics that uncover actionable insights, to
                 Cloud Services that scale with your growth — we architect and
@@ -208,7 +208,7 @@ export default function AboutUs() {
                         alt="arrow"
                         className="w-[32px] h-[24px]"
                       />
-                      <span className="text-[#101B5A] font-extrabold text-lg tracking-tight">
+                      <span className="text-[#101B5A] font-semibold text-lg tracking-tight">
                         {item.text}
                       </span>
                     </div>
@@ -238,7 +238,7 @@ export default function AboutUs() {
         </div>
 
         {/* Final quote */}
-        <div className="mt-36 text-center max-w-4xl mx-auto px-4">
+        <div className="mt-26 text-center max-w-4xl mx-auto px-4">
           <p className="text-lg md:text-xl font-semibold leading-relaxed text-center">
             <span className="text-[#535353]">“ At every step,</span>
             <span className="text-[#010360] font-bold">
@@ -269,12 +269,12 @@ export default function AboutUs() {
       >
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center gap-12 md:gap-20">
           {/* Founder Image */}
-          <div className="relative w-[475px] h-[560px] flex-shrink-0 flex items-end">
+          <div className="relative w-[540px] h-[650px] flex-shrink-0 flex items-start -mt-16">
             <Image
               src="/aboutus_profile.svg"
               alt="Gowri Shanker Viswanathan"
-              width={475}
-              height={560}
+              width={540}
+              height={650}
               className="object-contain w-full h-full"
               priority
             />
@@ -298,57 +298,51 @@ export default function AboutUs() {
               {/* Founder paragraphs */}
               <div className="mb-6">
                 <p className="text-[#535353] text-base md:text-lg leading-[1.7] mb-3">
-                  When we started Emerge in 2018, it wasn’t just about building
-                  technology—it was about answering a{" "}
-                  <span className="font-bold text-[#161616]">
-                    deeper call:to solve with purpose and lead with heart
-                  </span>
-                  . We were a small team fueled by big ambitions and a belief
-                  that meaningful progress begins with quiet, consistent action.
+                  At Emergere, our journey began in 2018 with a vision far
+                  greater than simply building technology—we set out to solve
+                  with purpose and lead with heart. As a small team fueled by
+                  big ambitions, we believed that meaningful progress comes from
+                  quiet, consistent action and a genuine commitment to those we
+                  serve. The partnerships and trust we develop have served as
+                  both our inspiration and our guiding principle from the start.
                 </p>
                 <p className="text-[#535353] text-base md:text-lg leading-[1.7] mb-3">
-                  Today, as a global partner in{" "}
-                  <span className="font-bold text-[#161616]">
-                    Data & AI, Cloud, ERP, and Managed Services,
-                  </span>
-                  we still measure success by the trust we build and the lives
-                  we impact. Whether helping a business find clarity in
-                  complexity or a team unlock new possibilities, we never lose
-                  sight of the people behind the process.
-                </p>
-                <p className="text-[#161616] text-base md:text-lg leading-[1.7] font-bold mb-2">
-                  “Looking ahead, we carry forward the same spirit—with
-                  humility, intent, and unwavering commitment. Thank you for
-                  walking this journey with us. Your trust is not only our
-                  greatest achievement—it’s our reason to keep reaching higher.”
+                  Today, we are a global team of much larger size, partnering
+                  across Data & AI, Digital Modernization, Cloud, ERP, and
+                  Managed Services focusing digital customer experience as an
+                  objective in every step we progress. Even as we’ve grown, we
+                  continue to measure our success by the trust we build and the
+                  lives we impact. We believe that your growth fuels our own!
                 </p>
               </div>
             </div>
             {/* Signature right/bottom aligned, italic and normal weight */}
             <div className="w-full flex flex-row justify-end mb-4">
               <span
-                className="italic text-[#535353] text-base md:text-lg"
-                style={{ fontFamily: "inherit" }}
+                className="italic font-bold text-[#535353] text-base md:text-lg"
+                style={{ fontFamily: "Evolventa" }}
               >
                 – Gowrishanker Viswanathan
               </span>
             </div>
             {/* LinkedIn button */}
             <div className="flex flex-row items-center gap-4 mt-3">
-              <a
+              <Link
                 href="https://www.linkedin.com/in/gowri-shanker-viswanathan-4a946116/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full border border-[#023ED6] shadow px-6 py-2  text-[#023ED6] font-bold text-base gap-2 bg-[#023ED6] text-white transition-colors"
+                className="inline-flex items-center justify-center rounded-full border border-[#023ED6] shadow-lg px-6 py-2 text-white font-bold text-base gap-3 bg-[#023ED6] hover:bg-[#0056d6] focus:outline-none focus:ring-2 focus:ring-[#023ED6] transition-colors transition-transform duration-200 min-w-[180px] min-h-[44px] hover:scale-105"
+                style={{ minHeight: "44px", minWidth: "150px" }}
               >
                 Get in Touch
                 <Image
                   src="/aboutus_linkedin_1.svg"
                   alt="LinkedIn"
-                  width={18}
-                  height={18}
+                  width={20}
+                  height={20}
+                  style={{ marginLeft: 4 }}
                 />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -380,7 +374,7 @@ export default function AboutUs() {
               </div>
             </div>
             <div className="flex flex-col items-center">
-              <h2 className="text-[30px] md:text-[38px] font-bold text-center leading-tight mb-1">
+              <h2 className="text-[30px] md:text-[38px] font-bold text-[#222222] text-center leading-tight mb-1">
                 <span
                   style={{
                     background: "#222222",
@@ -412,8 +406,8 @@ export default function AboutUs() {
             {/* LEFT: Vision Content Box */}
             <div className="bg-white flex flex-col justify-center items-start rounded-2xl px-8 py-8 w-full max-w-md min-h-[285px] mb-8 md:mb-0 h-full">
               <div className="flex items-center mb-4">
-                <div className="flex flex-col items-center">
-                  <div className="flex justify-center items-center w-[56px] h-[56px] ml-[-34px] mb-1">
+                <div className="flex flex-col items-start">
+                  <div className="flex justify-start w-[56px] h-[56px] mb-1">
                     <Image
                       src="/aboutus_our_vision.svg"
                       alt="Vision Icon"
@@ -454,10 +448,9 @@ export default function AboutUs() {
           {/* OUR MISSION SECTION */}
           <div className="w-full flex flex-col md:flex-row gap-8 items-stretch justify-center mt-18">
             {/* LEFT: Mission illustration */}
-            <div className="w-full max-w-md flex items-center justify-end h-full">
+            <div className="w-full max-w-md flex items-center justify-center h-full">
               <div className="relative w-full h-full flex items-center">
-                <div className="absolute -top-6 -left-6 w-full h-full"></div>
-                <div className="relative  overflow-hidden">
+                <div className="relative justify-center overflow-hidden w-full">
                   <Image
                     src="/aboutus_ourmission_1.svg"
                     alt="Mission Target"
@@ -473,8 +466,8 @@ export default function AboutUs() {
             {/* RIGHT: Mission Content Box */}
             <div className="bg-white flex flex-col justify-center items-start rounded-2xl px-8 py-8 w-full max-w-md min-h-[285px] h-full">
               <div className="flex items-center mb-4">
-                <div className="flex flex-col items-center">
-                  <div className="flex justify-center items-center w-[56px] h-[56px] ml-[-34px] mb-1">
+                <div className="flex flex-col items-start">
+                  <div className="flex justify-start items-center w-[56px] h-[56px] mb-1">
                     <Image
                       src="/aboutus_ourmission_icon.svg"
                       alt="Mission Icon"
@@ -503,7 +496,7 @@ export default function AboutUs() {
         </div>
       </section>
       {/*CORE VALUES SECTION*/}
-      <section className="bg-[#f4f5f7] py-16 px-4 md:px-10">
+      <section className="bg-[#f4f5f7] py-16 px-4 md:px-24">
         <div className="max-w-7xl mx-auto">
           {/* Section Title */}
           <div className="text-left mb-12">
@@ -530,7 +523,7 @@ export default function AboutUs() {
           {/* Grid Section with staggered layout */}
           <div className="space-y-6">
             {/* Row 1 */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {/* Card 1 */}
               <Card
                 icon="/aboutus_core_icon_1.svg"
@@ -562,7 +555,7 @@ export default function AboutUs() {
             </div>
 
             {/* Row 2 - Staggered Right */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 items-center lg:grid-cols-3 gap-16 ">
+            <div className="grid grid-cols-1 sm:grid-cols-2 items-center lg:grid-cols-3 gap-6">
               {/* Card 5 */}
               <Card
                 icon="/aboutus_core_icon_5.svg"

@@ -2,13 +2,18 @@ import React from "react";
 
 const SubscribeSection = () => {
   return (
-    <section className="bg-[url('/subscribe_bg.jpg')] py-12 px-6 md:px-24 relative overflow-hidden font-['Futura PT']">
+    <section
+      className="py-20 px-6 md:px-24 relative overflow-hidden"
+      style={{
+        backgroundImage: "url('/subscribe_bg.jpg')",
+      }}
+    >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="text-center md:text-left">
           <h2 className="text-2xl md:text-3xl font-semibold text-black mb-2 flex items-center gap-2">
             Subscribe
             <img
-              src="/Group.svg"
+              src="/Emergere-Logo.png"
               alt="Emergere Logo"
               height={20}
               className="inline-block align-middle"
@@ -30,7 +35,7 @@ const SubscribeSection = () => {
               style={{ borderRadius: "9999px 0 0 9999px" }}
             />
             <button
-              className="bg-blue-700 hover:bg-blue-800 text-white px-8 py-3 rounded-full shadow-lg transition-all font-semibold absolute right-2 top-1/2 -translate-y-1/2 md:static md:translate-y-0 md:ml-2"
+              className="bg-blue-700 hover:scale-105 text-white px-8 py-3 rounded-full shadow-lg transition-all font-semibold absolute right-2 top-1/2 -translate-y-1/2 md:static md:translate-y-0 md:ml-2"
               style={{ minWidth: 140 }}
             >
               Subscribe

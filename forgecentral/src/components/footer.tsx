@@ -2,22 +2,16 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#071a4d] font-['Futura PT'] text-white px-6 md:px-20 py-16">
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-20">
+    <footer className="bg-[#071a4d] text-white px-3 md:px-20 py-10">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-20">
         {/* Logo and Description */}
         <div className="flex flex-col h-full justify-between">
           <div className="flex items-center gap-4 mb-4">
             <img
-              src="/Group.svg"
-              alt="Emergere"
-              className="h-12 md:h-8 align-middle"
+              src="/Footer_Emergere_Logo.svg"
+              alt="Emergere Logo"
+              className="h-full w-full align-middle"
             />
-            <div>
-              <h3 className="text-white text-lg mb-1">EMERGERE TECHNOLOGIES</h3>
-              <p className="text-white text-xs">
-                TECHNOLOGY ONWARDS AND UPWARDS
-              </p>
-            </div>
           </div>
           <p className="text-neutral-200 leading-7">
             We architect intelligent data and application solutions while
@@ -35,16 +29,16 @@ const Footer = () => {
         </div>
 
         {/* Quick Links & Contact */}
-        <div className="flex flex-col h-full items-start justify-between">
+        <div className="flex flex-col h-full items-start justify-between gap-y-3">
           <h4 className="text-white text-xl mb-4">QuickLinks</h4>
-          <ul className="space-y-2 text-indigo-200">
+          <ul className="space-y-3 text-indigo-200">
             <li>
               <Link href="#" className="flex items-center gap-1">
                 <span>Our Works</span>
                 <img
                   src="/arrow-right.png"
                   alt="Arrow Icon"
-                  className="h-4 w-4"
+                  className="h-7 w-7"
                 />
               </Link>
             </li>
@@ -57,7 +51,7 @@ const Footer = () => {
                 <img
                   src="/arrow-right.png"
                   alt="Arrow Icon"
-                  className="h-4 w-4"
+                  className="h-7 w-7"
                 />
               </Link>
             </li>
@@ -70,7 +64,7 @@ const Footer = () => {
                 <img
                   src="/arrow-right.png"
                   alt="Arrow Icon"
-                  className="h-4 w-4"
+                  className="h-7 w-7"
                 />
               </Link>
             </li>
@@ -80,7 +74,7 @@ const Footer = () => {
                 <img
                   src="/arrow-right.png"
                   alt="Arrow Icon"
-                  className="h-4 w-4"
+                  className="h-7 w-7"
                 />
               </Link>
             </li>
@@ -90,7 +84,7 @@ const Footer = () => {
                 <img
                   src="/arrow-right.png"
                   alt="Arrow Icon"
-                  className="h-4 w-4"
+                  className="h-7 w-7"
                 />
               </Link>
             </li>
@@ -98,27 +92,31 @@ const Footer = () => {
         </div>
 
         {/* Contact Information */}
-        <div className="flex flex-col h-full justify-between">
-          <h4 className="text-white text-xl mb-4">Contact Us</h4>
-          <div className="flex items-start gap-3 mb-4">
-            <img src="/Group 87.svg" className="h-8 w-8 align-middle" />
-            <Link href="mailto:hello@emergertech.com" className="text-lg">
+        <div className="flex flex-col h-full items-start gap-y-5">
+          <h4 className="text-white text-xl font-semibold italic">
+            Contact Us
+          </h4>
+          <div className="flex items-center gap-3">
+            <img src="/Group 87.svg" className="h-8 w-8" />
+            <Link
+              href="mailto:hello@emergertech.com"
+              className="text-lg text-white"
+            >
               hello@emergertech.com
             </Link>
           </div>
-          <div className="flex items-start gap-3 mb-4">
-            <img src="/phone.svg" className="h-8 w-8 align-middle" />
-            <Link href="tel:+14694017117" className="text-lg">
+          <div className="flex items-center gap-3">
+            <img src="/phone.svg" className="h-8 w-8" />
+            <Link href="tel:+14694017117" className="text-lg text-white">
               +1 469 4017117
             </Link>
           </div>
         </div>
 
         {/* Certified By */}
-        <div className="flex flex-col h-full justify-between items-start">
-          <h4 className="text-white text-xl mb-4">Certified by</h4>
-
-          <div className="flex items-center gap-4 mb-4">
+        <div className="flex flex-col h-full items-start gap-0">
+          <h4 className="text-white text-xl1">Certified by</h4>
+          <div className="flex items-center mt-5">
             <img
               src="/certified_logo.png"
               alt="Great Place to Work Certified"
@@ -179,11 +177,9 @@ const Footer = () => {
           Privacy Policy
         </Link>
       </div>
-      <div className="w-full flex justify-center items-center font-bold">
-        <span className="text-[16vw] bg-gradient-to-b from-[#152E6D] to-[#030E4D] bg-clip-text text-transparent leading-none">
-          EMERGERE
-        </span>
-      </div>
+      <span className="w-full flex justify-center items-center font-bold text-[16vw] bg-gradient-to-b from-[#152E6D] to-[#030E4D] bg-clip-text text-transparent leading-none">
+        EMERGERE
+      </span>
     </footer>
   );
 };

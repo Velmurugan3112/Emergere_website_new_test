@@ -9,13 +9,13 @@ export const TechnologyStaffing = () => {
       <div className="w-full font-sans bg-white">
         {/* Technology Staffing Section */}
         <section
-          className="w-full flex flex-col items-center justify-center text-center px-4 pt-12 pb-12"
+          className="w-full flex flex-col items-center justify-center text-center px-4 pt-12 pb-0"
           style={{
             backgroundImage: "url('/digitalservice_bg_img_1.png')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
-            minHeight: "600px", // You can adjust this as per spacing needs
+            minHeight: "520px", // You can adjust this as per spacing needs
           }}
         >
           {/* Icon */}
@@ -30,9 +30,16 @@ export const TechnologyStaffing = () => {
 
           {/* Title */}
           <h1 className="text-3xl md:text-4xl font-bold flex justify-center items-center gap-2">
-            <span className="text-[#023ED6]">Technology</span>
-            <span className="bg-gradient-to-r from-[#5B4B4B] to-[#E29400] bg-clip-text text-transparent font-bold">
-              Staffing
+            <span
+              className="bg-clip-text text-transparent font-bold"
+              style={{
+                backgroundImage:
+                  "linear-gradient(90deg, #023ED6 0%, #E29400 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              Technology Staffing
             </span>
           </h1>
 
@@ -59,7 +66,7 @@ export const TechnologyStaffing = () => {
             <p>
               We understand that in today’s fast-paced digital landscape,
               finding the right talent at the right time is critical to success.
-              Whether you're expanding teams, launching new projects, or looking
+              Whether you’re expanding teams, launching new projects, or looking
               to fill skill gaps,{" "}
               <strong className="text-[#161616]">
                 Emergere ensures that your organization is equipped with
@@ -103,19 +110,19 @@ export const TechnologyStaffing = () => {
                 </div>
 
                 {/* Heading */}
-                <h2 className="text-[28px] md:text-[34px] font-extrabold text-[#023ED6] mb-4 leading-snug">
+                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] mb-4 leading-snug">
                   End-to-End Talent Lifecycle Support
                 </h2>
 
                 {/* Description */}
-                <p className="text-[#535353] text-lg md:text-[20px] font-normal leading-relaxed mb-4">
+                <p className="text-[#535353] text-lg md:text-[18px] font-normal leading-relaxed mb-4">
                   We streamline the entire talent acquisition process—from{" "}
                   <strong className=" text-[#161616]">
                     candidate screening, recruitment, onboarding, and training
                   </strong>{" "}
                   to workforce management.
                 </p>
-                <p className="text-[#535353] text-lg md:text-[20px] font-normal leading-relaxed">
+                <p className="text-[#535353] text-lg md:text-[18px] font-normal leading-relaxed">
                   Our goal is to reduce your operational burden while ensuring{" "}
                   <strong className="text-[#161616]">
                     fast turnaround times and high-quality placements.
@@ -165,12 +172,12 @@ export const TechnologyStaffing = () => {
               </div>
 
               {/* Heading */}
-              <h2 className="text-[28px] md:text-[34px] font-extrabold text-[#E29400] leading-tight mb-4">
+              <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#E29400] leading-tight mb-4">
                 Cross-Domain Expertise
               </h2>
 
               {/* Description */}
-              <p className="text-[#535353] text-lg md:text-[20px] font-medium leading-relaxed">
+              <p className="text-[#535353] text-lg md:text-[18px] font-medium leading-relaxed">
                 Our talent pool includes{" "}
                 <span className="font-bold text-[#161616]">
                   consultants and specialists
@@ -201,12 +208,12 @@ export const TechnologyStaffing = () => {
               </div>
 
               {/* Heading */}
-              <h2 className="text-[28px] md:text-[34px] font-extrabold text-[#023ED6] leading-tight mb-4">
+              <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] leading-tight mb-4">
                 Cultural Fit & Team Synergy
               </h2>
 
               {/* Description */}
-              <p className="text-[#535353] text-lg md:text-[20px] font-normal leading-relaxed mb-4">
+              <p className="text-[#535353] text-lg md:text-[18px] font-normal leading-relaxed mb-4">
                 Beyond technical skills, we focus on aligning candidates with
                 your{" "}
                 <strong className="text-[#161616]">
@@ -244,12 +251,12 @@ export const TechnologyStaffing = () => {
               </div>
 
               {/* Heading */}
-              <h2 className="text-[28px] md:text-[34px] font-extrabold text-[#E29400] leading-tight mb-4">
+              <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#E29400] leading-tight mb-4">
                 Flexible Engagement Models
               </h2>
 
               {/* Description */}
-              <p className="text-[#535353] text-lg md:text-[20px] font-normal leading-relaxed">
+              <p className="text-[#535353] text-lg md:text-[18px] font-normal leading-relaxed">
                 Whether you need{" "}
                 <strong className="text-[#161616]">
                   consultants on-demand, project-based staffing, or full-time
@@ -274,9 +281,7 @@ export const TechnologyStaffing = () => {
 
         {/* IT Consulting & Strategic Guidance Section */}
         <section className="w-full px-4 md:px-20 py-20">
-          <div
-            className="relative rounded-[48px] px-6 md:px-16 pt-12 pb-20 text-white overflow-hidden max-w-[1200px] mx-auto"
-          >
+          <div className="relative rounded-[48px] px-6 md:px-16 pt-12 pb-20 text-white overflow-hidden max-w-[1200px] mx-auto">
             {/* Background Pattern Image with subtle opacity */}
             <div className="absolute inset-0 z-0 ">
               <Image
@@ -305,7 +310,7 @@ export const TechnologyStaffing = () => {
 
             {/* Centered Paragraph Section */}
             <div className="relative z-10 flex flex-col items-center text-center px-2">
-              <p className="text-white text-[18px] md:text-[20px] leading-[1.9] font-light max-w-[820px]">
+              <p className="text-white text-[18px] md:text-[18px] leading-[1.9] font-light max-w-[820px]">
                 Our staffing services are backed by robust IT consulting
                 expertise. We not only help you find the right people but also
                 guide you in{" "}
@@ -340,7 +345,7 @@ export const TechnologyStaffing = () => {
 
           <div className="relative z-10 max-w-7xl mx-auto flex flex-col items-center text-center">
             {/* Section Heading */}
-            <h2 className="text-[28px] md:text-[40px] font-semibold mt-20 mb-14 text-black">
+            <h2 className="text-[28px] md:text-[40px] font-bold mt-20 mb-14 text-black">
               Why{" "}
               <span
                 className="bg-clip-text text-transparent"
@@ -424,7 +429,7 @@ export const TechnologyStaffing = () => {
                       height={48}
                       className="mb-6"
                     />
-                    <p className="text-lg font-semibold text-black text-center">
+                    <p className="text-md font-semibold text-black text-center">
                       {text}
                     </p>
                   </div>

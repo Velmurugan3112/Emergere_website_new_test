@@ -1,5 +1,6 @@
 import React from "react";
 import ServicesMenu from "./servicemenu";
+import Link from "next/link";
 
 const DataAIAnalytics: React.FC = () => {
   return (
@@ -318,7 +319,7 @@ const DataAIAnalytics: React.FC = () => {
                 <h2 className="text-[#023ED6] text-[20px] font-black text-left">
                   Fusefy
                 </h2>
-                <a
+                <Link
                   href="https://www.fusefy.ai/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -329,7 +330,7 @@ const DataAIAnalytics: React.FC = () => {
                     alt="External Link"
                     className="w-4 h-4 inline-block"
                   />
-                </a>
+                </Link>
               </div>
             </div>
           </div>

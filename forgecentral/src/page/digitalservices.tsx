@@ -65,10 +65,10 @@ export const DigitalServices = () => (
                   className="w-16 h-16"
                 />
               </div>
-              <h2 className="text-[28px] md:text-[34px] font-extrabold text-[#023ED6] mb-4">
+              <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] mb-4">
                 Application Development
               </h2>
-              <p className="text-[#535353] text-lg md:text-[20px] font-medium leading-relaxed">
+              <p className="text-[#535353] text-lg md:text-[18px] font-medium leading-relaxed">
                 We deliver high-performance enterprise and mobile applications
                 that support
                 <span className="font-bold text-[#161616]">
@@ -107,10 +107,10 @@ export const DigitalServices = () => (
                     className="w-16 h-16"
                   />
                 </div>
-                <h2 className="text-[28px] md:text-[32px] font-extrabold text-[#E29400] mb-4">
+                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#E29400] mb-4">
                   Product Engineering
                 </h2>
-                <p className="text-[#535353] text-lg md:text-[20px]  font-medium leading-relaxed">
+                <p className="text-[#535353] text-lg md:text-[18px]  font-medium leading-relaxed">
                   From ideation to market launch, we partner with you to
                   engineer innovative digital products that create
                   <span className="font-bold text-[#161616]">
@@ -145,10 +145,10 @@ export const DigitalServices = () => (
                     className="w-16 h-16"
                   />
                 </div>
-                <h2 className="text-[28px] md:text-[32px] font-extrabold text-[#023ED6] mb-4">
+                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] mb-4">
                   Custom Software
                 </h2>
-                <p className="text-[#535353] text-lg md:text-[20px] font-medium leading-relaxed">
+                <p className="text-[#535353] text-lg md:text-[18px] font-medium leading-relaxed">
                   We build purpose-driven software solutions tailored to your
                   <span className="font-bold text-[#161616]">
                     {" "}
@@ -190,10 +190,10 @@ export const DigitalServices = () => (
                     className="w-16 h-16"
                   />
                 </div>
-                <h2 className="text-[28px] md:text-[32px] font-extrabold text-[#E29400] mb-4">
+                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#E29400] mb-4">
                   Intelligent Automation
                 </h2>
-                <p className="text-[#535353] text-lg md:text-[20px]  font-medium leading-relaxed">
+                <p className="text-[#535353] text-lg md:text-[18px]  font-medium leading-relaxed">
                   By automating manual and repetitive processes, we help you
                   unlock
                   <span className="font-bold text-[#161616]">

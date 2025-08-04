@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const services = [
   {
@@ -6,6 +7,7 @@ const services = [
     description:
       "Unlock strategic insights and drive innovation by transforming your data into actionable intelligence.",
     icon: "/data_ai_analytics_icon.png",
+    href: "/data-ai-analytics",
     color: "bg-gradient-to-b from-[#215EF8]-600 to-[#023ED6]-400",
   },
   {
@@ -13,6 +15,7 @@ const services = [
     description:
       "Enhance your digital footprint and user experiences with bespoke strategies and seamless execution.",
     icon: "/digital_services_icon.png",
+    href: "/digital-services",
     color: "bg-#F5B037-400",
   },
   {
@@ -20,6 +23,7 @@ const services = [
     description:
       "Embrace cutting-edge solutions to modernize your infrastructure and drive digital transformation.",
     icon: "/modern_technology_icon.png",
+    href: "/modern-technology",
     color: "bg-gradient-to-b from-[#215EF8]-600 to-[#023ED6]-400",
   },
   {
@@ -27,6 +31,7 @@ const services = [
     description:
       "Optimize your IT operations and ensure continuous system performance with our expert oversight.",
     icon: "/managed_services_icon.png",
+    href: "/managed-services",
     color: "bg-#F5B037-400",
   },
   {
@@ -34,6 +39,7 @@ const services = [
     description:
       "Enhance your digital footprint and user experiences with bespoke strategies and seamless execution.",
     icon: "/erp_icon.png",
+    href: "/erp-services",
     color: "bg-gradient-to-b from-[#215EF8]-600 to-[#023ED6]-400",
   },
   {
@@ -41,6 +47,7 @@ const services = [
     description:
       "Source top-tier technology talent to meet your specialized project demands and overcome skill gaps.",
     icon: "/technology_staffing_icon.png",
+    href: "/technology-staffing",
     color: "bg-#F5B037-400",
   },
 ];
@@ -50,82 +57,82 @@ const industries = [
     title: "Consumer & Retail",
     icon: "/consumer_retail_icon.png",
     background: "/consumer_retail.jpg",
+    href: "/industries",
   },
   {
     title: "Financial Services",
     icon: "/financial_services_icon.png",
     background: "/financial_services.jpg",
+    href: "/industries",
   },
   {
     title: "Healthcare & Lifesciences",
     icon: "/hc_ls_icon.png",
     background: "/hc_ls.jpg",
+    href: "/industries",
   },
   {
     title: "Banking & Capital Markets",
     icon: "/banking_capital_icon.png",
     background: "/banking_capital.jpg",
+    href: "/industries",
   },
   {
     title: "Industrial Manufacturing",
     icon: "/industrial_manufacturing_icon.png",
     background: "/industrial_manufacturing.jpg",
+    href: "/industries",
   },
   {
     title: "Technology, Media & Telecom",
     icon: "/tech_media_telecom_icon.png",
     background: "/tech_media_telecom.jpg",
+    href: "/industries",
   },
 ];
 
 const testimonials = [
   {
-    name: "Jacob Jones",
-    role: "Nursing Assistant",
+    role: "Senior Director- Enterprise Data & Analytics",
+    company: "US based Supply Chain industry",
     message:
-      "The team delivered exactly what we needed—skilled, reliable professionals who hit the ground running.",
-    rating: 4,
-    avatar: "/Jacob Jones.png",
-  },
-  {
-    name: "Eleanor Pena",
-    role: "Web Designer",
-    message:
-      "Eden is 110% recommendable! Very friendly and accurate. She brought me a lot of value in a short period.",
+      "Emergere built a seamless ingestion pipeline that cut our data availability time from days to hours and it’s been a game-changer for decision-making.",
     rating: 5,
-    avatar: "/Jacob Jones.png",
   },
   {
-    name: "Jerome Bell",
-    role: "President of Sales",
+    role: "SVP-Data Science & Engineering",
+    company: "A Fortune 500 company",
     message:
-      "An amazing mentor! Vassilena really took the time to research our brand beforehand and give us more.",
+      "Their proof-of-concept models not only validated our ideas quickly but also uncovered opportunities we hadn’t even considered.",
     rating: 5,
-    avatar: "/Jerome Bell.png",
   },
   {
-    name: "Marvin McKinney",
-    role: "Medical Assistant",
+    role: "CTO",
+    company: "US Healthcare Company",
     message:
-      "Another great session with Mike. We spoke about doing estimates as an agency and how to optimize that.",
+      "With Emergere’s data quality framework, our analytics went from ‘good enough’ to consistently reliable which turned out be a huge win for the business.",
     rating: 4,
-    avatar: "/Marvin McKinney.png",
   },
   {
-    name: "Kathryn Murphy",
-    role: "Marketing Coordinator",
+    role: "Software engineering leader",
+    company: "US Retail Enterprise",
     message:
-      "Kostas was very receptive while we talked about my issues, we discussed the root of the problem, what...",
+      "From development to ongoing support, Emergere delivered a rock-solid application that runs flawlessly and scales with our needs.",
     rating: 4,
-    avatar: "/Jacob Jones.png",
   },
   {
-    name: "Cody Fisher",
-    role: "UX Designer",
+    role: "CIO",
+    company: "US Logistics Industry",
     message:
-      "Nicolas helped me a lot with two specific but crucial questions I had and gave me a very good overview!",
-    rating: 4,
-    avatar: "/Cody Fisher.png",
+      "Our data insights being instant and actionable now, Emergere's solution has transformed how we monitor and optimize our logistics operations for our entire supply chain.",
+    rating: 5,
+  },
+  {
+    role: "People Strategist",
+    company: "US based Fintech",
+    message:
+      "Every specialist you placed was a true force-multiplier, lifting our capabilities from day one and helping us achieve milestones ahead of schedule",
+    rating: 5,
   },
 ];
 
@@ -141,31 +148,32 @@ const HeroSection = () => {
   return (
     <section className="bg-[#002A82] relative overflow-hidden">
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-b from-[#0047ab] to-blue-900 text-white py-20 px-6 md:px-20 mt-25">
+      <div className="relative text-white py-10 px-6 md:px-20 mt-25">
         {/* Background Image Overlay */}
         <div
-          className="absolute inset-0 w-full h-full z-0 pointer-events-none"
+          className="absolute inset-0 bg-fixed w-full h-full z-0 pointer-events-none"
           style={{
             backgroundImage: "url('/web-with-cloud-middle.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
         />
+        <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#03277300] to-[#002A82] z-10" />
         {/* Hero Content */}
         <div className="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
           <div className="md:w-1/2">
             <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-6">
               Future-Ready IT Solutions <br />
-              Across <span className="text-yellow-300">Data, AI & Cloud</span>
+              Across <span className="text-[#FFA700]">Data, AI & Cloud</span>
             </h1>
-            <p className="text-lg text-white/90 mb-8">
+            <p className="text-md text-[#FFFFFF] mb-8">
               Emergere delivers comprehensive IT services across Data, AI &
               Analytics, Cloud, ERP, and Modern Technology, with strong
               capabilities in Data Governance, Managed Services, and Technology
               Staffing to support seamless digital transformation.
             </p>
-            <button className="bg-white text-blue-800 font-medium px-6 py-3 rounded-full shadow hover:bg-gray-100 transition">
-              Explore More →
+            <button className="bg-white text-[#023ED6] font-semibold px-6 py-3 rounded-full shadow hover:scale-105 transition outline outline-2 outline-[#023ED6]">
+              Explore More <span className="text-xl">→</span>
             </button>
           </div>
         </div>
@@ -178,7 +186,7 @@ const HeroSection = () => {
       </div>
 
       {/* Who We Are Section */}
-      <div className="relative bg-[#0047ab] py-20 px-6 md:px-20">
+      <div className="relative bg-[#0047ab] px-6 md:px-20">
         <div
           className="absolute inset-0 w-full h-full z-0 rounded-t-[40px] pointer-events-none"
           style={{
@@ -210,22 +218,25 @@ const HeroSection = () => {
           <div className="md:w-1/2 text-left z-10">
             <p className="text-sm uppercase font-bold text-blue-700 mb-2 tracking-wider inline-block relative">
               WHO WE ARE
-              <span className="absolute bottom-0 right-0 translate-y-full w-10 h-1 bg-amber-400 rounded mt-1"></span>
+              <span className="absolute bottom-0 right-0 translate-y-full w-10 h-1 bg-[#FFA700] rounded mt-1"></span>
             </p>
+            <br />
+            <br />
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
-              What Makes Us Your Ideal{" "}
-              <span className="bg-gradient-to-r from-[#4568dc] to-[#ffb03a] bg-clip-text text-transparent">
+              What Makes Us Your <br />
+              Ideal{" "}
+              <span className="bg-gradient-to-r from-[#215EF8] to-[#E29401] bg-clip-text text-transparent">
                 Tech Partner
               </span>
             </h2>
-            <p className="text-gray-600 mb-4">
+            <p className="text-[#535353] text-md mb-4">
               At Emergere, we empower businesses through end-to-end digital
               transformation and technology services from ideation to execution.
               We blend deep domain expertise with a culture rooted in
             </p>
 
             {/* Bullet Points */}
-            <div className="grid grid-cols-2 gap-y-2 gap-x-8 text-gray-900 font-bold mb-4">
+            <div className="grid grid-cols-2 gap-y-2 gap-x-8 text-[#000000] text-md font-bold mb-4">
               {["Teamwork", "Enthusiasm", "Excellence", "Customer focus"].map(
                 (item) => (
                   <div key={item} className="flex items-center gap-2">
@@ -240,14 +251,14 @@ const HeroSection = () => {
               )}
             </div>
 
-            <p className="text-gray-600 mb-8">
+            <p className="text-[#535353] text-md mb-8">
               Our teams work as an extension of yours: collaborative, agile, and
               aligned to your goals to deliver solutions that are not only
               technically sound but also business-smart.
             </p>
 
-            <button className="bg-blue-700 hover:bg-blue-800 text-white px-8 py-3 rounded-full shadow-lg transition font-semibold w-fit text-base flex items-center gap-2">
-              Know More <span aria-hidden>→</span>
+            <button className="bg-blue-700 text-white px-8 py-3 rounded-full shadow-lg transition font-semibold w-fit text-base flex items-center gap-2 hover:scale-105">
+              Know More <span className="text-xl">→</span>
             </button>
           </div>
         </div>
@@ -265,9 +276,9 @@ const HeroSection = () => {
             opacity: 0.1,
           }}
         />
-        <div className="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 md:px-20 py-16">
+        <div className="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between py-25 px-6 md:px-20 py-16">
           {/* Left: Icon + Heading */}
-          <div className="flex flex-row items-center gap-6 md:w-1/2">
+          <div className="flex flex-row items-end gap-6 pl-50 md:w-1/2">
             <img
               src="/transforming_insights_icon.png"
               alt="Insight Icon"
@@ -290,10 +301,11 @@ const HeroSection = () => {
           />
           {/* Right: Paragraphs */}
           <div className="md:w-1/2 mt-8 md:mt-0 flex flex-col items-start">
-            <h3 className="text-white text-lg md:text-xl font-semibold mb-2">
-              At Emergere, it’s not just what we deliver—it’s how we deliver it.
+            <h3 className="text-[#FFFFFF] text-lg font-semibold mb-2">
+              At Emergere, it’s not just what we <br />
+              deliver—it’s how we deliver it.
             </h3>
-            <p className="text-white/90 text-base md:text-lg">
+            <p className="text-[#FFFFFF] text-md">
               Partner with us to turn challenges into opportunities
               <br />
               and drive meaningful change.
@@ -303,32 +315,35 @@ const HeroSection = () => {
       </div>
 
       {/* What We Do Section */}
-      <div className="bg-[#F2F3F5] py-20 px-6 md:px-24 text-center">
+      <div className="bg-[#F2F3F5] py-10 px-6 md:px-24 text-center">
         <p className="text-sm uppercase font-bold text-blue-700 mb-2 tracking-wider inline-block relative">
           WHAT WE DO
-          <span className="absolute bottom-0 right-0 translate-y-full w-10 h-1 bg-amber-400 rounded mt-1"></span>
+          <span className="absolute bottom-0 right-0 translate-y-full w-10 h-1 bg-[#FFA700] rounded mt-1"></span>
         </p>
+        <br />
+        <br />
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
           Elevate Your Enterprise: Our <br />
           Comprehensive{" "}
-          <span className="bg-gradient-to-r from-[#4568dc] to-[#ffb03a] bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-[#215EF8] to-[#E29401] bg-clip-text text-transparent">
             Suite of Solutions
           </span>
         </h2>
         <p className="text-gray-600 max-w-3xl mx-auto mb-12">
           From data strategy to seamless execution, we provide the expertise to
+          <br />
           navigate your digital transformation.
         </p>
 
         {/* Services Cards */}
-        <div className="grid grid-cols-2 md:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-3 gap-15">
           {services.map((service) => (
             <div
               key={service.title}
-              className="bg-white rounded-2xl p-6 text-left justify-between shadow hover:shadow-lg transition"
+              className="bg-#FFFFFF rounded-2xl px-4 py-4 text-left justify-between shadow hover:shadow-lg transition"
             >
               <div
-                className={`w-12 h-12 rounded-full ${service.color} flex items-center justify-center mb-4`}
+                className={`w-12 h-12 rounded-full ${service.color} flex items-start justify-start mb-4`}
               >
                 <img
                   src={service.icon}
@@ -339,32 +354,36 @@ const HeroSection = () => {
               <h3 className="font-bold text-lg text-gray-900 mb-2">
                 {service.title}
               </h3>
-              <p className="text-gray-600 mb-4 text-sm">
+              <p className="text-[#676767] mb-4 text-md">
                 {service.description}
               </p>
-              <button className="inline-flex items-center text-sm font-medium text-gray-800 hover:text-blue-700">
-                Know more <span className="ml-1">→</span>
-              </button>
+              <Link href={service.href}>
+                <button className="inline-flex items-center gap-2 text-sm font-semibold text-gray-700 border border-gray-200 rounded-full px-5 py-2 hover:scale-105">
+                  Know more <span className="text-xl">→</span>
+                </button>
+              </Link>
             </div>
           ))}
         </div>
       </div>
 
       {/* Industries Section */}
-      <div className="bg-[#f7f7f7] py-20 px-6 md:px-24 text-center">
+      <div className="bg-[#f7f7f7] py-10 px-6 md:px-24 text-center">
         <p className="text-sm uppercase font-bold text-blue-700 mb-2 tracking-wider inline-block relative">
           INDUSTRIES
-          <span className="absolute bottom-0 right-0 translate-y-full w-10 h-1 bg-amber-400 rounded mt-1"></span>
+          <span className="absolute bottom-0 right-0 translate-y-full w-10 h-1 bg-[#FFA700] rounded mt-1"></span>
         </p>
+        <br />
+        <br />
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
           Tailored Solutions for Your <br />
-          <span className="bg-gradient-to-r from-[#4568dc] to-[#ffb03a] bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-[#215EF8] to-[#E29401] bg-clip-text text-transparent">
             Unique Challenges
           </span>
         </h2>
-        <p className="text-gray-600 max-w-3xl mx-auto mb-12">
-          From data strategy to seamless execution, we provide the expertise to
-          navigate your digital transformation.
+        <p className="text-gray-600 font-md max-w-3xl mx-auto mb-12">
+          From data strategy to seamless execution, we provide the <br />
+          expertise to navigate your digital transformation.
         </p>
 
         {/* Industries Cards */}
@@ -375,7 +394,7 @@ const HeroSection = () => {
               className="bg-white rounded-[40px] shadow-md hover:shadow-lg transition flex flex-col items-center text-center overflow-hidden p-6 w-full"
             >
               {/* Banner Image with Icon Overlay */}
-              <div className="relative w-full h-36 rounded-2xl overflow-hidden mb-6">
+              <div className="relative w-full h-36 rounded-2xl overflow-hidden">
                 <img
                   src={industry.background}
                   alt={`${industry.title} background`}
@@ -397,17 +416,19 @@ const HeroSection = () => {
               </h3>
 
               {/* Know More Button */}
-              <button className="inline-flex items-center gap-2 text-sm font-semibold text-gray-700 border border-gray-200 rounded-full px-5 py-2 hover:text-blue-700 transition">
-                Know more <span>→</span>
-              </button>
+              <Link href={industry.href}>
+                <button className="inline-flex items-center gap-2 text-sm font-semibold text-gray-700 border border-gray-200 rounded-full px-5 py-2 hover:scale-105">
+                  Know more <span className="text-xl">→</span>
+                </button>
+              </Link>
             </div>
           ))}
         </div>
 
         {/* Brochure Section */}
-        <div className="mt-20 relative rounded-[40px] overflow-hidden px-6 md:px-20 py-16 flex flex-col md:flex-row items-center justify-between gap-8 bg-[#f4f4f4]">
+        <div className="mt-20 relative rounded-[40px] overflow-hidden px-20 md:px-20 py-16 flex flex-col md:flex-row items-center justify-between gap-5 bg-[#F2F2F2]">
           {/* Background overlay pattern image */}
-          <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 z-0 bg-[#F2F2F2]">
             <img
               src="/get_our_brochure.jpg" // pattern image
               alt="Background Pattern"
@@ -417,18 +438,18 @@ const HeroSection = () => {
 
           {/* Left Content */}
           <div className="z-10 flex-1 text-center flex flex-col items-center">
-            <p className="text-sm uppercase font-bold text-blue-700 mb-2 tracking-wider inline-block relative">
+            <p className="text-md uppercase font-bold text-blue-700 mb-2 tracking-wider relative">
               GET OUR BROCHURE
-              <span className="absolute bottom-0 right-0 translate-y-full w-10 h-1 bg-amber-400 rounded mt-1"></span>
+              <span className="absolute right-0 bottom-0 translate-y-full w-10 h-1 bg-[#FFA700] rounded mt-1"></span>
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-black leading-snug mb-6">
+            <br />
+            <h2 className="text-3xl text-start md:text-4xl font-bold text-black leading-snug mb-6">
               Discover Who We Are and <br />
               <span className="bg-gradient-to-r from-[#4568dc] to-[#ffb03a] bg-clip-text text-transparent">
                 What We Do
               </span>
             </h2>
-
-            <button className="bg-[#0047ff] text-white font-semibold rounded-full px-6 py-2.5 flex items-center gap-2 shadow-md hover:bg-blue-800 transition mx-auto md:mx-0">
+            <button className="bg-[#0047ff] text-white font-semibold rounded-full px-6 py-2.5 flex items-center gap-2 shadow-md hover:scale-105 transition">
               Download
               <img
                 src="/download_icon.png"
@@ -453,28 +474,30 @@ const HeroSection = () => {
         </div>
 
         {/* Testimonials Section */}
-        <div className="py-20 px-6 md:px-24 text-center">
-          <p className="text-sm uppercase font-bold text-blue-700 mb-2 tracking-wider inline-block relative">
+        <div className="py-10 px-6 md:px-24 text-center">
+          <p className="text-md uppercase font-bold text-blue-700 mb-2 tracking-wider inline-block relative">
             TESTIMONIALS
-            <span className="absolute bottom-0 right-0 translate-y-full w-10 h-1 bg-amber-400 rounded mt-1"></span>
+            <span className="absolute bottom-0 right-0 translate-y-full w-10 h-1 bg-[#FFA700] rounded mt-1"></span>
           </p>
+          <br />
+          <br />
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-12">
             See why people like you choose <br />
-            <span className="bg-gradient-to-r from-[#4568dc] to-[#ffb03a] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#215EF8] to-[#E29401] bg-clip-text text-transparent">
               EMERGERE !
             </span>
           </h2>
 
           {/* Testimonials Cards */}
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-10 px-25 sm:grid-cols-2 lg:grid-cols-3">
             {testimonials.map((testimonial, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-[20px] shadow-sm hover:shadow-xl p-6 flex flex-col justify-between transition-shadow duration-300"
+                className="bg-#F2F2F2 rounded-[20px] shadow-sm hover:shadow-xl p-6 flex flex-col justify-right transition-shadow duration-300"
               >
                 {/* Star Rating */}
                 <div
-                  className="flex gap-1 text-yellow-400 text-base mb-4"
+                  className="flex gap-1 text-yellow-400 text-2xl font-bold mb-4"
                   aria-label={`Rating: ${testimonial.rating} out of 5`}
                 >
                   {Array.from({ length: 5 }, (_, i) => (
@@ -485,23 +508,19 @@ const HeroSection = () => {
                 </div>
 
                 {/* Testimonial Text */}
-                <p className="text-sm text-gray-700 mb-6 leading-relaxed">
+                <p className="text-start text-md text-[#505050] mb-6 leading-relaxed">
                   {testimonial.message}
                 </p>
 
                 {/* User Info */}
-                <div className="flex items-center gap-3 mt-auto">
-                  <img
-                    src={testimonial.avatar}
-                    alt={testimonial.name}
-                    className="w-10 h-10 rounded-full object-cover ring-1 ring-gray-200"
-                    loading="lazy"
-                  />
+                <div className="flex text-start gap-3 mt-auto">
                   <div>
-                    <p className="font-semibold text-sm text-gray-900">
-                      {testimonial.name}
+                    <p className="font-semibold text-md text-gray-900">
+                      {testimonial.role}
                     </p>
-                    <p className="text-xs text-gray-500">{testimonial.role}</p>
+                    <p className="text-sm text-gray-500">
+                      {testimonial.company}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -523,33 +542,33 @@ const HeroSection = () => {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           {/* Left Side: Contact CTA */}
           <div className="text-left space-y-6">
-            <button className="bg-white/10 border border-white rounded-full px-4 py-1 text-xs tracking-wide">
-              <span className="text-[10px] text-yellow-400">●</span> GET IN
-              TOUCH
+            <button className="bg-white/10 border border-white rounded-full px-4 py-2 text-md tracking-wide">
+              <span className="text-xl text-yellow-400">●</span> GET IN TOUCH
             </button>
             <h2 className="text-3xl md:text-4xl font-extrabold leading-snug">
               Contact us for more <br />
               information & get started
             </h2>
-            <p className="text-white/80 text-sm">
+            <p className="text-[#98B2F5] text-md">
               Have questions or need help? We’re here for you
             </p>
           </div>
 
           {/* Right Side: Contact Form */}
-          <div className="bg-[#0C3FC0] rounded-3xl p-8 space-y-6 shadow-xl">
-            <h3 className="text-xl font-bold mb-2 flex items-center gap-2">
+          <div className="bg-[#0C3FC0] rounded-3xl p-10 space-y-10 shadow-xl">
+            <h3 className="text-2xl font-bold mb-2 flex items-center gap-2">
               <img
                 src="/headset_icon.png"
                 alt="Support Icon"
-                className="w-10 h-10"
+                className="w-18 h-18"
               />
-              We’d love to help! Let us know how
+              We’d love to help! Let us <br />
+              know how
             </h3>
 
             {/* Form Inputs */}
-            <form className="space-y-6">
-              <div className="flex items-center border-b border-white/30 py-2">
+            <form className="space-y-10">
+              <div className="flex items-center border-b border-white/30 py-4">
                 <img
                   src="/user_icon.png"
                   alt="user Icon"
@@ -596,7 +615,7 @@ const HeroSection = () => {
 
               <button
                 type="submit"
-                className="mt-4 relative inline-flex items-center rounded-full border border-white/50 bg-[#1E51D2] px-6 py-2.5 text-white text-sm pr-12"
+                className="mt-4 relative inline-flex items-center rounded-full border border-white/50 bg-[#1E51D2] px-6 py-2.5 text-white text-sm pr-12 hover:scale-105"
               >
                 <span className="z-10">Submit</span>
                 <span className="absolute right-1.5 rounded-full flex items-center justify-center">

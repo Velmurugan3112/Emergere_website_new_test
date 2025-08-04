@@ -48,7 +48,7 @@ interface ServiceCardProps {
 }
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, desc }) => (
-  <div className="flex flex-col items-start bg-white bg-opacity-90 rounded-2xl p-6 w-full max-w-[300px] min-h-[240px] h-[308px] border border-[#E3EAFD] shadow-sm">
+  <div className="flex flex-col items-start bg-white bg-opacity-90 rounded-3xl p-6 w-full max-w-[300px] min-h-[240px] h-[308px] border border-[#E3EAFD] shadow-sm transform transition-transform duration-300 hover:scale-105">
     <div className="w-12 h-12 mb-2 flex items-center justify-center">
       <img src={icon} alt={title} className="w-[64px] h-[64px]" />
     </div>
@@ -131,11 +131,11 @@ export const ManagedServices = () => {
                 />
               </div>
               {/* Heading */}
-              <h2 className="text-[28px] md:text-[34px] font-extrabold text-[#023ED6] mb-4">
+              <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] mb-4">
                 Cloud Platform Services
               </h2>
               {/* Description */}
-              <p className="text-[#535353] text-lg md:text-[20px] font-medium leading-relaxed">
+              <p className="text-[#535353] text-lg md:text-[18px] font-medium leading-relaxed">
                 Our cloud platform services help businesses unlock the power of
                 <span className="font-bold text-[#161616]">
                   {" "}
@@ -148,7 +148,7 @@ export const ManagedServices = () => {
                 </span>
               </p>
               {/* Feature List */}
-              <div className="text-[16px] font-bold text-gray-800 text-left mt-6 mb-2 w-full">
+              <div className="text-[18px] font-bold text-gray-800 text-left mt-6 mb-2 w-full">
                 <div className="flex gap-8">
                   {/* Flexible */}
                   <div className="flex items-center gap-2">
@@ -235,21 +235,20 @@ export const ManagedServices = () => {
           <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row-reverse items-stretch md:items-center px-26 gap-10 md:gap-20">
             {/* Left: Content */}
             <div className="w-full md:basis-1/2 flex flex-col items-start justify-center">
-              {/* Icon & Heading */}
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-16 h-16 flex items-center justify-center">
-                  <img
-                    src="/infrastructure_icon.svg" // <-- update with your actual icon path
-                    alt="Infrastructure Icon"
-                    className="w-[64px] h-[64px]"
-                  />
-                </div>
-                <h2 className="text-[28px] md:text-[34px] font-extrabold text-[#E29400] leading-tight">
-                  Infrastructure Services
-                </h2>
+              {/* Icon */}
+              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-5 bg-[#FFF5E0]">
+                <img
+                  src="/infrastructure_icon.svg"
+                  alt="Infrastructure Icon"
+                  className="w-[48px] h-[48px]"
+                />
               </div>
+              {/* Heading */}
+              <h2 className="text-[32px] md:text-[30px] font-extrabold text-[#E29400] leading-tight mb-2">
+                Infrastructure Services
+              </h2>
               {/* Description */}
-              <p className="text-[#535353] text-lg md:text-[20px] font-medium leading-relaxed mb-6">
+              <p className="text-[#535353] text-lg md:text-[18px] font-medium leading-relaxed mb-6">
                 Our infrastructure services are built for enterprises with
                 demanding
                 <span className="font-extrabold text-[#161616]">
@@ -260,36 +259,41 @@ export const ManagedServices = () => {
                 —whether in the cloud, on-premise, or hybrid.
               </p>
               {/* Feature List */}
-              <div className="flex flex-row flex-wrap gap-6">
-                <div className="flex items-center gap-2">
-                  <img
-                    src="/aboutus_bullet_1.svg"
-                    alt="star"
-                    className="w-5 h-5"
-                  />
-                  <span className="text-[16px] font-bold text-[#161616]">
-                    Performance-Driven
-                  </span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <img
-                    src="/aboutus_bullet_1.svg"
-                    alt="star"
-                    className="w-5 h-5"
-                  />
-                  <span className="text-[16px] font-bold text-[#161616]">
-                    Reliable
-                  </span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <img
-                    src="/aboutus_bullet_1.svg"
-                    alt="star"
-                    className="w-5 h-5"
-                  />
-                  <span className="text-[16px] font-bold text-[#161616]">
-                    Custom-Built.
-                  </span>
+              <div className="w-full mt-6 mb-2">
+                <div className="flex flex-row flex-nowrap gap-x-12 items-center justify-start w-full">
+                  {/* Performance-Driven */}
+                  <div className="flex items-center gap-2 whitespace-nowrap">
+                    <img
+                      src="/aboutus_bullet_1.svg"
+                      alt="star"
+                      className="w-6 h-6"
+                    />
+                    <span className="text-[18px] font-bold text-[#161616] leading-tight whitespace-nowrap">
+                      Performance-Driven
+                    </span>
+                  </div>
+                  {/* Reliable */}
+                  <div className="flex items-center gap-2 whitespace-nowrap">
+                    <img
+                      src="/aboutus_bullet_1.svg"
+                      alt="star"
+                      className="w-6 h-6"
+                    />
+                    <span className="text-[18px] font-bold text-[#161616] leading-tight whitespace-nowrap">
+                      Reliable
+                    </span>
+                  </div>
+                  {/* Custom-Built */}
+                  <div className="flex items-center gap-2 whitespace-nowrap">
+                    <img
+                      src="/aboutus_bullet_1.svg"
+                      alt="star"
+                      className="w-6 h-6"
+                    />
+                    <span className="text-[18px] font-bold text-[#161616] leading-tight whitespace-nowrap">
+                      Custom-Built.
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -319,8 +323,8 @@ export const ManagedServices = () => {
           <div className="max-w-[1200px] mx-auto flex flex-col items-center">
             <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-20 justify-center">
               {/* Card 1 */}
-              <div className="flex flex-col bg-white rounded-2xl px-7 py-8 w-[330px] h-[296px] flex-1 mx-auto items-start border border-[#E3EAFD] shadow-sm">
-                <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+              <div className="flex flex-col bg-white rounded-3xl px-7 py-8 w-[330px] h-[296px] flex-1 mx-auto items-start border border-[#E3EAFD] shadow-sm transform transition-transform duration-300 hover:scale-105">
+                <div className="w-[53px] h-[53px] rounded-lg flex items-center justify-center mb-4">
                   <img
                     src="/hardware_server.svg"
                     alt="On-Premise Servers"
@@ -339,8 +343,8 @@ export const ManagedServices = () => {
               </div>
 
               {/* Card 2 */}
-              <div className="flex flex-col bg-white rounded-2xl px-7 py-8 w-[330px] h-[296px] flex-1 mx-auto items-start border border-[#E3EAFD] shadow-sm">
-                <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+              <div className="flex flex-col bg-white rounded-3xl px-7 py-8 w-[330px] h-[296px] flex-1 mx-auto items-start border border-[#E3EAFD] shadow-sm transform transition-transform duration-300 hover:scale-105">
+                <div className="w-[53px] h-[53px] rounded-lg flex items-center justify-center mb-4">
                   <img
                     src="/hardware_performance.svg"
                     alt="High-Performance"
@@ -358,8 +362,8 @@ export const ManagedServices = () => {
               </div>
 
               {/* Card 3 */}
-              <div className="flex flex-col bg-white rounded-2xl px-7 py-8 w-[330px] h-[296px] flex-1 mx-auto items-start border border-[#E3EAFD] shadow-sm">
-                <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+              <div className="flex flex-col bg-white rounded-3xl px-7 py-8 w-[330px] h-[296px] flex-1 mx-auto items-start border border-[#E3EAFD] shadow-sm transform transition-transform duration-300 hover:scale-105">
+                <div className="w-[53px] h-[53px] rounded-lg flex items-center justify-center mb-4">
                   <img
                     src="/hardware_ai.svg"
                     alt="Specialized Workloads"

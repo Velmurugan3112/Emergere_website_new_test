@@ -78,7 +78,7 @@ export const ContactUs = () => {
                   <h3 className="font-bold italic mt-2 text-base mb-1 text-gray-900">
                     US (Corporate Office)
                   </h3>
-                  <p className="text-sm mt-3 leading-[1.5] text-[#7F7F7F]">
+                  <p className="text-md mt-3 leading-[1.5] text-[#7F7F7F]">
                     8105 Rasor Blvd, Suite 60,
                     <br />
                     Plano, Texas 75024
@@ -100,7 +100,7 @@ export const ContactUs = () => {
                   <h3 className="font-bold italic mt-2 text-base mb-1 text-gray-900">
                     Dubai
                   </h3>
-                  <p className="text-sm mt-3 leading-[1.5] text-[#7F7F7F]">
+                  <p className="text-md mt-3 leading-[1.5] text-[#7F7F7F]">
                     PO Box Number 32846, F009,
                     <br />
                     Ras Al Khor Avenue, Dubai
@@ -122,7 +122,7 @@ export const ContactUs = () => {
                   <h3 className="font-bold italic mt-2 text-base mb-1 text-gray-900">
                     India
                   </h3>
-                  <p className="text-sm mt-3 leading-[1.5] text-[#7F7F7F]">
+                  <p className="text-md mt-3 leading-[1.5] text-[#7F7F7F]">
                     42, Sri Balasubramania Nagar
                     <br />
                     Peelamedu, Coimbatore - 641 004
@@ -134,9 +134,9 @@ export const ContactUs = () => {
         </section>
 
         {/* Contact Form Section */}
-        <section className="flex justify-center pt-4">
+        <section className="flex justify-center">
           <div
-            className="relative max-w-5xl mx-auto -mt-10 text-white overflow-hidden bg-cover bg-center bg-no-repeat pt-10 px-10 w-full max-w-[1004px] h-[680px] justify-center items-center"
+            className="relative max-w-5xl mx-auto -mt-10 text-white overflow-hidden bg-cover bg-center bg-no-repeat pt-10 px-10 w-full max-w-[980px] h-[580px] rounded-3xl justify-center items-center"
             style={{ backgroundImage: "url('/contactus_form_bg.svg')" }} // <-- update path to your exact form bg image
           >
             {/* Optional: overlay for blue tint, if needed  */}
@@ -152,7 +152,7 @@ export const ContactUs = () => {
                   width={68}
                   height={65}
                 />
-                <span className="text-2xl font-semibold leading-tight">
+                <span className="text-3xl font-bold leading-tight">
                   We’d love to help! Let us <br /> know how
                 </span>
               </div>
@@ -196,19 +196,19 @@ export const ContactUs = () => {
                     className="bg-transparent text-white placeholder-white outline-none flex-1"
                   />
                 </div>
-                <div className="border border-white rounded-xl p-4 md:col-span-2">
+                <div className="border border-white rounded-xl p-4 h-26 my-[-10px] md:col-span-2">
                   <textarea
                     placeholder="Type your message here"
                     className="w-full bg-transparent text-white placeholder-white outline-none h-32 resize-none"
                   />
                 </div>
-                <div className="md:col-span-2 flex justify-center mt-2">
+                <div className="md:col-span-2 flex justify-center my-[-20px]">
                   <button
                     type="submit"
-                    className="flex items-center justify-between gap-4 px-6 py-2 rounded-full border border-white bg-white/10 backdrop-blur-sm hover:bg-white/20 transition"
+                    className="relative inline-flex items-center justify-between gap-4 pl-6 pr-1 py-2 rounded-full border border-white bg-white/10 backdrop-blur-sm hover:bg-white/20 transition"
                   >
                     <span className="text-white font-medium">Submit</span>
-                    <span className="w-[40px] h-[40px] rounded-full flex items-center justify-end ml-3">
+                    <span className="w-[40px] h-[40px] rounded-full flex items-center justify-center ml-3">
                       <Image
                         src="/right-arrow.svg"
                         alt="Arrow"
