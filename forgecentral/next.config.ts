@@ -8,4 +8,4 @@ const nextConfig: NextConfig = {
   // You can add more config options here if needed
 };
 
-export default nextConfig;
+module.exports = nextConfig;
