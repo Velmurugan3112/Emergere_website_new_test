@@ -26,13 +26,9 @@ jobs:
         working-directory: ./forgecentral
         run: npm ci
 
-      - name: Build Next.js app
+      - name: Build Next.js app (generates forgecentral/out)
         working-directory: ./forgecentral
         run: npm run build
-
-      - name: Export static site
-        working-directory: ./forgecentral
-        run: npx next export
 
       - name: Upload to Azure Static Web Apps
         id: builddeploy
@@ -43,8 +39,8 @@ jobs:
           action: "upload"
           app_location: "forgecentral"
           output_location: "forgecentral/out"
-          api_location: ""  # Optional
-          
+          api_location: ""
+
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
