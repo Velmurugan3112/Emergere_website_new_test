@@ -85,10 +85,10 @@ const NavBar = () => {
   ];
 
   const insightsItems = [
-    { label: "Case studies" },
-    { label: "Blogs" },
-    { label: "Whitepapers" },
-    { label: "Newsletters" },
+    { label: "Case studies", href: "https://blogs.emergertech.com/" },
+    { label: "Blogs", href: "https://blogs.emergertech.com/" },
+    { label: "Whitepapers", href: "https://blogs.emergertech.com/" },
+    { label: "Newsletters", href: "https://blogs.emergertech.com/" },
   ];
 
   // useEffect(() => {
