@@ -118,7 +118,7 @@ const Footer = () => {
           <h4 className="text-white text-xl1">Certified by</h4>
           <div className="flex items-center mt-5">
             <img
-              src="/certified_logo.png"
+              src="/certified_logo.svg"
               alt="Great Place to Work Certified"
               className="w-30 h-36"
             />
