@@ -124,7 +124,7 @@ const NavBar = () => {
   ];
 
   const isActiveParent = (routes: string[]) =>
-    routes.some((r) => pathname.startsWith(r));
+    routes.some((r) => (pathname ?? "").startsWith(r));
 
   return (
     <>
