@@ -1,65 +1,85 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import { AboutUsHeader } from "./about_us_header";
+import React, { useRef, useEffect, useState } from "react";
+
 type CardProps = {
   icon: string;
   bg: string;
   title: string;
   desc: string;
+  inView?: boolean;
+  index?: number;
 };
 
-const Card = ({ icon, bg, title, desc }: CardProps) => (
-  <div className="bg-white rounded-[32px] p-6 shadow-sm text-left flex flex-col h-full transform transition-transform duration-300 hover:scale-105">
+const Card = ({ icon, bg, title, desc, inView = true, index = 0 }: CardProps) => {
+  // Animation: from translateY(120px), opacity 0 to translateY(0), opacity 1
+  const style = {
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'translateY(0)' : 'translateY(120px)',
+    transition: `opacity 0.9s cubic-bezier(0.4,0,0.2,1) ${index * 0.18}s, transform 0.9s cubic-bezier(0.4,0,0.2,1) ${index * 0.18}s`,
+  };
+  return (
     <div
-      className="w-12 h-12 flex items-center justify-center rounded-xl mb-4"
-      style={{ backgroundColor: bg }}
+      className="bg-white rounded-[32px] p-6 shadow-sm text-left flex flex-col h-full transform transition-transform duration-300"
+      style={style}
     >
-      <img src={icon} alt={title} />
+      <div
+        className="w-12 h-12 flex items-center justify-center rounded-xl mb-4"
+        style={{ backgroundColor: bg }}
+      >
+        <img src={icon} alt={title} />
+      </div>
+      <h3 className="font-extrabold text-[18px] mb-2 leading-snug">{title}</h3>
+      <p className="text-[#3E3E59] text-sm leading-relaxed flex-grow">{desc}</p>
     </div>
-    <h3 className="font-extrabold text-[18px] mb-2 leading-snug">{title}</h3>
-    <p className="text-[#3E3E59] text-sm leading-relaxed flex-grow">{desc}</p>
-  </div>
-);
+  );
+};
+
 
 export default function AboutUs() {
+  // Animation logic for Core Values section
+  const coreValuesRef = useRef<HTMLDivElement>(null);
+  const [coreValuesInView, setCoreValuesInView] = useState(false);
+
+  useEffect(() => {
+    const section = coreValuesRef.current;
+    if (section) {
+      const observer = new window.IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setCoreValuesInView(true);
+            observer.disconnect();
+          }
+        },
+        { threshold: 0.5 }
+      );
+      observer.observe(section);
+      return () => observer.disconnect();
+    }
+  }, []);
+
   return (
-    <div className="font-sans text-gray-800">
+    <div className="text-gray-800">
       {/* Hero Section */}
-      <section
-        className="relative max-w-full h-[319px] bg-cover bg-center mt-[10px] mx-auto"
-        style={{
-          backgroundImage:
-            "linear-gradient(0deg, #042474 0%, rgba(2, 62, 214, 0) 47.03%), url('/aboutUs_banner.svg')",
-        }}
-      >
-        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-center text-white z-10 w-full px-4">
-          <h1 className="text-2xl md:text-3xl font-bold relative inline-block tracking-wide">
-            About <span className="relative z-10">Us</span>
-          </h1>
-          <p className="text-xs md:text-sm mt-1 font-medium">
-            <Link href="/home">
-              <span className="text-white/80 hover:underline">Home</span>
-            </Link>
-            <span className="mx-2">/</span>
-            <span className="text-white font-semibold">About Us</span>
-          </p>
-        </div>
-      </section>
+      <AboutUsHeader />
 
       {/* Main Section */}
       <section
         className="relative bg-white overflow-hidden px-6 md:px-20 pt-20 pb-50"
         style={{
-          backgroundImage: "url('/aboutus_bgi1.png')",
+          backgroundImage: "url('/About-Us-Bg.svg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           marginBottom: "-150px",
         }}
       >
-        <div className="flex flex-col md:flex-row gap-10 items-center relative z-10">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-10 items-center relative z-10">
           {/* Left Content */}
-          <div className="basis-[55%] space-y-6 text-left">
+          <div className="basis-[50%] space-y-6 px-6 text-left">
             <div className="inline-flex flex-col items-start mb-7">
-              <span className="text-sm text-[#023ED6] font-bold tracking-[0.19em] uppercase mb-1">
+              <span className="text-md text-[#023ED6] font-extrabold tracking-[0.19em] uppercase mb-1">
                 ABOUT US
               </span>
               {/* Line icon or SVG under the text */}
@@ -68,11 +88,11 @@ export default function AboutUs() {
                 alt="line icon"
                 width={40} // Adjust width/height as needed
                 height={6}
-                className="ml-15"
+                className="ml-20"
               />
             </div>
 
-            <h3 className="text-[28px] md:text-[32px] font-bold leading-[1.2] tracking-tight text-left text-gray-900 text-left mb-8">
+            <h3 className="text-[28px] md:text-[28px] font-semibold leading-[1.2] tracking-tight text-left text-gray-900 text-left mb-2">
               <span className="text-[#023ED6] font-black">Emergere</span>
               <span className="font-black"> is a technology solutions</span>
               <br />
@@ -87,67 +107,114 @@ export default function AboutUs() {
                 intelligent platforms that drive measurable business value.
               </p>
               <br />
-              <p className="text-gray-700 leading-relaxed font-medium text-justify">
-                From Data, AI & Analytics that uncover actionable insights, to
-                Cloud Services that scale with your growth — we architect and
-                implement solutions that power decision-making and innovation.
+              <p className="text-gray-700 leading-relaxed font-medium text-justify mt-[-20]">
+                Our expertise spans:
               </p>
-
-              {/* Bullet Points with yellow star icon */}
+              {/* Bullet Points with yellow star icon, 2-column structure */}
               <div className="text-[16px] font-bold text-gray-800 text-left mt-4 mb-4">
-                <div className="flex gap-8">
-                  {/* Data Governance */}
-                  <div className="flex items-center gap-2">
-                    <Image
-                      src="/aboutus_bullet_1.svg"
-                      alt="star"
-                      width={18}
-                      height={18}
-                    />
-                    <span className="leading-[2.3] font-black">
-                      Data Governance
-                    </span>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2">
+                  {/* Column 1 */}
+                  <div className="flex flex-col gap-2">
+                    {/* 1. Data,AI & Analytics */}
+                    <div className="flex items-center gap-2 whitespace-nowrap">
+                      <Image
+                        src="/aboutus_bullet_1.svg"
+                        alt="star"
+                        width={18}
+                        height={18}
+                      />
+                      <span className="leading-[2.3] font-black">
+                        Data, AI & Analytics
+                      </span>
+                    </div>
+                    {/* 2. Data Governance */}
+                    <div className="flex items-center gap-2 whitespace-nowrap">
+                      <Image
+                        src="/aboutus_bullet_1.svg"
+                        alt="star"
+                        width={18}
+                        height={18}
+                      />
+                      <span className="leading-[2.3] font-black">
+                        Data Governance
+                      </span>
+                    </div>
+                    {/* 3. Cloud Services */}
+                    <div className="flex items-center gap-2 whitespace-nowrap">
+                      <Image
+                        src="/aboutus_bullet_1.svg"
+                        alt="star"
+                        width={18}
+                        height={18}
+                      />
+                      <span className="leading-[2.3] font-black">
+                        Cloud Services
+                      </span>
+                    </div>
+                    {/* 4. ERP */}
+                    <div className="flex items-center gap-2 whitespace-nowrap">
+                      <Image
+                        src="/aboutus_bullet_1.svg"
+                        alt="star"
+                        width={18}
+                        height={18}
+                      />
+                      <span className="leading-[2.3] font-black">
+                        Enterprise Resource Planning (ERP)
+                      </span>
+                    </div>
                   </div>
-
-                  {/* Modern Technology platforms */}
-                  <div className="flex items-center gap-2">
-                    <Image
-                      src="/aboutus_bullet_1.svg"
-                      alt="star"
-                      width={18}
-                      height={18}
-                    />
-                    <span className="leading-[2.3] font-black">
-                      Modern Technology platforms
-                    </span>
+                  {/* Column 2 */}
+                  <div className="flex flex-col gap-2">
+                    {/* 5. Modern Technology platforms */}
+                    <div className="flex items-center gap-2 whitespace-nowrap">
+                      <Image
+                        src="/aboutus_bullet_1.svg"
+                        alt="star"
+                        width={18}
+                        height={18}
+                      />
+                      <span className="leading-[2.3] font-black">
+                        Modern Technology Platforms
+                      </span>
+                    </div>
+                    {/* 6. Managed Services */}
+                    <div className="flex items-center gap-2 whitespace-nowrap">
+                      <Image
+                        src="/aboutus_bullet_1.svg"
+                        alt="star"
+                        width={18}
+                        height={18}
+                      />
+                      <span className="leading-[2.3] font-black">
+                        Managed Services
+                      </span>
+                    </div>
+                    {/* 7. Technology Staffing */}
+                    <div className="flex items-center gap-2 whitespace-nowrap">
+                      <Image
+                        src="/aboutus_bullet_1.svg"
+                        alt="star"
+                        width={18}
+                        height={18}
+                      />
+                      <span className="leading-[2.3] font-black">
+                        Technology Staffing
+                      </span>
+                    </div>
                   </div>
-                </div>
-
-                {/* ERP below */}
-                <div className="flex items-center gap-2 mt-2">
-                  <Image
-                    src="/aboutus_bullet_1.svg"
-                    alt="star"
-                    width={18}
-                    height={18}
-                  />
-                  <span className="leading-[2.3] font-black">
-                    Enterprise Resource Planning (ERP)
-                  </span>
                 </div>
               </div>
 
               <p className="text-gray-700 leading-relaxed font-medium text-justify">
                 We ensure systems are not only smart, but secure, compliant, and
-                future-ready. Our Managed Services keep operations running
-                smoothly, while our Technology Staffing solutions place the
-                right talent exactly where it’s needed.
+                future-ready!
               </p>
             </div>
           </div>
 
           {/* Right Content */}
-          <div className="flex-1 relative w-full max-w-[520px]">
+          <div className="flex-1 relative w-full max-w-[490px]">
             {/* Main image */}
             <Image
               src="/aboutUs_a1.svg"
@@ -161,18 +228,18 @@ export default function AboutUs() {
             <div
               className="absolute z-30"
               style={{
-                width: "282px",
-                height: "265px",
-                bottom: "-80px",
-                left: "-38px",
+                width: "262px",
+                height: "200px",
+                bottom: "-20px",
+                left: "-40px",
               }}
             >
               {/* Outer blue card with shadow */}
               <div
                 className="bg-[#030E4D] flex flex-col items-center shadow-2xl shadow-gray-400/40"
                 style={{
-                  width: "282px",
-                  height: "265px",
+                  width: "252px",
+                  height: "235px",
                   borderRadius: "32px",
                   position: "relative",
                   paddingTop: "24px",
@@ -183,8 +250,8 @@ export default function AboutUs() {
                 <div
                   className="bg-white shadow-lg flex flex-col gap-5 z-10"
                   style={{
-                    width: "270px",
-                    height: "183px",
+                    width: "240px",
+                    height: "153px",
                     borderRadius: "24px",
                     position: "absolute",
                     top: "7px",
@@ -200,7 +267,7 @@ export default function AboutUs() {
                     { text: "Compliant", icon: "/aboutus_bottom_icon.svg" },
                     { text: "Future-ready", icon: "/aboutus_bottom_icon.svg" },
                   ].map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-4">
+                    <div key={idx} className="flex justify-left pl-4 items-left gap-4">
                       <Image
                         src={item.icon}
                         width={32}
@@ -238,8 +305,8 @@ export default function AboutUs() {
         </div>
 
         {/* Final quote */}
-        <div className="mt-26 text-center max-w-4xl mx-auto px-4">
-          <p className="text-lg md:text-xl font-semibold leading-relaxed text-center">
+        <div className="mt-30 mb-2 text-center max-w-4xl mx-auto px-4">
+          <p className="text-lg md:text-2xl font-semibold leading-relaxed text-center">
             <span className="text-[#535353]">“ At every step,</span>
             <span className="text-[#010360] font-bold">
               we bring experience, precision, and a passion
@@ -267,26 +334,26 @@ export default function AboutUs() {
           backgroundPosition: "center",
         }}
       >
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center gap-12 md:gap-20">
-          {/* Founder Image */}
-          <div className="relative w-[540px] h-[650px] flex-shrink-0 flex items-start -mt-16">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12 lg:gap-20">
+          {/* Founder Image - responsive */}
+          <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl flex-shrink-0 flex items-start md:-mt-16 mb-8 md:mb-0">
             <Image
-              src="/aboutus_profile.svg"
+              src="/aboutus_profile.png"
               alt="Gowri Shanker Viswanathan"
               width={540}
               height={650}
-              className="object-contain w-full h-full"
+              className="object-contain w-full h-auto"
               priority
             />
           </div>
-          {/* Content right side */}
-          <div className="flex-1 w-full flex flex-col justify-between h-full">
+          {/* Content right side - responsive */}
+          <div className="flex-1 w-full flex flex-col justify-between h-full px-0 sm:px-2 md:px-0">
             <div>
               <span className="text-[#023ED6] tracking-[.11em] uppercase font-bold text-xs md:text-sm block mb-2">
                 Our Founder
               </span>
               {/* Underline icon directly under "Our Founder" */}
-              <div className="h-2 mb-3 ml-20 flex items-start">
+              <div className="h-2 mb-3 ml-10 md:ml-20 flex items-start">
                 <Image
                   src="/aboutus_Line_34.svg"
                   alt="underline icon"
@@ -296,23 +363,40 @@ export default function AboutUs() {
               </div>
 
               {/* Founder paragraphs */}
-              <div className="mb-6">
-                <p className="text-[#535353] text-base md:text-lg leading-[1.7] mb-3">
-                  At Emergere, our journey began in 2018 with a vision far
-                  greater than simply building technology—we set out to solve
-                  with purpose and lead with heart. As a small team fueled by
-                  big ambitions, we believed that meaningful progress comes from
-                  quiet, consistent action and a genuine commitment to those we
-                  serve. The partnerships and trust we develop have served as
-                  both our inspiration and our guiding principle from the start.
+              <div className="mb-6 text-left">
+                <p className="text-[#535353] text-base md:text-lg leading-[1.7] mb-3 text-left">
+                  At Emergere,
+                  <span className="text-[#161616] font-semibold">
+                    {" "}
+                    our journey began in 2018{" "}
+                  </span>
+                  with a vision far greater than simply building technology—we
+                  set out to solve with purpose and lead with heart. As a small
+                  team fueled by big ambitions, we believed that
+                  <span className="text-[#161616] font-semibold">
+                    {" "}
+                    meaningful progress comes from quiet, consistent action and
+                    a genuine commitment to those we serve.
+                  </span>{" "}
+                  The partnerships and trust we develop have served as both our
+                  inspiration and our guiding principle from the start.
                 </p>
-                <p className="text-[#535353] text-base md:text-lg leading-[1.7] mb-3">
-                  Today, we are a global team of much larger size, partnering
-                  across Data & AI, Digital Modernization, Cloud, ERP, and
-                  Managed Services focusing digital customer experience as an
-                  objective in every step we progress. Even as we’ve grown, we
-                  continue to measure our success by the trust we build and the
-                  lives we impact. We believe that your growth fuels our own!
+                <p className="text-[#161616] text-base md:text-lg leading-[1.7] mb-3 text-left">
+                  Today, we are a{" "}
+                  <span className="text-[#161616] font-semibold">
+                    global team
+                  </span>{" "}
+                  of much larger size, partnering across{" "}
+                  <span className="text-[#161616] font-semibold">
+                    Data & AI, Digital Modernization, Cloud, ERP, and Managed
+                    Services focusing digital customer experience{" "}
+                  </span>
+                  as an objective in every step we progress. Even as we’ve
+                  grown, we continue to measure our success by the trust we
+                  build and the lives we impact.{" "}
+                  <span className="text-[#161616] font-semibold">
+                    We believe that your growth fuels our own!
+                  </span>
                 </p>
               </div>
             </div>
@@ -331,8 +415,8 @@ export default function AboutUs() {
                 href="https://www.linkedin.com/in/gowri-shanker-viswanathan-4a946116/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full border border-[#023ED6] shadow-lg px-6 py-2 text-white font-bold text-base gap-3 bg-[#023ED6] hover:bg-[#0056d6] focus:outline-none focus:ring-2 focus:ring-[#023ED6] transition-colors transition-transform duration-200 min-w-[180px] min-h-[44px] hover:scale-105"
-                style={{ minHeight: "44px", minWidth: "150px" }}
+                className="inline-flex items-center justify-center rounded-full border border-[#023ED6] shadow-lg px-6 py-2 text-white font-bold text-base gap-3 bg-[#023ED6] hover:bg-[#0056d6] focus:outline-none focus:ring-2 focus:ring-[#023ED6] transition-colors transition-transform duration-200 min-w-[140px] min-h-[44px] hover:scale-105"
+                style={{ minHeight: "54px", minWidth: "120px" }}
               >
                 Get in Touch
                 <Image
@@ -349,15 +433,14 @@ export default function AboutUs() {
       </section>
       {/* OUR VISION & MISSION Section */}
       <section
-        className="relative bg-white px-6 md:px-20 py-30 mt-0"
-        // className="relative bg-white px-6 md:px-20 py-30"
+        className="w-full relative bg-white px-4 md:px-10 py-20 mt-0"
         style={{
           backgroundImage: "url('/aboutus_bg_img4.svg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="max-w-6xl mx-auto mt-[-80] flex flex-col items-center">
+        <div className="max-w-[1440px] mx-auto flex flex-col items-center">
           {/* Header */}
           <div className="w-full max-w-3xl mx-auto flex flex-col items-center">
             <div className="flex flex-col items-center mb-2">
@@ -401,102 +484,83 @@ export default function AboutUs() {
             </div>
           </div>
 
-          {/* OUR VISION SECTION */}
-          <div className="w-full flex flex-col md:flex-row gap-8 items-stretch justify-center">
-            {/* LEFT: Vision Content Box */}
-            <div className="bg-white flex flex-col justify-center items-start rounded-2xl px-8 py-8 w-full max-w-md min-h-[285px] mb-8 md:mb-0 h-full">
-              <div className="flex items-center mb-4">
-                <div className="flex flex-col items-start">
-                  <div className="flex justify-start w-[56px] h-[56px] mb-1">
-                    <Image
-                      src="/aboutus_our_vision.svg"
-                      alt="Vision Icon"
-                      width={56}
-                      height={56}
-                    />
-                  </div>
-                  <span className="font-black text-[20px] mt-4 text-[#000000]">
-                    Our Vision
-                  </span>
-                </div>
+          {/* OUR VISION SECTION (left text, right image, vertically centered) */}
+          <div className="w-full max-w-[1440px] mx-auto flex flex-col md:flex-row items-stretch md:items-center gap-10 md:gap-20 px-24 py-10">
+            {/* Left: Vision Content */}
+            <div className="w-full md:basis-1/2 flex flex-col justify-center items-start md:pr-8">
+              <div className="w-14 h-14 flex items-center justify-center mb-4">
+                <Image
+                  src="/aboutus_our_vision.svg"
+                  alt="Vision Icon"
+                  width={56}
+                  height={56}
+                />
               </div>
-              <p className="text-[#535353] text-[16px] md:text-base leading-[1.8] font-medium">
+              <h2 className="text-[28px] text-[#000000] md:text-[30px] font-extrabold mb-4">
+                Our Vision
+              </h2>
+              <p className="text-[#535353] text-lg md:text-[18px] font-medium leading-relaxed">
                 To be the most trusted partner for organizations seeking real,
-                results-driven digital transformation — by delivering{" "}
+                results-driven digital transformation — by delivering
                 <span className="font-bold text-[#161616]">
-                  intelligent, scalable, and future-ready technology solutions
-                  through innovation, integrity, and excellence.
+                  {" "}
+                  intelligent, scalable, and future-ready technology solutions through innovation, integrity, and excellence.
                 </span>
               </p>
             </div>
-
-            {/* RIGHT: Vision illustration */}
-            <div className="w-full max-w-md flex items-center justify-end h-full">
-              <div className="relative w-full h-full flex items-center">
-                <Image
-                  src="/aboutus_ourvision_1.svg"
-                  alt="Technology Vision"
-                  width={400}
-                  height={260}
-                  className="rounded-2xl w-full h-auto object-cover"
-                  priority
-                />
-              </div>
+            {/* Right: Vision Image */}
+            <div className="w-full md:basis-1/2 flex items-center justify-center">
+              <Image
+                src="/aboutus_ourvision_1.svg"
+                alt="Technology Vision"
+                width={400}
+                height={260}
+                className="w-full max-w-[500px] h-auto object-contain"
+                priority
+              />
             </div>
           </div>
 
-          {/* OUR MISSION SECTION */}
-          <div className="w-full flex flex-col md:flex-row gap-8 items-stretch justify-center mt-18">
-            {/* LEFT: Mission illustration */}
-            <div className="w-full max-w-md flex items-center justify-center h-full">
-              <div className="relative w-full h-full flex items-center">
-                <div className="relative justify-center overflow-hidden w-full">
-                  <Image
-                    src="/aboutus_ourmission_1.svg"
-                    alt="Mission Target"
-                    width={400}
-                    height={260}
-                    className="w-full h-auto object-cover"
-                    priority
-                  />
-                </div>
+          {/* OUR MISSION SECTION (right text, left image, vertically centered) */}
+          <div className="w-full max-w-[1440px] mx-auto flex flex-col md:flex-row-reverse items-stretch md:items-center gap-10 md:gap-20 px-24 py-10">
+            {/* Right: Mission Content */}
+            <div className="w-full md:basis-1/2 flex flex-col justify-center items-start ">
+              <div className="w-14 h-14 flex items-center justify-center mb-4">
+                <Image
+                  src="/aboutus_ourmission_icon.svg"
+                  alt="Mission Icon"
+                  width={56}
+                  height={56}
+                />
               </div>
-            </div>
-
-            {/* RIGHT: Mission Content Box */}
-            <div className="bg-white flex flex-col justify-center items-start rounded-2xl px-8 py-8 w-full max-w-md min-h-[285px] h-full">
-              <div className="flex items-center mb-4">
-                <div className="flex flex-col items-start">
-                  <div className="flex justify-start items-center w-[56px] h-[56px] mb-1">
-                    <Image
-                      src="/aboutus_ourmission_icon.svg"
-                      alt="Mission Icon"
-                      width={56}
-                      height={56}
-                    />
-                  </div>
-                  <span className="font-black text-[20px] mt-4 text-[#000000]">
-                    Our Mission
-                  </span>
-                </div>
-              </div>
-              <p className="text-[#535353] text-[16px] md:text-base leading-[1.8] font-medium">
-                To help businesses unlock their full potential by delivering
-                tailored digital solutions — from
+              <h2 className="text-[28px] text-[#000000] md:text-[30px] font-extrabold mb-4">
+                Our Mission
+              </h2>
+              <p className="text-[#535353] text-lg md:text-[18px] font-medium leading-relaxed">
+                To help businesses unlock their full potential by delivering tailored digital solutions — from
                 <span className="font-bold text-[#161616]">
                   {" "}
-                  ideation to execution — across data, cloud, ERP, and emerging
-                  technologies.
+                  ideation to execution — across data, cloud, ERP, and emerging technologies.
                 </span>{" "}
-                We solve real challenges through strategic thinking, expert
-                execution, and a customer-first mindset.
+                We solve real challenges through strategic thinking, expert execution, and a customer-first mindset.
               </p>
+            </div>
+            {/* Left: Mission Image */}
+            <div className="w-full md:basis-1/2 flex items-center justify-center">
+              <Image
+                src="/aboutus_ourmission_1.svg"
+                alt="Mission Target"
+                width={400}
+                height={260}
+                className="w-full max-w-[500px] h-auto object-contain"
+                priority
+              />
             </div>
           </div>
         </div>
       </section>
       {/*CORE VALUES SECTION*/}
-      <section className="bg-[#f4f5f7] py-16 px-4 md:px-24">
+      <section className="bg-[#f4f5f7] py-16 px-4 md:px-24" ref={coreValuesRef}>
         <div className="max-w-7xl mx-auto">
           {/* Section Title */}
           <div className="text-left mb-12">
@@ -524,58 +588,65 @@ export default function AboutUs() {
           <div className="space-y-6">
             {/* Row 1 */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {/* Card 1 */}
               <Card
                 icon="/aboutus_core_icon_1.svg"
                 bg="#023ED6"
                 title="Integrity: Build with Trust"
                 desc="We uphold the highest standards of honesty, ethics, and accountability in every engagement — from managing sensitive data to delivering enterprise solutions. Trust is the foundation of every client relationship we build."
+                inView={coreValuesInView}
+                index={0}
               />
-              {/* Card 2 */}
               <Card
                 icon="/aboutus_core_icon_2.svg"
                 bg="#F5B037"
                 title="Customer-Centricity: Solutions that Fit, not just Work"
                 desc="We align every solution to real business goals. By understanding our clients’ unique challenges, we deliver measurable value, on time and on budget."
+                inView={coreValuesInView}
+                index={1}
               />
-              {/* Card 3 */}
               <Card
                 icon="/aboutus_core_icon_3.svg"
                 bg="#023ED6"
                 title="Innovation: Think ahead, Build ahead"
                 desc="We leverage cutting-edge tech — AI, cloud, and platforms — to design intelligent, scalable solutions. Innovation means anticipating future needs and building future-ready systems."
+                inView={coreValuesInView}
+                index={2}
               />
-              {/* Card 4 */}
               <Card
                 icon="/aboutus_core_icon_4.svg"
                 bg="#F5B037"
                 title="Excellence: Deliver with Precision"
                 desc="We maintain relentless focus on quality, reliability, and efficiency across every engagement — from architecture to support."
+                inView={coreValuesInView}
+                index={3}
               />
             </div>
 
             {/* Row 2 - Staggered Right */}
             <div className="grid grid-cols-1 sm:grid-cols-2 items-center lg:grid-cols-3 gap-6">
-              {/* Card 5 */}
               <Card
                 icon="/aboutus_core_icon_5.svg"
                 bg="#023ED6"
                 title="Agility: Built for Change"
                 desc="We adapt quickly to evolving business environments and tech landscapes. Whether scaling a cloud environment, managing change in ERP, or responding to shifting client needs — we stay flexible and responsive."
+                inView={coreValuesInView}
+                index={4}
               />
-              {/* Card 6 */}
               <Card
                 icon="/aboutus_core_icon_6.svg"
                 bg="#F5B037"
                 title="Teamwork & Collaboration: Together, we solve"
-                desc="We align every solution to real business goals. By understanding our clients’ unique challenges, we ensure our services — from analytics to ERP — deliver measurable value, on time and on budget."
+                desc="We believe the best solutions come from shared insights. Our cross-functional teams work closely with clients and each other to co-create value, solve complex challenges, and deliver successful outcomes."
+                inView={coreValuesInView}
+                index={5}
               />
-              {/* Card 7 */}
               <Card
                 icon="/aboutus_core_icon_7.svg"
                 bg="#023ED6"
                 title="Continuous Learning: Grow up with the Tech"
-                desc="We leverage cutting-edge technologies — AI, cloud, and modern platforms — to design intelligent, scalable solutions. Innovation isn’t just about tools; it’s about anticipating needs and creating future-ready systems."
+                desc="In a fast-paced tech world, we stay curious and committed to learning. From upskilling in the latest AI tools to refining governance strategies, we invest in growth — for our people, our clients, and our solutions."
+                inView={coreValuesInView}
+                index={6}
               />
             </div>
           </div>

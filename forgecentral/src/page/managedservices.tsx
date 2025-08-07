@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect, useRef, useState } from "react";
 import ServicesMenu from "./servicemenu";
 
 const servicesRowOne = [
@@ -47,25 +48,80 @@ interface ServiceCardProps {
   desc: string;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, desc }) => (
-  <div className="flex flex-col items-start bg-white bg-opacity-90 rounded-3xl p-6 w-full max-w-[300px] min-h-[240px] h-[308px] border border-[#E3EAFD] shadow-sm transform transition-transform duration-300 hover:scale-105">
-    <div className="w-12 h-12 mb-2 flex items-center justify-center">
-      <img src={icon} alt={title} className="w-[64px] h-[64px]" />
+const ServiceCard: React.FC<ServiceCardProps & { inView: boolean; index: number }> = ({ icon, title, desc, inView, index }) => {
+  // Animation: from translateY(120px), opacity 0 to translateY(0), opacity 1
+  const style = {
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'translateY(0)' : 'translateY(120px)',
+    transition: `opacity 0.9s cubic-bezier(0.4,0,0.2,1) ${index * 0.18}s, transform 0.9s cubic-bezier(0.4,0,0.2,1) ${index * 0.18}s`,
+  };
+  return (
+    <div
+      className="flex flex-col items-start bg-white bg-opacity-90 rounded-3xl p-6 w-full max-w-[300px] min-h-[240px] h-[308px] transform transition-transform duration-300"
+      style={style}
+    >
+      <div className="w-12 h-12 mb-2 flex items-center justify-center">
+        <img src={icon} alt={title} className="w-[64px] h-[64px]" />
+      </div>
+      <h3 className="text-[18px] font-extrabold text-[#161616] mt-4 mb-8">
+        {title}
+      </h3>
+      <p className="text-[15px] text-[#535353] font-medium leading-relaxed">
+        {desc}
+      </p>
     </div>
-    <h3 className="text-[18px] font-extrabold text-[#161616] mt-4 mb-8">
-      {title}
-    </h3>
-    <p className="text-[15px] text-[#535353] font-medium leading-relaxed">
-      {desc}
-    </p>
-  </div>
-);
+  );
+};
 
 export const ManagedServices = () => {
+  // Service Cards Section animation logic
+  const cardSectionRef = useRef<HTMLDivElement>(null);
+  const [cardsInView, setCardsInView] = useState(false);
+
+  // Hardware Services Section animation logic
+  const hardwareSectionRef = useRef<HTMLDivElement>(null);
+  const [hardwareCardsInView, setHardwareCardsInView] = useState(false);
+
+  useEffect(() => {
+    // Service Cards Section observer
+    const section = cardSectionRef.current;
+    if (section) {
+      const observer = new window.IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setCardsInView(true);
+            observer.disconnect();
+          }
+        },
+        { threshold: 0.6 }
+      );
+      observer.observe(section);
+      return () => observer.disconnect();
+    }
+  }, []);
+
+  useEffect(() => {
+    // Hardware Services Section observer
+    const section = hardwareSectionRef.current;
+    if (section) {
+      const observer = new window.IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setHardwareCardsInView(true);
+            observer.disconnect();
+          }
+        },
+        { threshold: 0.6 }
+      );
+      observer.observe(section);
+      return () => observer.disconnect();
+    }
+  }, []);
+
   return (
     <>
       <ServicesMenu />
-      <div className="w-full font-sans bg-white item-center justify-center">
+      <div className="w-full bg-white item-center justify-center">
         {/* Managed Service Section */}
         <section
           className="w-full flex flex-col items-center justify-center text-center px-4 pt-12 mb-0 pb-0"
@@ -202,28 +258,29 @@ export const ManagedServices = () => {
           </div>
         </section>
 
-        {/* Service Cards Section */}
+        {/* Service Cards Section (Animated) */}
         <section
+          ref={cardSectionRef}
           className="w-full py-16 px-2 sm:px-8 flex flex-col justify-center items-center relative z-5"
           style={{
-            backgroundImage: "url('/cloud_services_bg.svg')", // Use your actual image
+            backgroundImage: "url('/Managed-Services-Cards-bg.svg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
           }}
         >
-          <div className="max-w-[1440px] mx-auto w-full flex flex-col px-14 pt-16 gap-12 items-center">
+          <div className="max-w-[1440px] mx-auto w-full flex flex-col px-16 pt-16 gap-12 items-center">
             {/* First Row: 4 Columns */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-center w-full">
-              {servicesRowOne.map((card) => (
-                <ServiceCard key={card.title} {...card} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-center w-full">
+              {servicesRowOne.map((card, idx) => (
+                <ServiceCard key={card.title} {...card} inView={cardsInView} index={idx} />
               ))}
             </div>
             {/* Second Row: 3 Columns (Centered) */}
             <div className="w-full flex justify-center">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                {servicesRowTwo.map((card) => (
-                  <ServiceCard key={card.title} {...card} />
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {servicesRowTwo.map((card, idx) => (
+                  <ServiceCard key={card.title} {...card} inView={cardsInView} index={idx + servicesRowOne.length} />
                 ))}
               </div>
             </div>
@@ -312,9 +369,10 @@ export const ManagedServices = () => {
 
         {/* Hardware Services Section */}
         <section
-          className="w-full bg-white mt-0 py-28 px-4 md:px-10 relative z-5"
+          ref={hardwareSectionRef}
+          className="w-full bg-white mt-10 py-18 px-4 md:px-10 relative z-5"
           style={{
-            backgroundImage: "url('/hardware_services_bg.svg')",
+            backgroundImage: "url('/Managed-Services-Cards-bg.svg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
@@ -323,7 +381,14 @@ export const ManagedServices = () => {
           <div className="max-w-[1200px] mx-auto flex flex-col items-center">
             <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-20 justify-center">
               {/* Card 1 */}
-              <div className="flex flex-col bg-white rounded-3xl px-7 py-8 w-[330px] h-[296px] flex-1 mx-auto items-start border border-[#E3EAFD] shadow-sm transform transition-transform duration-300 hover:scale-105">
+              <div
+                className="flex flex-col bg-white rounded-3xl px-7 py-8 w-[330px] h-[296px] flex-1 mx-auto items-start transform transition-transform duration-300"
+                style={{
+                  opacity: hardwareCardsInView ? 1 : 0,
+                  transform: hardwareCardsInView ? 'translateY(0)' : 'translateY(120px)',
+                  transition: `opacity 0.9s cubic-bezier(0.4,0,0.2,1) 0s, transform 0.9s cubic-bezier(0.4,0,0.2,1) 0s`,
+                }}
+              >
                 <div className="w-[53px] h-[53px] rounded-lg flex items-center justify-center mb-4">
                   <img
                     src="/hardware_server.svg"
@@ -343,7 +408,14 @@ export const ManagedServices = () => {
               </div>
 
               {/* Card 2 */}
-              <div className="flex flex-col bg-white rounded-3xl px-7 py-8 w-[330px] h-[296px] flex-1 mx-auto items-start border border-[#E3EAFD] shadow-sm transform transition-transform duration-300 hover:scale-105">
+              <div
+                className="flex flex-col bg-white rounded-3xl px-7 py-8 w-[330px] h-[296px] flex-1 mx-auto items-start transform transition-transform duration-300"
+                style={{
+                  opacity: hardwareCardsInView ? 1 : 0,
+                  transform: hardwareCardsInView ? 'translateY(0)' : 'translateY(120px)',
+                  transition: `opacity 0.9s cubic-bezier(0.4,0,0.2,1) 0.18s, transform 0.9s cubic-bezier(0.4,0,0.2,1) 0.18s`,
+                }}
+              >
                 <div className="w-[53px] h-[53px] rounded-lg flex items-center justify-center mb-4">
                   <img
                     src="/hardware_performance.svg"
@@ -362,7 +434,14 @@ export const ManagedServices = () => {
               </div>
 
               {/* Card 3 */}
-              <div className="flex flex-col bg-white rounded-3xl px-7 py-8 w-[330px] h-[296px] flex-1 mx-auto items-start border border-[#E3EAFD] shadow-sm transform transition-transform duration-300 hover:scale-105">
+              <div
+                className="flex flex-col bg-white rounded-3xl px-7 py-8 w-[330px] h-[296px] flex-1 mx-auto items-start transform transition-transform duration-300"
+                style={{
+                  opacity: hardwareCardsInView ? 1 : 0,
+                  transform: hardwareCardsInView ? 'translateY(0)' : 'translateY(120px)',
+                  transition: `opacity 0.9s cubic-bezier(0.4,0,0.2,1) 0.36s, transform 0.9s cubic-bezier(0.4,0,0.2,1) 0.36s`,
+                }}
+              >
                 <div className="w-[53px] h-[53px] rounded-lg flex items-center justify-center mb-4">
                   <img
                     src="/hardware_ai.svg"

@@ -3,7 +3,7 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <footer className="bg-[#071a4d] text-white px-3 md:px-20 py-10">
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-20">
+      <div className="ml-25 grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-20">
         {/* Logo and Description */}
         <div className="flex flex-col h-full justify-between">
           <div className="flex items-center gap-4 mb-4">
@@ -29,12 +29,14 @@ const Footer = () => {
         </div>
 
         {/* Quick Links & Contact */}
-        <div className="flex flex-col h-full items-start justify-between gap-y-3">
-          <h4 className="text-white text-xl mb-4">QuickLinks</h4>
+        <div className="ml-25 flex flex-col h-full items-start justify-between gap-y-3">
+          <h4 className="text-white text-xl mb-4 font-semibold italic">
+            QuickLinks
+          </h4>
           <ul className="space-y-3 text-indigo-200">
             <li>
-              <Link href="#" className="flex items-center gap-1">
-                <span>Our Works</span>
+              <Link href="/about-us" className="flex items-center gap-1">
+                <span>About Us</span>
                 <img
                   src="/arrow-right.png"
                   alt="Arrow Icon"
@@ -47,7 +49,7 @@ const Footer = () => {
                 href="/data-ai-analytics"
                 className="flex items-center gap-1"
               >
-                <span>Services</span>
+                <span>Our Services</span>
                 <img
                   src="/arrow-right.png"
                   alt="Arrow Icon"
@@ -56,11 +58,8 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link
-                href="/technology-staffing"
-                className="flex items-center gap-1"
-              >
-                <span>Technology Staffing</span>
+              <Link href="/industries" className="flex items-center gap-1">
+                <span>Industries</span>
                 <img
                   src="/arrow-right.png"
                   alt="Arrow Icon"
@@ -69,8 +68,8 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link href="#" className="flex items-center gap-1">
-                <span>Customers</span>
+              <Link href="/" className="flex items-center gap-1">
+                <span>Insights</span>
                 <img
                   src="/arrow-right.png"
                   alt="Arrow Icon"
@@ -79,8 +78,8 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link href="#" className="flex items-center gap-1">
-                <span>Blogs</span>
+              <Link href="/careers" className="flex items-center gap-1">
+                <span>Careers</span>
                 <img
                   src="/arrow-right.png"
                   alt="Arrow Icon"
@@ -108,62 +107,69 @@ const Footer = () => {
           <div className="flex items-center gap-3">
             <img src="/Phone.svg" className="h-8 w-8" />
             <Link href="tel:+14694017117" className="text-lg text-white">
-              +1 469 4017117
+              +1 469 401 7117
             </Link>
           </div>
         </div>
 
         {/* Certified By */}
-        <div className="flex flex-col h-full items-start gap-0">
-          <h4 className="text-white text-xl1">Certified by</h4>
-          <div className="flex items-center mt-5">
+        <div className="flex flex-col h-full items-start">
+          <h4 className="text-white text-xl font-semibold italic">
+            Certified by
+          </h4>
+          <div className="flex mt-5">
             <img
               src="/certified_logo.svg"
               alt="Great Place to Work Certified"
-              className="w-30 h-36"
+              className="w-35 h-41"
             />
           </div>
         </div>
       </div>
 
       {/* Office Locations */}
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-10 text-indigo-200">
+      <div className="mt-16 ml-25 grid grid-cols-1 md:grid-cols-3 gap-10 text-indigo-200">
         <div className="flex items-center gap-4">
           <img
-            src="/Group 89.svg"
+            src="/US_Flag.svg"
             alt="US"
-            className="h-12 md:h-8 align-middle"
+            className="h-14 md:h-10 align-middle"
           />
           <div>
-            <h5 className="text-lg mb-2">US (Corporate Office)</h5>
-            <p className="text-neutral-200 mb-0">
-              8105 Rasor Blvd, Suite 60, Plano, Texas 75024
+            <h5 className="text-xl mb-2 font-bold italic">
+              US (Corporate Office)
+            </h5>
+            <p className="text-md text-neutral-200 mb-0">
+              8105 Rasor Blvd, Suite 60, Plano, <br />
+              Texas 75024
             </p>
           </div>
         </div>
         <div className="flex items-center gap-4">
           <img
-            src="/Group 89.svg"
+            src="/Dubai_Flag.svg"
             alt="AI"
-            className="h-12 md:h-8 align-middle"
+            className="h-14 md:h-10 align-middle"
           />
           <div>
-            <h5 className="text-lg mb-2">Dubai</h5>
-            <p className="text-neutral-200">
-              PO Box Number 32846, F009, Ras Al Khor Avenue, Dubai
+            <h5 className="text-xl mb-2 font-bold italic">Dubai</h5>
+            <p className="text-md text-neutral-200">
+              PO Box Number 32846, F009,
+              <br /> Ras Al Khor Avenue, Dubai
             </p>
           </div>
         </div>
         <div className="flex items-center gap-4">
           <img
-            src="/Group 89.svg"
+            src="/India_Flag.svg"
             alt="IND"
-            className="h-12 md:h-8 align-middle"
+            className="h-14 md:h-10 align-middle"
           />
           <div>
-            <h5 className="text-lg mb-2">India</h5>
-            <p className="text-neutral-200">
-              42, Sri Balasubramania Nagar, Peelamedu, Coimbatore - 641 004
+            <h5 className="text-xl mb-2 font-bold italic">India</h5>
+            <p className="text-md text-neutral-200">
+              42, Sri Balasubramania Nagar,
+              <br /> Peelamedu, Coimbatore - 641 004
             </p>
           </div>
         </div>

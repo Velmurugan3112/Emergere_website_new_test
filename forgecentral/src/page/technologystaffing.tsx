@@ -6,7 +6,7 @@ export const TechnologyStaffing = () => {
   return (
     <>
       <ServicesMenu />
-      <div className="w-full font-sans bg-white">
+      <div className="w-full bg-white">
         {/* Technology Staffing Section */}
         <section
           className="w-full flex flex-col items-center justify-center text-center px-4 pt-12 pb-0"
@@ -58,8 +58,9 @@ export const TechnologyStaffing = () => {
               </strong>{" "}
               Our Technology Staffing services are built to help you{" "}
               <strong className="text-[#161616]">
-                scale your IT capabilities efficiently while maintaining agility
-                and cost-effectiveness.
+                scale your IT capabilities efficiently while
+                <br />
+                maintaining agility and cost-effectiveness.
               </strong>
             </p>
 
@@ -331,7 +332,7 @@ export const TechnologyStaffing = () => {
         </section>
 
         {/* Why Emergere Section */}
-        <section className="w-full px-4 md:px-0 py-2 bg-[#F9F9FA] relative overflow-hidden">
+        <section className="w-full px-4 md:px-0 py-[60px] bg-[#F9F9FA] relative overflow-hidden">
           {/* Section Background */}
           <div className="absolute inset-0 z-0">
             <Image
@@ -345,7 +346,7 @@ export const TechnologyStaffing = () => {
 
           <div className="relative z-10 max-w-7xl mx-auto flex flex-col items-center text-center">
             {/* Section Heading */}
-            <h2 className="text-[28px] md:text-[40px] font-bold mt-20 mb-14 text-black">
+            <h2 className="text-[28px] md:text-[40px] font-bold mt-20 mb-[24px] text-black">
               Why{" "}
               <span
                 className="bg-clip-text text-transparent"
@@ -359,7 +360,7 @@ export const TechnologyStaffing = () => {
             </h2>
 
             {/* Feature Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-16 w-full px-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1 md:gap-1 mb-16 w-full px-4 md:px-8">
               {/* Card Component Template */}
               {[
                 {
@@ -409,10 +410,10 @@ export const TechnologyStaffing = () => {
               ].map(({ icon, alt, text }, i) => (
                 <div
                   key={i}
-                  className="relative py-10 px-6 flex flex-col items-center overflow-hidden"
+                  className="relative py-10 px-6 flex flex-col items-center overflow-hidden w-full max-w-[292px] mx-auto"
                 >
                   {/* Diagonal Light Background Image */}
-                  <div className="absolute w-[292px] h-full inset-0 ">
+                  <div className="absolute w-full h-full inset-0 ">
                     <Image
                       src="/card_pattern.svg" // <- Your subtle diagonal bg
                       alt=""
@@ -421,7 +422,7 @@ export const TechnologyStaffing = () => {
                     />
                   </div>
 
-                  <div className="relative z-10 flex flex-col w-[292px] items-center">
+                  <div className="relative z-10 flex flex-col w-full max-w-[292px] items-center">
                     <Image
                       src={icon}
                       alt={alt}

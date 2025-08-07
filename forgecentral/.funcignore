@@ -1,8 +1,0 @@
-*.log
-.vscode/
-.git/
-node_modules/
-*.ts
-tsconfig.json
-package-lock.json
-README.md

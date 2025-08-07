@@ -4,7 +4,7 @@ import ServicesMenu from "./servicemenu";
 export const DigitalServices = () => (
   <>
     <ServicesMenu />
-    <div className="w-full font-sans bg-white item-center justify-center">
+    <div className="w-full bg-white item-center justify-center">
       {/* Digital Service Section */}
       <section
         className="w-full flex flex-col items-center justify-center text-center px-4 pt-12 mb-0 pb-0"

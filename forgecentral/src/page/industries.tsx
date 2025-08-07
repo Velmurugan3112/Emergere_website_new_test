@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Industries: React.FC = () => {
   return (
-    <section>
+    <section className="bg-white">
       <div
         className="relative w-full h-[280px] bg-cover bg-center flex items-end justify-center text-white"
         style={{ backgroundImage: "url('/our_service_cover_img.jpg')" }}
@@ -46,263 +46,254 @@ const Industries: React.FC = () => {
           <h1 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-[#023ED6] to-[#E29400] bg-clip-text text-transparent leading-tight">
             Industries
           </h1>
-          <h2 className="text-base font-bold md:text-lg text-black max-w-3xl">
-            Tailored Solutions for Your Unique Challenges
-          </h2>
-          <p className="text-base md:text-lg text-[#535353] max-w-3xl">
-            Data, AI, and analytics form the backbone of digital transformation.
-            By harnessing vast amounts of data through{" "}
-            <strong className="text-black font-semibold">
-              advanced analytics and AI-driven insights, organizations can
-              unlock new opportunities, streamline operations, and deliver
-              personalized customer experiences.
-            </strong>{" "}
-            These technologies enable faster, smarter decision-making and foster
-            continuous innovation, ensuring businesses remain competitive in a
-            rapidly evolving landscape.
-          </p>
+          <div className="px-4 md:px-8 py-4 max-w-3xl mt-4 flex flex-col items-center text-center">
+            <h2 className="text-xs md:text-[20px] font-extrabold text-[#161616] leading-[38px] mb-4">
+              Tailored Solutions for Your Unique Challenges
+            </h2>
+
+            <p className="text-lg md:text-[16px] text-center text-[#161616] leading-[32px] font-normal max-w-2xl">
+              Emergere provides experienced experts from many industries. We aim
+              to build long-term relationships with our clients by offering{" "}
+              <span className="font-bold text-[#161616]">
+                quality, complete solutions and innovative business consulting
+                to improve their projects.
+              </span>
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* Customer & Retail Section */}
-      <div className="bg-white w-full flex flex-col lg:flex-row gap-60 items-stretch justify-center px-10">
-        {/* LEFT: Content */}
-        <div className="bg-white flex flex-col justify-start items-start rounded-2xl px-8 py-8 w-full max-w-md min-h-[285px] h-full">
-          <div className="flex items-start mb-4">
-            <div className="flex flex-col items-start">
-              <div className="flex justify-start items-start w-[56px] h-[56px] mr-[-34px] mb-1">
+      {/* Industries Row Section */}
+      <div className="relative items-center justify-center px-26">
+        {/* Customer & Retail Section */}
+        <div className="w-full bg-white px-6 md:px-10 py-16 relative">
+          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-20 relative z-10">
+            {/* Left Text Content */}
+            <div className="w-full md:basis-1/2 flex mb-6 flex-col items-start">
+              <div className="w-16 h-16 flex items-center justify-center mb-4">
                 <img
                   src="/consumer_retail_icon y.png"
-                  alt="Customer & Retail icon"
-                  className="w-14 h-14"
+                  alt="Consumer Retail Icon"
+                  className="w-16 h-16"
                 />
               </div>
-              <span className="font-black text-[20px] mt-4 text-[#E29400] text-left">
-                Customer & Retail
-              </span>
+              <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#E29400] mb-4">
+                Consumer & Retail
+              </h2>
+              <p className="text-[#535353] text-lg md:text-[18px] font-medium leading-relaxed">
+                Empowering retailers and consumer brands to optimize operations,
+                enhance customer experiences, and drive growth through digital
+                innovation and data-driven insights
+              </p>
+            </div>
+
+            {/* Right Image Container */}
+            <div className="w-full md:basis-1/2 flex justify-center relative">
+              {/* Blurred Ellipse */}
+              <div className="absolute w-[200px] h-[200px] bg-[#E29400] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 right-0 z-0" />
+
+              {/* Main Image */}
+              <img
+                src="/customer_retail_banner.jpg"
+                alt="Consumer Retail"
+                className="w-full max-w-[585px] h-auto object-contain relative z-10"
+              />
             </div>
           </div>
-          <p className="text-[#535353] text-[16px] md:text-base leading-[1.8] font-medium text-left">
-            Emergere provides experienced experts from many industries. We aim
-            to build long-term relationships with our clients by offering{" "}
-            <span className="font-bold text-[#161616]">
-              quality, complete solutions and innovative business consulting to
-              improve their projects.
-            </span>
-          </p>
         </div>
 
-        {/* RIGHT: Image */}
-        <div className="w-full max-w-md flex items-start justify-start h-full">
-          <div className="relative w-full h-full flex items-start mt-15">
-            <div className="absolute w-[200px] h-[200px] bg-[#E29400] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-[-20px] right-[-80px] z-0" />
-            <img
-              src="/customer_retail_banner.jpg"
-              alt="Customer & Retail"
-              className="rounded-[20px] w-full h-auto object-cover"
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* Financial Services Section */}
-      <div className="bg-white w-full flex flex-col lg:flex-row gap-60 items-stretch justify-center px-10">
-        {/* LEFT: Image */}
-        <div className="w-full max-w-md flex items-start justify-start h-full">
-          <div className="relative w-full h-full flex items-start mt-15">
-            <div className="absolute w-[200px] h-[200px] bg-[#023ED6] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-[-20px] left-[-80px] z-0" />
-            <img
-              src="/financial_services_banner.jpg"
-              alt="Financial Services"
-              className="rounded-[20px] w-full h-auto object-cover"
-            />
-          </div>
-        </div>
-
-        {/* RIGHT: Content */}
-        <div className="bg-white flex flex-col justify-start items-start rounded-2xl px-8 py-8 w-full max-w-md min-h-[285px] h-full">
-          <div className="flex items-start mb-4">
-            <div className="flex flex-col items-start">
-              <div className="flex justify-start items-start w-[56px] h-[56px] mr-[-34px] mb-1">
-                <img
-                  src="/financial_services_icon b.png"
-                  alt="Financial Services icon"
-                  className="w-14 h-14"
-                />
+        {/* Financial Services Section */}
+        <div className="w-full bg-white px-6 md:px-10 py-16">
+          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row-reverse items-stretch md:items-center gap-10 md:gap-20">
+            {/* Left Text Content */}
+            <div className="w-full md:basis-1/2 flex flex-col items-start">
+              <div className="mb-6">
+                <div className="w-16 h-16 flex items-center justify-center mb-4">
+                  <img
+                    src="/financial_services_icon b.png"
+                    alt="Financial Services Icon"
+                    className="w-16 h-16"
+                  />
+                </div>
+                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] mb-4">
+                  Financial Services
+                </h2>
+                <p className="text-[#535353] text-lg md:text-[18px]  font-medium leading-relaxed">
+                  Delivering tailored technology and analytics solutions to{" "}
+                  <span className="font-bold text-[#161616]">
+                    banks, insurers, and financial institutions for improved
+                    efficiency, compliance, and customer trust
+                  </span>
+                </p>
               </div>
-              <span className="font-black text-[20px] mt-4 text-[#023ED6] text-left">
-                Financial Services
-              </span>
+            </div>
+            {/* Left Image */}
+            <div className="w-full md:basis-1/2 flex flex-col items-start min-h-[300px] justify-center relative z-10">
+              <div className="absolute w-[200px] h-[200px] bg-[#023ED6] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 left-0 z-0" />
+              <img
+                src="/financial_services_banner.jpg"
+                alt="Financial Services"
+                className="w-full max-w-[585px] h-auto min-h-[300px] object-contain relative z-10"
+              />
             </div>
           </div>
-          <p className="text-[#535353] text-[16px] md:text-base leading-[1.8] font-medium text-left">
-            Delivering tailored technology and analytics solutions to{" "}
-            <span className="font-bold text-[#161616]">
-              banks, insurers, and financial institutions for improved
-              efficiency, compliance, and customer trust
-            </span>
-          </p>
         </div>
-      </div>
 
-      {/* Healthcare & Lifesciences Section */}
-      <div className="bg-white w-full flex flex-col lg:flex-row gap-60 items-stretch justify-center px-10">
-        {/* LEFT: Content */}
-        <div className="bg-white flex flex-col justify-start items-start rounded-2xl px-8 py-8 w-full max-w-md min-h-[285px] h-full">
-          <div className="flex items-start mb-4">
-            <div className="flex flex-col items-start">
-              <div className="flex justify-start items-start w-[56px] h-[56px] mr-[-34px] mb-1">
-                <img
-                  src="/hc_ls_icon y.png"
-                  alt="Healthcare & Lifesciences icon"
-                  className="w-14 h-14"
-                />
+        {/* Healthcare & Lifesciences Section */}
+        <div className="w-full bg-white px-6 md:px-10 py-16 relative ">
+          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-20 relative z-10">
+            {/* Left Text Content */}
+            <div className="w-full md:basis-1/2 flex flex-col items-start">
+              <div className="mb-6">
+                <div className="w-16 h-16 flex items-center justify-center mb-4">
+                  <img
+                    src="/hc_ls_icon y.png"
+                    alt="Healthcare & Lifesciences icon"
+                    className="w-16 h-16"
+                  />
+                </div>
+                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#E29400] mb-4">
+                  Healthcare & Lifescience
+                </h2>
+                <p className="text-[#535353] text-lg md:text-[18px] font-medium leading-relaxed">
+                  Enabling healthcare providers and life sciences organizations
+                  to accelerate{" "}
+                  <span className="font-bold text-[#161616]">
+                    innovation, ensure regulatory compliance, and improve
+                    patient outcomes.
+                  </span>
+                </p>
               </div>
-              <span className="font-black text-[20px] mt-4 text-[#E29400] text-left">
-                Healthcare & Lifescience
-              </span>
+            </div>
+
+            {/* Right Image Container */}
+            <div className="w-full md:basis-1/2 flex justify-center relative">
+              {/* Elliptical Blue Blur */}
+              <div className="absolute w-[200px] h-[200px] bg-[#E29400] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 right-0 z-0" />
+
+              {/* Main Image */}
+              <img
+                src="/hc_ls_banner.jpg"
+                alt="Healthcare & Lifesciences"
+                className="w-full max-w-[585px] h-auto min-h-[300px] object-contain relative z-10"
+              />
             </div>
           </div>
-          <p className="text-[#535353] text-[16px] md:text-base leading-[1.8] font-medium text-left">
-            Enabling healthcare providers and life sciences organizations to
-            accelerate{" "}
-            <span className="font-bold text-[#161616]">
-              innovation, ensure regulatory compliance, and improve patient
-              outcomes.
-            </span>
-          </p>
         </div>
 
-        {/* RIGHT: Image */}
-        <div className="w-full max-w-md flex items-start justify-start h-full">
-          <div className="relative w-full h-full flex items-start mt-15">
-            <div className="absolute w-[200px] h-[200px] bg-[#E29400] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-[-20px] right-[-80px] z-0" />
-            <img
-              src="/hc_ls_banner.jpg"
-              alt="Healthcare & Lifesciences"
-              className="rounded-[20px] w-full h-auto object-cover"
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* Banking & Capital Markets Section */}
-      <div className="bg-white w-full flex flex-col lg:flex-row gap-60 items-stretch justify-center px-10">
-        {/* LEFT: Image */}
-        <div className="w-full max-w-md flex items-start justify-start h-full">
-          <div className="relative w-full h-full flex items-start mt-15">
-            <div className="absolute w-[200px] h-[200px] bg-[#023ED6] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-[-20px] left-[-80px] z-0" />
-            <img
-              src="/banking_capital_banner.jpg"
-              alt="Banking & Capital"
-              className="rounded-[20px] w-full h-auto object-cover"
-            />
-          </div>
-        </div>
-
-        {/* RIGHT: Content */}
-        <div className="bg-white flex flex-col justify-start items-start rounded-2xl px-8 py-8 w-full max-w-md min-h-[285px] h-full">
-          <div className="flex items-start mb-4">
-            <div className="flex flex-col items-start">
-              <div className="flex justify-start items-start w-[56px] h-[56px] mr-[-34px] mb-1">
-                <img
-                  src="/banking_capital_icon b.png"
-                  alt="Banking Capital icon"
-                  className="w-14 h-14"
-                />
+        {/* Banking & Capital Markets Section */}
+        <div className="w-full bg-white px-6 md:px-10 py-16">
+          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row-reverse items-stretch md:items-center gap-10 md:gap-20">
+            {/* Left Text Content */}
+            <div className="w-full md:basis-1/2 flex flex-col items-start">
+              <div className="mb-6">
+                <div className="w-16 h-16 flex items-center justify-center mb-4">
+                  <img
+                    src="/banking_capital_icon b.png"
+                    alt="Banking Capital icon"
+                    className="w-16 h-16"
+                  />
+                </div>
+                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] mb-4">
+                  Banking & Capital Markets
+                </h2>
+                <p className="text-[#535353] text-lg md:text-[18px]  font-medium leading-relaxed">
+                  Supporting banks and capital market firms with robust digital{" "}
+                  <span className="font-bold text-[#161616]">
+                    platforms, risk analytics, and regulatory technology for
+                    sustainable growth.
+                  </span>
+                </p>
               </div>
-              <span className="font-black text-[20px] mt-4 text-[#023ED6] text-left">
-                Banking & Capital Markets
-              </span>
+            </div>
+            {/* Left Image */}
+            <div className="w-full md:basis-1/2 flex flex-col items-start min-h-[300px] justify-center relative">
+              <div className="absolute w-[200px] h-[200px] bg-[#023ED6] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 left-0 z-0" />
+              <img
+                src="/banking_capital_banner.jpg"
+                alt="Banking & Capital"
+                className="w-full max-w-[585px] h-auto min-h-[300px] object-contain relative z-10"
+              />
             </div>
           </div>
-          <p className="text-[#535353] text-[16px] md:text-base leading-[1.8] font-medium text-left">
-            Supporting banks and capital market firms with robust digital{" "}
-            <span className="font-bold text-[#161616]">
-              platforms, risk analytics, and regulatory technology for
-              sustainable growth.
-            </span>
-          </p>
         </div>
-      </div>
 
-      {/* Industrial Manufacturing Section */}
-      <div className="bg-white w-full flex flex-col lg:flex-row gap-60 items-stretch justify-center px-10">
-        {/* LEFT: Content */}
-        <div className="bg-white flex flex-col justify-start items-start rounded-2xl px-8 py-8 w-full max-w-md min-h-[285px] h-full">
-          <div className="flex items-start mb-4">
-            <div className="flex flex-col items-start">
-              <div className="flex justify-start items-start w-[56px] h-[56px] mr-[-34px] mb-1">
-                <img
-                  src="/industrial_manufacturing_icon y.png"
-                  alt="Industrial Manufacturing icon"
-                  className="w-14 h-14"
-                />
+        {/* Industrial Manufacturing Section */}
+        <div className="w-full bg-white px-6 md:px-10 py-16 relative ">
+          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-20 relative z-10">
+            {/* Left Text Content */}
+            <div className="w-full md:basis-1/2 flex flex-col items-start">
+              <div className="mb-6">
+                <div className="w-16 h-16 flex items-center justify-center mb-4">
+                  <img
+                    src="/industrial_manufacturing_icon y.png"
+                    alt="Industrial Manufacturing icon"
+                    className="w-16 h-16"
+                  />
+                </div>
+                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#E29400] mb-4">
+                  Industrial Manufacturing
+                </h2>
+                <p className="text-[#535353] text-lg md:text-[18px] font-medium leading-relaxed">
+                  Transforming manufacturing operations with{" "}
+                  <span className="font-bold text-[#161616]">
+                    smart automation and data analytics to boost productivity
+                    and reduce costs.
+                  </span>
+                </p>
               </div>
-              <span className="font-black text-[20px] mt-4 text-[#E29400] text-left">
-                Industrial Manufacturing
-              </span>
+            </div>
+
+            {/* Right Image Container */}
+            <div className="w-full md:basis-1/2 flex justify-center relative">
+              {/* Elliptical Blue Blur */}
+              <div className="absolute w-[200px] h-[200px] bg-[#E29400] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 right-0 z-0" />
+
+              {/* Main Image */}
+              <img
+                src="/industrial_manufacturing_banner.jpg"
+                alt="Industrial Manufacturing"
+                className="w-full max-w-[585px] h-auto min-h-[300px] object-contain relative z-10"
+              />
             </div>
           </div>
-          <p className="text-[#535353] text-[16px] md:text-base leading-[1.8] font-medium text-left">
-            Transforming manufacturing operations with{" "}
-            <span className="font-bold text-[#161616]">
-              smart automation and data analytics to boost productivity and
-              reduce costs.
-            </span>
-          </p>
         </div>
 
-        {/* RIGHT: Image */}
-        <div className="w-full max-w-md flex items-start justify-start h-full">
-          <div className="relative w-full h-full flex items-start mt-15">
-            <div className="absolute w-[200px] h-[200px] bg-[#E29400] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-[-20px] right-[-80px] z-0" />
-            <img
-              src="/industrial_manufacturing_banner.jpg"
-              alt="Industrial Manufacturing"
-              className="rounded-[20px] w-full h-auto object-cover"
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* Technology, Media & Telecom Section */}
-      <div className="bg-white w-full flex flex-col lg:flex-row gap-60 items-stretch justify-center px-10">
-        {/* LEFT: Image */}
-        <div className="w-full max-w-md flex items-start justify-start h-full">
-          <div className="relative w-full h-full flex items-start mt-15">
-            <div className="absolute w-[200px] h-[200px] bg-[#023ED6] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-[-20px] left-[-80px] z-0" />
-            <img
-              src="/tech_media_telecom_banner.jpg"
-              alt="Tech Media Telecom"
-              className="rounded-[20px] w-full h-auto object-cover"
-            />
-          </div>
-        </div>
-
-        {/* RIGHT: Content */}
-        <div className="bg-white flex flex-col justify-start items-start rounded-2xl px-8 py-8 w-full max-w-md min-h-[285px] h-full">
-          <div className="flex items-start mb-4">
-            <div className="flex flex-col items-start">
-              <div className="flex justify-start items-start w-[56px] h-[56px] mr-[-34px] mb-1">
-                <img
-                  src="/tech_media_telecom_icon b.png"
-                  alt="Tech Media Telecom Icon"
-                  className="w-14 h-14"
-                />
+        {/* Technology, Media & Telecom Section */}
+        <div className="w-full bg-white px-6 md:px-10 py-16">
+          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row-reverse items-stretch md:items-center gap-10 md:gap-20">
+            {/* Left Text Content */}
+            <div className="w-full md:basis-1/2 flex flex-col items-start">
+              <div className="mb-6">
+                <div className="w-16 h-16 flex items-center justify-center mb-4">
+                  <img
+                    src="/tech_media_telecom_icon b.png"
+                    alt="Tech Media Telecom Icon"
+                    className="w-16 h-16"
+                  />
+                </div>
+                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] mb-4">
+                  Technology, Media & Telecom
+                </h2>
+                <p className="text-[#535353] text-lg md:text-[18px]  font-medium leading-relaxed">
+                  Driving digital transformation for{" "}
+                  <span className="font-bold text-[#161616]">
+                    technology, media, and telecom companies with scalable
+                    platforms and advanced analytics.
+                  </span>
+                </p>
               </div>
-              <span className="font-black text-[20px] mt-4 text-[#023ED6] text-left">
-                Technology, Media & Telecom
-              </span>
+            </div>
+            {/* Left Image */}
+            <div className="w-full md:basis-1/2 flex flex-col items-start min-h-[300px] justify-center relative">
+              <div className="absolute w-[200px] h-[200px] bg-[#023ED6] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 left-0 z-0" />
+              <img
+                src="/tech_media_telecom_banner.jpg"
+                alt="Tech Media Telecom"
+                className="w-full max-w-[585px] h-auto min-h-[300px] object-contain relative z-10"
+              />
             </div>
           </div>
-          <p className="text-[#535353] text-[16px] md:text-base leading-[1.8] font-medium text-left">
-            Driving digital transformation for{" "}
-            <span className="font-bold text-[#161616]">
-              technology, media, and telecom companies with scalable platforms
-              and advanced analytics.
-            </span>
-          </p>
         </div>
       </div>
     </section>
