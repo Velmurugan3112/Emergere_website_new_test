@@ -1,30 +1,96 @@
+"use client";
+
 import React from "react";
+import { useRef, useEffect, useState } from "react";
 import ServicesMenu from "./servicemenu";
+
+type BenefitCardProps = {
+  icon: string;
+  text: string;
+  inView?: boolean;
+  index?: number;
+};
 
 const benefits = [
   {
+    index: 1,
     icon: "/erp_benefit_icon.png",
     text: "Expertise across multiple ERP platforms",
   },
   {
+    index: 2,
     icon: "/solution_benefit_icon.png",
     text: "Industry-specific solutions and configurations",
   },
   {
+    index: 3,
     icon: "/roi_benefit_icon.png",
     text: "Faster ROI with agile delivery models",
   },
   {
+    index: 4,
     icon: "/managed_benefits_icon.png",
     text: "Reduced operational overhead with managed services",
   },
   {
+    index: 5,
     icon: "/growing_benefit_icon.png",
     text: "Scalable solutions for growing business needs",
   },
 ];
 
+const BenefitCard = ({
+  icon,
+  text,
+  inView = true,
+  index = 0,
+}: BenefitCardProps) => {
+  const style = {
+    opacity: inView ? 1 : 0,
+    transform: inView ? "translateY(0)" : "translateY(120px)",
+    transition: `opacity 0.9s cubic-bezier(0.4,0,0.2,1) ${
+      index * 0.18
+    }s, transform 0.9s cubic-bezier(0.4,0,0.2,1) ${index * 0.18}s`,
+  };
+
+  return (
+    <div className="flex justify-center items-center w-full h-full">
+      <div
+        className="bg-white rounded-[32px] p-6 shadow-sm text-left flex flex-col h-full transform transition-transform hover:shadow-xl max-w-[280px] w-full"
+        style={style}
+      >
+        <div className="w-12 h-12 flex items-center justify-center rounded-xl mb-4 bg-gray-100 mx-auto">
+          <img src={icon} alt={text} className="w-10 h-10" />
+        </div>
+        <p className="text-[#161616] text-md mb-2 leading-snug text-center">
+          {text}
+        </p>
+      </div>
+    </div>
+  );
+};
+
 const ERPServices: React.FC = () => {
+  const benefitValuesRef = useRef<HTMLDivElement>(null);
+  const [benefitValuesInView, setBenefitValuesInView] = useState(false);
+
+  useEffect(() => {
+    const section = benefitValuesRef.current;
+    if (section) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setBenefitValuesInView(true);
+            observer.disconnect();
+          }
+        },
+        { threshold: 0.5 }
+      );
+      observer.observe(section);
+      return () => observer.disconnect();
+    }
+  }, []);
+
   return (
     <div className="bg-white">
       <ServicesMenu />
@@ -432,7 +498,7 @@ const ERPServices: React.FC = () => {
         className="bg-cover bg-center bg-no-repeat py-16 px-4 md:px-20 text-[#262626]"
         style={{
           backgroundImage: "url('/benefits_of_partnering_bg.png')",
-          opacity: 15,
+          opacity: 100,
         }}
       >
         {/* Header */}
@@ -453,44 +519,33 @@ const ERPServices: React.FC = () => {
         </div>
 
         {/* Cards */}
-        <div className="w-full px-4 py-10 flex flex-col items-center justify-center">
+        <div
+          ref={benefitValuesRef}
+          className="w-full px-4 py-10  flex flex-col items-center justify-center gap-10"
+        >
           {/* Top Row - 3 Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6 w-full max-w-6xl place-items-center">
-            {benefits.slice(0, 3).map((item, idx) => (
-              <div
-                key={idx}
-                className="rounded-[24px] shadow-[0_4px_16px_rgba(0,0,0,0.05)] px-6 py-8 w-full max-w-[280px] text-center"
-                style={{ backgroundImage: "url('partnering_card_bg.png')" }}
-              >
-                <img
-                  src={item.icon}
-                  alt="Benefit Icon"
-                  className="w-10 h-10 mx-auto mb-4"
-                />
-                <p className="text-sm font-medium text-[#1a1a1a]">
-                  {item.text}
-                </p>
-              </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-10 py-12 w-full max-w-6xl">
+            {benefits.slice(0, 3).map((benefit, idx) => (
+              <BenefitCard
+                key={benefit.text}
+                icon={benefit.icon}
+                text={benefit.text}
+                inView={benefitValuesInView}
+                index={idx}
+              />
             ))}
           </div>
 
           {/* Bottom Row - 2 Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-4xl place-items-center">
-            {benefits.slice(3).map((item, idx) => (
-              <div
-                key={idx}
-                className="rounded-[24px] shadow-[0_4px_16px_rgba(0,0,0,0.05)] px-6 py-8 w-full max-w-[280px] text-center"
-                style={{ backgroundImage: "url('partnering_card_bg.png')" }}
-              >
-                <img
-                  src={item.icon}
-                  alt="Benefit Icon"
-                  className="w-10 h-10 mx-auto mb-4"
-                />
-                <p className="text-sm font-medium text-[#1a1a1a]">
-                  {item.text}
-                </p>
-              </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 px-10 py-12 w-full max-w-4xl">
+            {benefits.slice(3).map((benefit, idx) => (
+              <BenefitCard
+                key={benefit.text}
+                icon={benefit.icon}
+                text={benefit.text}
+                inView={benefitValuesInView}
+                index={idx + 3}
+              />
             ))}
           </div>
         </div>

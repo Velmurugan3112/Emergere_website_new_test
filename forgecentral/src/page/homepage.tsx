@@ -1,7 +1,10 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Link from "next/link";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 type ServiceCardProps = {
   icon: string;
   bg: string;
@@ -49,7 +52,7 @@ const ServiceCard = ({
   };
   return (
     <div
-      className="bg-white rounded-[32px] p-6 shadow-sm text-left flex flex-col h-full transform transition-transform shadow-sm hover:shadow-xl"
+      className="bg-white rounded-[32px] p-6 shadow-sm text-left flex flex-col h-[225px] transform transition-transform shadow-sm hover:shadow-xl"
       style={style}
     >
       <div
@@ -61,9 +64,9 @@ const ServiceCard = ({
       <h3 className="text-[#393939] font-extrabold text-[18px] mb-2 leading-snug">
         {title}
       </h3>
-      <p className="text-[#3E3E59] text-sm leading-relaxed flex-grow">{desc}</p>
+      <p className="text-[#3E3E59] text-md leading-relaxed flex-grow">{desc}</p>
       <Link href={href}>
-        <button className="inline-flex items-center gap-2 text-md font-semibold text-gray-700 border border-gray-200 rounded-full px-5 py-2 hover:scale-105">
+        <button className="inline-flex items-center gap-2 text-md font-semibold text-gray-700 border border-gray-200 rounded-full px-5 py-3 hover:scale-105">
           Know more
           <img
             src="/arrow-right-black.svg"
@@ -176,7 +179,7 @@ const TestimonialCard = ({
       <div className="flex text-start gap-3 mt-auto">
         <div>
           <p className="font-semibold text-md text-gray-900">{role}</p>
-          <p className="text-sm text-gray-500">{company}</p>
+          <p className="text-md text-gray-500">{company}</p>
         </div>
       </div>
     </div>
@@ -349,10 +352,16 @@ const HeroSection = () => {
   const [industryValuesInView, setIndustryValuesInView] = useState(false);
   const testimonialValuesRef = useRef<HTMLDivElement>(null);
   const [testimonialValuesInView, setTestimonialValuesInView] = useState(false);
+  // Form state and response message
+  const [formInput, setFormInput] = React.useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+  const [response, setResponse] = React.useState<string | null>(null);
 
-  {
-    /* Service Animation */
-  }
+  // Service Animation
   useEffect(() => {
     const section = serviceValuesRef.current;
     if (section) {
@@ -370,9 +379,7 @@ const HeroSection = () => {
     }
   }, []);
 
-  {
-    /* Industry Animation */
-  }
+  // Industry Animation
   useEffect(() => {
     const section = industryValuesRef.current;
     if (section) {
@@ -390,9 +397,7 @@ const HeroSection = () => {
     }
   }, []);
 
-  {
-    /* Testimonial Animation */
-  }
+  // Testimonial Animation
   useEffect(() => {
     const section = testimonialValuesRef.current;
     if (section) {
@@ -410,6 +415,7 @@ const HeroSection = () => {
     }
   }, []);
 
+  // Video Loop
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videos.length);
@@ -417,6 +423,7 @@ const HeroSection = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // Scroll
   useEffect(() => {
     const onScroll = () => {
       if (window.scrollY >= HERO_HEIGHT) {
@@ -438,8 +445,51 @@ const HeroSection = () => {
     document.body.removeChild(link);
   };
 
+  // Input handler
+  const handleInput = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormInput({ ...formInput, [e.target.name]: e.target.value });
+  };
+
+  // Submit handler (calls Azure API endpoint)
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setResponse(null);
+    const payload = {
+      contactName: formInput.name,
+      contactEmail: formInput.email,
+      contactPhone: formInput.phone,
+      contactMessage: formInput.message,
+    };
+    console.log("Contact Us API Payload:", JSON.stringify(payload, null, 2));
+    console.log(
+      "Contact Us API URL:",
+      `${process.env.NEXT_PUBLIC_API_URL}ContactUs/AddContact`
+    );
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}ContactUs/AddContact`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }
+      );
+      const data = await res.json();
+      if (data.message) {
+        toast.success(data.message);
+      } else {
+        toast.success("Email sent successfully!");
+      }
+    } catch (error) {
+      toast.error("Failed to send message.");
+    }
+  };
+
   return (
     <section className="relative">
+      <ToastContainer position="top-center" autoClose={3000} />
       {/* Fixed Hero Section: only visible at the top */}
       {showHero && (
         <div
@@ -545,7 +595,7 @@ const HeroSection = () => {
 
             {/* Content Block */}
             <div className="w-full md:w-1/2 text-left z-10">
-              <p className="text-sm uppercase font-bold text-blue-700 mb-2 tracking-wider inline-block relative">
+              <p className="text-md uppercase font-bold text-blue-700 mb-2 tracking-wider inline-block relative">
                 WHO WE ARE
                 <span className="absolute bottom-0 right-0 translate-y-full w-10 h-1 bg-[#FFA700] rounded mt-1"></span>
               </p>
@@ -655,7 +705,7 @@ const HeroSection = () => {
           id="what-we-do"
           className="bg-[#F2F3F5] py-10 px-6 md:px-24 text-center"
         >
-          <p className="text-sm uppercase font-bold text-blue-700 mb-2 tracking-wider inline-block relative">
+          <p className="text-md uppercase font-bold text-blue-700 mb-2 tracking-wider inline-block relative">
             WHAT WE DO
             <span className="absolute bottom-0 right-0 translate-y-full w-10 h-1 bg-[#FFA700] rounded mt-1"></span>
           </p>
@@ -697,7 +747,7 @@ const HeroSection = () => {
 
         {/* Industries Section */}
         <div className="bg-[#f7f7f7] py-10 px-6 md:px-24 text-center">
-          <p className="text-sm uppercase font-bold text-blue-700 mb-2 tracking-wider inline-block relative">
+          <p className="text-md uppercase font-bold text-blue-700 mb-2 tracking-wider inline-block relative">
             INDUSTRIES
             <span className="absolute bottom-0 right-0 translate-y-full w-10 h-1 bg-[#FFA700] rounded mt-1"></span>
           </p>
@@ -857,7 +907,7 @@ const HeroSection = () => {
               </h3>
 
               {/* Form Inputs */}
-              <form className="space-y-10">
+              <form className="space-y-10" onSubmit={handleSubmit}>
                 <div className="flex items-center border-b border-white/30 py-4">
                   <img
                     src="/user_icon.png"
@@ -866,8 +916,12 @@ const HeroSection = () => {
                   />
                   <input
                     type="text"
+                    name="name"
                     placeholder="Full Name"
-                    className="bg-transparent w-full text-white placeholder text-sm outline-none"
+                    className="bg-transparent w-full text-white placeholder text-md outline-none"
+                    onChange={handleInput}
+                    value={formInput.name}
+                    required
                   />
                 </div>
                 <div className="flex items-center border-b border-white/30 py-2">
@@ -878,8 +932,12 @@ const HeroSection = () => {
                   />
                   <input
                     type="email"
+                    name="email"
                     placeholder="Email Address"
-                    className="bg-transparent w-full text-white placeholder text-sm outline-none"
+                    className="bg-transparent w-full text-white placeholder text-md outline-none"
+                    onChange={handleInput}
+                    value={formInput.email}
+                    required
                   />
                 </div>
                 <div className="flex items-center border-b border-white/30 py-2">
@@ -890,8 +948,12 @@ const HeroSection = () => {
                   />
                   <input
                     type="tel"
+                    name="phone"
                     placeholder="Mobile Number"
-                    className="bg-transparent w-full text-white placeholder text-sm outline-none"
+                    className="bg-transparent w-full text-white placeholder text-md outline-none"
+                    onChange={handleInput}
+                    value={formInput.phone}
+                    required
                   />
                 </div>
 
@@ -899,13 +961,17 @@ const HeroSection = () => {
                   <textarea
                     rows={4}
                     placeholder="Type your message here"
-                    className="w-full bg-transparent border border-white/30 rounded-xl p-3 text-sm text-white placeholder outline-none"
-                  ></textarea>
+                    name="message"
+                    className="w-full bg-transparent border border-white/30 rounded-xl p-3 text-md text-white placeholder outline-none"
+                    onChange={handleInput}
+                    value={formInput.message}
+                    required
+                  />
                 </div>
 
                 <button
                   type="submit"
-                  className="mt-4 relative inline-flex items-center rounded-full border border-white/50 bg-[#1E51D2] px-6 py-2.5 text-white text-sm pr-12 hover:scale-105"
+                  className="mt-4 relative inline-flex items-center rounded-full border border-white/50 bg-[#1E51D2] px-6 py-2.5 text-white text-md pr-12 hover:scale-105"
                 >
                   <span className="z-10">Submit</span>
                   <span className="absolute right-1.5 rounded-full flex items-center justify-center">
@@ -916,6 +982,11 @@ const HeroSection = () => {
                     />
                   </span>
                 </button>
+                {response && (
+                  <div className="md:col-span-2 text-center text-white">
+                    {response}
+                  </div>
+                )}
               </form>
             </div>
           </div>

@@ -33,7 +33,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
 
       setPosition({
         left: rect.left + scrollX,
-        top: rect.bottom + scrollY + 90,
+        top: rect.bottom + scrollY + 100,
       });
     }
   }, [anchorRef, isOpen]);

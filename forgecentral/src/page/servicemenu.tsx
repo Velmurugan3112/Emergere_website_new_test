@@ -35,7 +35,7 @@ const ServicesMenu: React.FC = () => {
   const pathname = usePathname(); // Get the current path
 
   return (
-    <section>
+    <section className="mt-[-10px]">
       {/* Banner Section */}
       <div
         className="relative w-full h-[280px] bg-cover bg-center flex items-end justify-center text-white"
@@ -44,7 +44,7 @@ const ServicesMenu: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-[#042474] to-[#023ED6] opacity-75"></div>
         <div className="relative z-10 text-center pb-8">
           <h1 className="text-3xl md:text-4xl font-bold mb-2">Our Services</h1>
-          <p className="text-sm text-white/80">
+          <p className="text-md text-white/80">
             <Link href="/home" className="text-[#6490FE]">
               Home
             </Link>{" "}
@@ -76,7 +76,7 @@ const ServicesMenu: React.FC = () => {
                 <Link
                   key={label}
                   href={href}
-                  className={`px-6 py-2 rounded-full font-medium text-sm transition-all duration-200
+                  className={`px-6 py-2 rounded-full font-medium text-md transition-all duration-200
                     ${
                       isActive
                         ? "bg-blue-600 text-white shadow-md"

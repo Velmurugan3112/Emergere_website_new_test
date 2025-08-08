@@ -5,7 +5,7 @@ import Footer from "@/components/footer";
 
 export default function ApplyJobRoute() {
   return (
-    <div className="mt-[-90px] scroll-mt-[104px] relative">
+    <div className="mt-[-100px] scroll-mt-[104px] relative">
       <Nav />
       <ApplyJob />
       <SubscribeSection />

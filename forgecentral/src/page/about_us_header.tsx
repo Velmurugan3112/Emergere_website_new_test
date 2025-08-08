@@ -15,7 +15,7 @@ export const AboutUsHeader = () => {
           <h1 className="text-2xl md:text-3xl font-bold relative inline-block tracking-wide">
             About <span className="relative z-10">Us</span>
           </h1>
-          <p className="text-xs md:text-sm mt-1 font-medium">
+          <p className="text-xs md:text-md mt-1 font-medium">
             <Link href="/home">
               <span className="text-white/80 hover:underline">Home</span>
             </Link>

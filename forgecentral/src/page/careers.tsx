@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 // Job type interface
@@ -116,10 +116,90 @@ const jobDataMap: Record<string, Job[]> = {
   Internship: internship_jobs,
 };
 
-const Careers: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = useState<string>("Full Time");
+type JobPost = {
+  id: number;
+  slug: string;
+  title: { rendered: string };
+  content: { rendered: string };
+  excerpt: { rendered: string };
+  link: string;
+  date: string;
+  meta?: {
+    experience?: string;
+    job_location?: string;
+    // Add any other meta fields used by WP Job Openings
+  };
+  featured_media?: number;
+  _embedded?: {
+    "wp:featuredmedia"?: Array<{
+      source_url: string;
+      alt_text?: string;
+    }>;
+  };
+};
 
-  const jobsToDisplay = jobDataMap[selectedCategory] || [];
+const Careers: React.FC = () => {
+  const [selectedCategory, setSelectedCategory] = useState("Full Time");
+  const [filteredJobs, setFilteredJobs] = useState<JobPost[]>([]);
+
+  const [jobs, setJobs] = useState<JobPost[]>([]);
+  const decodeEntities = (str: string) => str.replace(/&amp;/g, "& ");
+
+  useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        const res = await fetch(
+          "https://blogs.emergertech.com/wp-json/wp/v2/awsm_job_openings"
+        );
+        const data = await res.json();
+
+        // Parse experience and location
+        const jobsWithParsedMeta = data.map((job: any) => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(
+            job.content.rendered,
+            "text/html"
+          );
+
+          const experienceMatch = htmlDoc.body.innerText.match(
+            /Experience:\s*([\d+\-–]+(?:\s*years?))/i
+          );
+          const locationMatch =
+            htmlDoc.body.innerText.match(/Location:\s*(.+)/i);
+
+          return {
+            ...job,
+            meta: {
+              experience: experienceMatch?.[1]?.replace(/\s+/g, " ") ?? "N/A",
+              job_location: locationMatch?.[1]?.replace(/\s+/g, " ") ?? "N/A",
+            },
+          };
+        });
+
+        // Filter based on selected category
+        const filtered = jobsWithParsedMeta.filter((job: any) => {
+          if (selectedCategory === "Full Time") {
+            return job.class_list.includes("job-type-full-time");
+          }
+          if (selectedCategory === "Contract") {
+            return job.class_list.includes("job-type-contract");
+          }
+          if (selectedCategory === "Internship") {
+            return job.class_list.includes("job-type-internship");
+          }
+          return true;
+        });
+
+        setJobs(jobsWithParsedMeta);
+        setFilteredJobs(filtered);
+      } catch (err) {
+        console.error("Error fetching jobs:", err);
+      }
+    };
+
+    fetchJobs();
+  }, [selectedCategory]);
+
   return (
     <section className="bg-white">
       <div
@@ -132,7 +212,7 @@ const Careers: React.FC = () => {
         {/* Heading & Breadcrumb */}
         <div className="relative z-10 text-center pb-8">
           <h1 className="text-3xl md:text-4xl font-bold mb-2">Careers</h1>
-          <p className="text-sm text-white/80">
+          <p className="text-md text-white/80">
             <Link href="/" className="text-[#6490FE]">
               Home
             </Link>{" "}
@@ -236,7 +316,7 @@ const Careers: React.FC = () => {
       <div className="relative items-center justify-center px-6 md:px-10 py-16 bg-white">
         <div className="max-w-[1440px] mx-auto flex flex-col items-center text-center">
           {/* Small Label */}
-          <p className="text-sm font-semibold text-[#023ED6] uppercase tracking-wide mb-2">
+          <p className="text-md font-semibold text-[#023ED6] uppercase tracking-wide mb-2">
             Explore our open roles
           </p>
 
@@ -259,12 +339,12 @@ const Careers: React.FC = () => {
               <input
                 type="text"
                 placeholder="Search Job title / Technology"
-                className="w-full text-sm text-gray-600 placeholder-gray-400 focus:outline-none"
+                className="w-full text-md text-gray-600 placeholder-gray-400 focus:outline-none"
               />
             </div>
 
             {/* Button */}
-            <button className="bg-[#023ED6] hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2 rounded-[8px]">
+            <button className="bg-[#023ED6] hover:bg-blue-700 text-white text-md font-semibold px-5 py-2 rounded-[8px]">
               Find Job
             </button>
           </div>
@@ -279,7 +359,7 @@ const Careers: React.FC = () => {
             <h1 className="text-[28px] md:text-[30px] font-semibold bg-gradient-to-r from-[#023ED6] to-[#E29400] bg-clip-text text-transparent">
               View Open Roles
             </h1>
-            <div className="flex gap-2">
+            <div className="flex gap-2 mb-4">
               {["Full Time", "Contract", "Internship"].map((label) => (
                 <button
                   key={label}
@@ -298,97 +378,248 @@ const Careers: React.FC = () => {
 
           {/* Job Cards */}
           <div className="space-y-6 rounded-[28px] bg-[#f9f9f9] px-6 py-10">
-            {jobsToDisplay.map((job, idx) => (
-              <div
-                key={idx}
-                className="bg-white rounded-[16px] px-8 py-6 shadow-md border border-[#E5E5E5] flex justify-between items-start"
-              >
-                {/* Job Info */}
-                <div className="flex-1 pr-4 flex flex-col gap-4">
+            {/* Internship → Show Form */}
+            {selectedCategory === "Internship" ? (
+              <div className="bg-white p-6 rounded-2xl border border-gray-200 w-full">
+                <h3 className="text-xl font-bold text-[#0047FF] mb-5">
+                  Internship Application
+                </h3>
+
+                <form className="space-y-4">
+                  {/* Row 1 */}
+                  {/* 2-Column Grid Inputs */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* Full Name */}
+                    <input
+                      type="text"
+                      placeholder="Full Name"
+                      className="border border-[#D4D4D4] px-4 py-2 rounded-md w-full text-md outline-none text-[#404040] placeholder:text-[#404040]"
+                    />
+
+                    {/* Date of Birth */}
+                    <div className="relative">
+                      <input
+                        type="text"
+                        placeholder="DD/MM/YYYY"
+                        className="border border-[#D4D4D4] px-4 py-2 rounded-md w-full text-md pr-10 outline-none text-[#404040] placeholder:text-[#404040]"
+                        required
+                      />
+                      <span className="absolute right-3 top-2.5">
+                        <img
+                          src="/calendar_icon.png"
+                          alt="Calendar"
+                          className="w-5 h-5"
+                        />
+                      </span>
+                    </div>
+
+                    {/* Gender */}
+                    <div className="relative">
+                      <select className="border border-[#D4D4D4] px-4 py-2 rounded-md w-full text-md outline-none text-[#404040] appearance-none pr-6">
+                        <option>Gender</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                      </select>
+                      <span className="absolute right-3 top-2.5 pointer-events-none">
+                        <svg
+                          className="w-4 h-4 text-[#404040]"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M19 9l-7 7-7-7"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+
+                    {/* Another Date Field */}
+                    <div className="relative">
+                      <input
+                        type="text"
+                        placeholder="DD/MM/YYYY"
+                        className="border border-[#D4D4D4] px-4 py-2 rounded-md w-full text-md pr-10 outline-none text-[#404040] placeholder:text-[#404040]"
+                      />
+                      <span className="absolute right-3 top-2.5">
+                        <img
+                          src="/calendar_icon.png"
+                          alt="Calendar"
+                          className="w-5 h-5"
+                        />
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Email */}
+                  <input
+                    type="email"
+                    placeholder="Email Address"
+                    className="border border-[#D4D4D4] px-4 py-2 rounded-md w-full text-md outline-none text-[#404040] placeholder:text-[#404040]"
+                  />
+
+                  {/* About You */}
+                  <textarea
+                    rows={4}
+                    placeholder="About you"
+                    className="border border-[#D4D4D4] px-4 py-2 rounded-md w-full text-md outline-none resize-none text-[#404040] placeholder:text-[#404040]"
+                  ></textarea>
+
+                  {/* Upload Resume */}
                   <div>
-                    <h3 className="text-[20px] font-bold text-black mb-1">
-                      {job.title}
-                    </h3>
-                    <p className="text-[#666] text-sm leading-relaxed max-w-3xl">
-                      {job.description}
-                    </p>
-                  </div>
-                  <hr className="border-t border-gray-200" />
-                  <div className="flex items-center gap-10 text-sm text-black font-medium">
-                    {/* Experience */}
-                    <div className="flex items-center gap-2">
-                      <img
-                        src="/job_icon.png"
-                        alt="Experience"
-                        className="w-5 h-5"
+                    <label className="block text-md font-medium text-gray-700 mb-1">
+                      Upload Resume here
+                    </label>
+                    <div className="border-2 border-dashed border-blue-400 rounded-xl p-5 bg-[#f7faff] text-center relative">
+                      <input
+                        type="file"
+                        className="absolute inset-0 opacity-0 cursor-pointer"
                       />
-                      <div>
-                        <div className="text-[13px] text-[#666]">
-                          Experience
-                        </div>
-                        <div className="text-[14px] font-semibold">
-                          {job.experience}
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Location */}
-                    <div className="flex items-center gap-2">
-                      <img
-                        src="/pin_icon.png"
-                        alt="Location"
-                        className="w-5 h-5"
-                      />
-                      <div>
-                        <div className="text-[13px] text-[#666]">Location</div>
-                        <div className="text-[14px] font-semibold">
-                          {job.location}
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Posted On */}
-                    <div className="flex items-center gap-2">
-                      <img
-                        src="/calendar_icon.png"
-                        alt="Posted on"
-                        className="w-5 h-5"
-                      />
-                      <div>
-                        <div className="text-[13px] text-[#666]">Posted on</div>
-                        <div className="text-[14px] font-semibold">
-                          {job.postedOn}
-                        </div>
+                      <div className="flex flex-col items-center gap-2">
+                        <img
+                          src="/upload.png"
+                          alt="Upload"
+                          className="w-6 h-6"
+                        />
+                        <p className="text-md text-blue-500 font-medium">
+                          Choose file or{" "}
+                          <span className="font-semibold">
+                            Drag & Drop it here
+                          </span>
+                        </p>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Apply Button */}
-                <div>
-                  <button className="text-md font-semibold text-gray-700 border border-gray-200 rounded-full px-5 py-2 hover:scale-105">
-                    Know More
-                  </button>
-                </div>
+                  {/* Footer buttons */}
+                  <div className="flex justify-between items-center pt-6">
+                    <button
+                      type="button"
+                      className="flex items-center text-md font-medium text-[#404040] gap-1 hover:bg-gray-100"
+                    >
+                      <img src="/arrow-left.png" className="w-4 h-4" />
+                      Back to Job List
+                    </button>
+
+                    <div className="flex gap-4">
+                      <button
+                        type="button"
+                        className="px-6 py-2 rounded-md border border-gray-300 hover:bg-gray-100 text-md text-gray-400"
+                      >
+                        Not now
+                      </button>
+                      <button
+                        type="submit"
+                        className="px-6 py-2 rounded-md bg-[#0047FF] hover:bg-[#003adb] text-white text-md"
+                      >
+                        Apply Now
+                      </button>
+                    </div>
+                  </div>
+                </form>
               </div>
-            ))}
+            ) : (
+              /* Job Cards */
+              <>
+                {filteredJobs.length > 0 ? (
+                  filteredJobs.map((job: any, idx: number) => (
+                    <div
+                      key={idx}
+                      className="bg-white rounded-[16px] px-8 py-6 shadow-md border border-[#E5E5E5] flex justify-between items-start"
+                    >
+                      {/* Job Info */}
+                      <div className="flex-1 pr-4 flex flex-col gap-4">
+                        <div>
+                          <h3 className="text-[20px] font-bold text-black mb-1">
+                            {decodeEntities(job.title?.rendered)}
+                          </h3>
+                        </div>
 
-            {/* Pagination */}
-            <div className="flex justify-center items-center gap-2 mt-10">
-              {[1, 2, 3, 4, 5, 6].map((pg) => (
-                <button
-                  key={pg}
-                  className={`w-8 h-8 rounded-full text-sm font-medium ${
-                    pg === 1
-                      ? "bg-[#023ED6] text-white"
-                      : "text-gray-700 hover:bg-gray-100"
-                  }`}
-                >
-                  {pg}
-                </button>
-              ))}
-              <button className="text-xl text-gray-600 px-2">&gt;&gt;</button>
-            </div>
+                        <hr className="border-t border-gray-200" />
+
+                        <div className="flex items-center gap-10 text-md text-black font-medium">
+                          <div className="flex items-center gap-2">
+                            <img
+                              src="/job_icon.png"
+                              className="w-5 h-5"
+                              alt="icon"
+                            />
+                            <div>
+                              <div className="text-[13px] text-[#666]">
+                                Experience
+                              </div>
+                              <div className="text-[14px] font-semibold">
+                                {decodeEntities(job.meta?.experience || "N/A")}
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="flex items-center gap-2">
+                            <img
+                              src="/pin_icon.png"
+                              className="w-5 h-5"
+                              alt="icon"
+                            />
+                            <div>
+                              <div className="text-[13px] text-[#666]">
+                                Location
+                              </div>
+                              <div className="text-[14px] font-semibold">
+                                {decodeEntities(
+                                  job.meta?.job_location || "N/A"
+                                )}
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="flex items-center gap-2">
+                            <img
+                              src="/calendar_icon.png"
+                              className="w-5 h-5"
+                              alt="icon"
+                            />
+                            <div>
+                              <div className="text-[13px] text-[#666]">
+                                Posted on
+                              </div>
+                              <div className="text-[14px] font-semibold">
+                                {new Date(job.date).toLocaleDateString("en-IN")}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Button */}
+                      <div>
+                        <button
+                          onClick={() => {
+                            sessionStorage.setItem(
+                              "jobTitle",
+                              decodeEntities(job.title?.rendered) || ""
+                            );
+                            sessionStorage.setItem(
+                              "jobContent",
+                              job.content?.rendered || ""
+                            );
+                            window.location.href = "/apply-job";
+                          }}
+                          className="text-md font-semibold text-gray-700 border border-gray-200 rounded-full px-5 py-2 hover:scale-105"
+                        >
+                          Know More
+                        </button>
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <p>No jobs found for {selectedCategory}.</p>
+                )}
+              </>
+            )}
           </div>
         </div>
       </div>

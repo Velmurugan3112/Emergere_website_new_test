@@ -32,7 +32,7 @@ const NavBar = () => {
       href: "/digital-services",
     },
     {
-      label: "Modern Tecchnology",
+      label: "Modern Technology",
       icon: "/modern_technology_dd_icon.svg",
       hoverIcon: "/modern_technology_dd_hicon.svg",
       href: "/modern-technology",
@@ -124,7 +124,7 @@ const NavBar = () => {
   ];
 
   const isActiveParent = (routes: string[]) =>
-    routes.some((r) => (pathname ?? "").startsWith(r));
+    routes.some((r) => pathname.startsWith(r));
 
   return (
     <>
@@ -283,7 +283,7 @@ const NavBar = () => {
           {/* CTA Button */}
           <div className="flex items-center">
             <Link href="/contact-us">
-              <button className="flex items-center gap-2 bg-gradient-to-r from-[#4568dc] to-[#ffb03a] text-white py-4 px-6 rounded-full font-bold shadow-md text-sm transition-transform duration-200 hover:scale-105 outline outline-2 outline-[#FFFFFF]">
+              <button className="flex items-center gap-2 bg-gradient-to-r from-[#4568dc] to-[#ffb03a] text-white py-4 px-6 rounded-full font-bold shadow-md text-md transition-transform duration-200 hover:scale-105 outline outline-2 outline-[#FFFFFF]">
                 Get in Touch
                 <img
                   src="/arrow-right-white.svg"

@@ -3,6 +3,8 @@
 import React from "react";
 import Image from "next/image";
 import ContactHeaderMenu from "./contact_header_menu";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const ContactUs = () => {
   // Form state and response message
@@ -13,6 +15,7 @@ export const ContactUs = () => {
     message: "",
   });
   const [response, setResponse] = React.useState<string | null>(null);
+  const [loading, setLoading] = React.useState(false);
 
   // Input handler
   const handleInput = (
@@ -25,29 +28,44 @@ export const ContactUs = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setResponse(null);
+    setLoading(true);
+    const payload = {
+      contactName: formInput.name,
+      contactEmail: formInput.email,
+      contactPhone: formInput.phone,
+      contactMessage: formInput.message,
+    };
     try {
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}ContactUs/AddContact`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            contactName: formInput.name,
-            contactEmail: formInput.email,
-            contactPhone: formInput.phone,
-            contactMessage: formInput.message,
-          }),
+          body: JSON.stringify(payload),
         }
       );
       const data = await res.json();
-      setResponse(data.message || "Email sent successfully!");
+      if (data.message) {
+        toast.success(data.message);
+      } else {
+        toast.success("Email sent successfully!");
+      }
+      // Reset form fields
+      setFormInput({ name: "", email: "", phone: "", message: "" });
+      // Reload after 2 seconds so user sees the toast
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
     } catch (error) {
-      setResponse("Failed to send message.");
+      toast.warning("Sorry, Email Already Exists.");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <>
+      <ToastContainer position="top-center" autoClose={3000} />
       <ContactHeaderMenu />
       <div className="w-full bg-white pb-10">
         {/* Top Section */}
@@ -261,8 +279,18 @@ export const ContactUs = () => {
                   <button
                     type="submit"
                     className="relative inline-flex items-center justify-between gap-4 pl-6 pr-1 py-2 rounded-full border border-white bg-white/10 backdrop-blur-sm hover:bg-white/20 transition"
+                    disabled={loading}
                   >
-                    <span className="text-white font-medium">Submit</span>
+                    <span className="text-white font-medium">
+                      {loading ? (
+                        <span className="flex items-center">
+                          <span className="spinner-border mr-2" style={{ display: 'inline-block', width: 20, height: 20, border: '2px solid #fff', borderTop: '2px solid transparent', borderRadius: '50%', animation: 'spin 1s linear infinite' }}></span>
+                          Submitting...
+                        </span>
+                      ) : (
+                        'Submit'
+                      )}
+                    </span>
                     <span className="w-[40px] h-[40px] rounded-full flex items-center justify-center ml-3">
                       <Image
                         src="/right-arrow.svg"
@@ -272,6 +300,13 @@ export const ContactUs = () => {
                       />
                     </span>
                   </button>
+                  {/* Spinner CSS */}
+                  <style>{`
+                    @keyframes spin {
+                      0% { transform: rotate(0deg); }
+                      100% { transform: rotate(360deg); }
+                    }
+                  `}</style>
                 </div>
                 {response && (
                   <div className="md:col-span-2 text-center text-white">{response}</div>

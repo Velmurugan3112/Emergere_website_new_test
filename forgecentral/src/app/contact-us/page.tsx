@@ -5,7 +5,7 @@ import Footer from "@/components/footer";
 
 export default function ContactUsRoute() {
   return (
-    <div className="mt-[-90px] scroll-mt-[104px] relative">
+    <div className="mt-[-100px] scroll-mt-[104px] relative">
       <Nav />
       <ContactUs />
       <SubscribeSection />

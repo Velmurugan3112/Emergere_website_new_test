@@ -13,12 +13,21 @@ type CardProps = {
   index?: number;
 };
 
-const Card = ({ icon, bg, title, desc, inView = true, index = 0 }: CardProps) => {
+const Card = ({
+  icon,
+  bg,
+  title,
+  desc,
+  inView = true,
+  index = 0,
+}: CardProps) => {
   // Animation: from translateY(120px), opacity 0 to translateY(0), opacity 1
   const style = {
     opacity: inView ? 1 : 0,
-    transform: inView ? 'translateY(0)' : 'translateY(120px)',
-    transition: `opacity 0.9s cubic-bezier(0.4,0,0.2,1) ${index * 0.18}s, transform 0.9s cubic-bezier(0.4,0,0.2,1) ${index * 0.18}s`,
+    transform: inView ? "translateY(0)" : "translateY(120px)",
+    transition: `opacity 0.9s cubic-bezier(0.4,0,0.2,1) ${
+      index * 0.18
+    }s, transform 0.9s cubic-bezier(0.4,0,0.2,1) ${index * 0.18}s`,
   };
   return (
     <div
@@ -32,11 +41,10 @@ const Card = ({ icon, bg, title, desc, inView = true, index = 0 }: CardProps) =>
         <img src={icon} alt={title} />
       </div>
       <h3 className="font-extrabold text-[18px] mb-2 leading-snug">{title}</h3>
-      <p className="text-[#3E3E59] text-sm leading-relaxed flex-grow">{desc}</p>
+      <p className="text-[#3E3E59] text-md leading-relaxed flex-grow">{desc}</p>
     </div>
   );
 };
-
 
 export default function AboutUs() {
   // Animation logic for Core Values section
@@ -267,7 +275,10 @@ export default function AboutUs() {
                     { text: "Compliant", icon: "/aboutus_bottom_icon.svg" },
                     { text: "Future-ready", icon: "/aboutus_bottom_icon.svg" },
                   ].map((item, idx) => (
-                    <div key={idx} className="flex justify-left pl-4 items-left gap-4">
+                    <div
+                      key={idx}
+                      className="flex justify-left pl-4 items-left gap-4"
+                    >
                       <Image
                         src={item.icon}
                         width={32}
@@ -349,7 +360,7 @@ export default function AboutUs() {
           {/* Content right side - responsive */}
           <div className="flex-1 w-full flex flex-col justify-between h-full px-0 sm:px-2 md:px-0">
             <div>
-              <span className="text-[#023ED6] tracking-[.11em] uppercase font-bold text-xs md:text-sm block mb-2">
+              <span className="text-[#023ED6] tracking-[.11em] uppercase font-bold text-xs md:text-md block mb-2">
                 Our Founder
               </span>
               {/* Underline icon directly under "Our Founder" */}
@@ -499,7 +510,8 @@ export default function AboutUs() {
                 results-driven digital transformation — by delivering
                 <span className="font-bold text-[#161616]">
                   {" "}
-                  intelligent, scalable, and future-ready technology solutions through innovation, integrity, and excellence.
+                  intelligent, scalable, and future-ready technology solutions
+                  through innovation, integrity, and excellence.
                 </span>
               </p>
             </div>
@@ -532,12 +544,15 @@ export default function AboutUs() {
                 Our Mission
               </h2>
               <p className="text-[#535353] text-lg md:text-[18px] font-medium leading-relaxed">
-                To help businesses unlock their full potential by delivering tailored digital solutions — from
+                To help businesses unlock their full potential by delivering
+                tailored digital solutions — from
                 <span className="font-bold text-[#161616]">
                   {" "}
-                  ideation to execution — across data, cloud, ERP, and emerging technologies.
+                  ideation to execution — across data, cloud, ERP, and emerging
+                  technologies.
                 </span>{" "}
-                We solve real challenges through strategic thinking, expert execution, and a customer-first mindset.
+                We solve real challenges through strategic thinking, expert
+                execution, and a customer-first mindset.
               </p>
             </div>
             {/* Left: Mission Image */}
@@ -559,7 +574,7 @@ export default function AboutUs() {
         <div className="max-w-7xl mx-auto">
           {/* Section Title */}
           <div className="text-left mb-12">
-            <p className="text-blue-700 font-bold uppercase tracking-widest text-sm">
+            <p className="text-blue-700 font-bold uppercase tracking-widest text-md">
               Core Values
             </p>
             <div className="h-2 mt-1 ml-20 mb-3">

@@ -41,7 +41,7 @@ const SubscribeSection = () => {
               Subscribe
             </button>
           </div>
-          <span className="text-sm text-black italic mt-2 ml-2">
+          <span className="text-md text-black italic mt-2 ml-2">
             Enter your email address here
           </span>
         </div>
