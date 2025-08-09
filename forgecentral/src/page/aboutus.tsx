@@ -31,7 +31,7 @@ const Card = ({
   };
   return (
     <div
-      className="bg-white rounded-[32px] p-6 shadow-sm text-left flex flex-col h-full transform transition-transform duration-300"
+      className="bg-white rounded-[32px] p-4 sm:p-6 shadow-sm text-left flex flex-col h-full w-full transform transition-transform duration-300"
       style={style}
     >
       <div
@@ -50,8 +50,22 @@ export default function AboutUs() {
   // Animation logic for Core Values section
   const coreValuesRef = useRef<HTMLDivElement>(null);
   const [coreValuesInView, setCoreValuesInView] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) {
+      setCoreValuesInView(true);
+      return;
+    }
     const section = coreValuesRef.current;
     if (section) {
       const observer = new window.IntersectionObserver(
@@ -66,7 +80,7 @@ export default function AboutUs() {
       observer.observe(section);
       return () => observer.disconnect();
     }
-  }, []);
+  }, [isMobile]);
 
   return (
     <div className="text-gray-800">
@@ -449,9 +463,9 @@ export default function AboutUs() {
           </div>
 
           {/* OUR VISION SECTION (left text, right image, vertically centered) */}
-          <div className="w-full max-w-[1440px] mx-auto flex flex-col md:flex-row items-stretch md:items-center gap-10 md:gap-20 px-24 py-10">
+          <div className="w-full max-w-[1440px] mx-auto flex flex-col-reverse md:flex-row items-stretch md:items-center gap-8 md:gap-20 px-4 sm:px-8 md:px-24 py-8 md:py-10">
             {/* Left: Vision Content */}
-            <div className="w-full md:basis-1/2 flex flex-col justify-center items-start md:pr-8">
+            <div className="w-full md:basis-1/2 flex flex-col justify-center items-start md:pr-8 mt-8 md:mt-0">
               <div className="w-14 h-14 flex items-center justify-center mb-4">
                 <Image
                   src="/aboutus_our_vision.svg"
@@ -473,23 +487,23 @@ export default function AboutUs() {
                 </span>
               </p>
             </div>
-            {/* Right: Vision Image */}
+            {/* Right: Vision Image (on mobile: below content, on desktop: right) */}
             <div className="w-full md:basis-1/2 flex items-center justify-center">
               <Image
                 src="/aboutus_ourvision_1.svg"
                 alt="Technology Vision"
                 width={400}
                 height={260}
-                className="w-full max-w-[500px] h-auto object-contain"
+                className="w-full max-w-[320px] md:max-w-[500px] h-auto object-contain"
                 priority
               />
             </div>
           </div>
 
           {/* OUR MISSION SECTION (right text, left image, vertically centered) */}
-          <div className="w-full max-w-[1440px] mx-auto flex flex-col md:flex-row-reverse items-stretch md:items-center gap-10 md:gap-20 px-24 py-10">
+          <div className="w-full max-w-[1440px] mx-auto flex flex-col-reverse md:flex-row-reverse items-stretch md:items-center gap-8 md:gap-20 px-4 sm:px-8 md:px-24 py-8 md:py-10">
             {/* Right: Mission Content */}
-            <div className="w-full md:basis-1/2 flex flex-col justify-center items-start ">
+            <div className="w-full md:basis-1/2 flex flex-col justify-center items-start mt-8 md:mt-0 ">
               <div className="w-14 h-14 flex items-center justify-center mb-4">
                 <Image
                   src="/aboutus_ourmission_icon.svg"
@@ -513,14 +527,14 @@ export default function AboutUs() {
                 execution, and a customer-first mindset.
               </p>
             </div>
-            {/* Left: Mission Image */}
+            {/* Left: Mission Image (on mobile: below content, on desktop: left) */}
             <div className="w-full md:basis-1/2 flex items-center justify-center">
               <Image
                 src="/aboutus_ourmission_1.svg"
                 alt="Mission Target"
                 width={400}
                 height={260}
-                className="w-full max-w-[500px] h-auto object-contain"
+                className="w-full max-w-[320px] md:max-w-[500px] h-auto object-contain"
                 priority
               />
             </div>
@@ -555,7 +569,7 @@ export default function AboutUs() {
           {/* Grid Section with staggered layout */}
           <div className="space-y-6">
             {/* Row 1 */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 gap-y-6 w-full">
               <Card
                 icon="/aboutus_core_icon_1.svg"
                 bg="#023ED6"
@@ -591,7 +605,7 @@ export default function AboutUs() {
             </div>
 
             {/* Row 2 - Staggered Right */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 items-center lg:grid-cols-3 gap-6 justify-items-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 items-center lg:grid-cols-3 gap-6 gap-y-6 w-full">
               <Card
                 icon="/aboutus_core_icon_5.svg"
                 bg="#023ED6"
