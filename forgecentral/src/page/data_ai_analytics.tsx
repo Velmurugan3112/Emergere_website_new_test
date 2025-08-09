@@ -49,10 +49,10 @@ const DataAIAnalytics: React.FC = () => {
           <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center md:items-center gap-8 md:gap-20 relative z-10">
             {/* Left Text Content */}
             <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-center md:text-left mb-8 md:mb-0">
-              <div className="w-16 h-16 flex items-center justify-center mb-4">
+              <div className="w-16 h-16 flex items-center justify-center mb-4 self-start md:self-start">
                 <img src="/dms_icon.png" alt="App Icon" className="w-16 h-16" />
               </div>
-              <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#E29400] mb-4">
+              <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#E29400] mb-4 text-left w-full">
                 Data Management Solutions
               </h2>
               <p className="text-[#535353] text-lg md:text-[18px] font-medium leading-relaxed">
@@ -96,14 +96,14 @@ const DataAIAnalytics: React.FC = () => {
             {/* Left Text Content */}
             <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-center md:text-left mb-8 md:mb-0">
               <div className="mb-6">
-                <div className="w-16 h-16 flex items-center justify-center mb-4">
+                <div className="w-16 h-16 flex items-center justify-center mb-4 self-start md:self-start">
                   <img
                     src="/data_engineering_icon.png"
                     alt="Data Engineering Icon"
                     className="w-16 h-16"
                   />
                 </div>
-                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] mb-4">
+                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] mb-4 text-left w-full">
                   Data Engineering
                 </h2>
                 <p className="text-[#535353] text-lg md:text-[18px]  font-medium leading-relaxed">
@@ -145,14 +145,14 @@ const DataAIAnalytics: React.FC = () => {
             {/* Left Text Content */}
             <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-center md:text-left mb-8 md:mb-0">
               <div className="mb-6">
-                <div className="w-16 h-16 flex items-center justify-center mb-4">
+                <div className="w-16 h-16 flex items-center justify-center mb-4 self-start md:self-start">
                   <img
                     src="/data_visual_icon.png"
                     alt="Data Visualization Icon"
                     className="w-16 h-16"
                   />
                 </div>
-                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#E29400] mb-4">
+                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#E29400] mb-4 text-left w-full">
                   Data Visualization
                 </h2>
                 <p className="text-[#535353] text-lg md:text-[18px] font-medium leading-relaxed">
@@ -196,14 +196,14 @@ const DataAIAnalytics: React.FC = () => {
             {/* Left Text Content */}
             <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-center md:text-left mb-8 md:mb-0">
               <div className="mb-6">
-                <div className="w-16 h-16 flex items-center justify-center mb-4">
+                <div className="w-16 h-16 flex items-center justify-center mb-4 self-start md:self-start">
                   <img
                     src="/data_gov_icon.png"
                     alt="Data Governance Icon"
                     className="w-16 h-16"
                   />
                 </div>
-                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] mb-4">
+                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] mb-4 text-left w-full">
                   Data Governance
                 </h2>
                 <p className="text-[#535353] text-lg md:text-[18px]  font-medium leading-relaxed">
@@ -243,14 +243,14 @@ const DataAIAnalytics: React.FC = () => {
             {/* Left Text Content */}
             <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-center md:text-left mb-8 md:mb-0">
               <div className="mb-6">
-                <div className="w-16 h-16 flex items-center justify-center mb-4">
+                <div className="w-16 h-16 flex items-center justify-center mb-4 self-start md:self-start">
                   <img
                     src="/data_science_icon.png"
                     alt="Data Science Icon"
                     className="w-16 h-16"
                   />
                 </div>
-                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#E29400] mb-4">
+                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#E29400] mb-4 text-left w-full">
                   Data Science
                 </h2>
                 <p className="text-[#535353] text-lg md:text-[18px] font-medium leading-relaxed">
@@ -298,14 +298,14 @@ const DataAIAnalytics: React.FC = () => {
             {/* Left Text Content */}
             <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-center md:text-left mb-8 md:mb-0">
               <div className="mb-6">
-                <div className="w-16 h-16 flex items-center justify-center mb-4">
+                <div className="w-16 h-16 flex items-center justify-center mb-4 self-start md:self-start">
                   <img
                     src="/fusefy_icon.png"
                     alt="Fusefy Icon"
                     className="w-16 h-16"
                   />
                 </div>
-                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] mb-4">
+                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] mb-4 text-left w-full">
                   Fusefy{"  "}
                   <Link
                     href="https://www.fusefy.ai/"
