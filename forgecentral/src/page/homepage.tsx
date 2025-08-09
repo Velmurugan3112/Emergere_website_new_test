@@ -437,8 +437,6 @@ const HeroSection = () => {
   // Scroll
   useEffect(() => {
     const onScroll = () => {
-      console.log("Scroll position:", window.scrollY);
-      console.log("Hero height:", HERO_HEIGHT);
       if (window.scrollY >= HERO_HEIGHT + 200) {
         setShowHero(false);
       } else {
