@@ -43,12 +43,12 @@ const DataAIAnalytics: React.FC = () => {
       </div>
 
       {/* Data AI Analytics Row Section */}
-      <div className="bg-white relative items-center justify-center px-26">
+  <div className="bg-white relative flex flex-col items-center justify-center px-2 md:px-26">
         {/* Data Management Solutions Section */}
-        <div className="w-full bg-white px-6 md:px-10 py-16 relative">
-          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-20 relative z-10">
+        <div className="w-full bg-white px-4 sm:px-6 md:px-10 py-12 md:py-16 relative">
+          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center md:items-center gap-8 md:gap-20 relative z-10">
             {/* Left Text Content */}
-            <div className="w-full md:basis-1/2 flex mb-6 flex-col items-start">
+            <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-center md:text-left mb-8 md:mb-0">
               <div className="w-16 h-16 flex items-center justify-center mb-4">
                 <img src="/dms_icon.png" alt="App Icon" className="w-16 h-16" />
               </div>
@@ -76,7 +76,7 @@ const DataAIAnalytics: React.FC = () => {
             </div>
 
             {/* Right Image Container */}
-            <div className="w-full md:basis-1/2 flex justify-center relative">
+            <div className="w-full md:basis-1/2 flex justify-center items-center relative mt-6 md:mt-0">
               {/* Blurred Ellipse */}
               <div className="absolute w-[200px] h-[200px] bg-[#E29400] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 right-0 z-0" />
 
@@ -91,10 +91,10 @@ const DataAIAnalytics: React.FC = () => {
         </div>
 
         {/* Data Engineering Section */}
-        <div className="w-full bg-white px-6 md:px-10 py-16">
-          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row-reverse items-stretch md:items-center gap-10 md:gap-20">
+        <div className="w-full bg-white px-4 sm:px-6 md:px-10 py-12 md:py-16">
+          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row-reverse items-center md:items-center gap-8 md:gap-20">
             {/* Left Text Content */}
-            <div className="w-full md:basis-1/2 flex flex-col items-start">
+            <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-center md:text-left mb-8 md:mb-0">
               <div className="mb-6">
                 <div className="w-16 h-16 flex items-center justify-center mb-4">
                   <img
@@ -128,7 +128,7 @@ const DataAIAnalytics: React.FC = () => {
               </div>
             </div>
             {/* Left Image */}
-            <div className="w-full md:basis-1/2 flex flex-col items-start min-h-[300px] justify-center relative z-10">
+            <div className="w-full md:basis-1/2 flex justify-center items-center relative mt-6 md:mt-0 min-h-[200px]">
               <div className="absolute w-[200px] h-[200px] bg-[#023ED6] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 left-0 z-0" />
               <img
                 src="/data_engineering_banner.jpg"
@@ -140,10 +140,10 @@ const DataAIAnalytics: React.FC = () => {
         </div>
 
         {/* Data Visualization Section */}
-        <div className="w-full bg-white px-6 md:px-10 py-16 relative ">
-          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-20 relative z-10">
+        <div className="w-full bg-white px-4 sm:px-6 md:px-10 py-12 md:py-16 relative ">
+          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center md:items-center gap-8 md:gap-20 relative z-10">
             {/* Left Text Content */}
-            <div className="w-full md:basis-1/2 flex flex-col items-start">
+            <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-center md:text-left mb-8 md:mb-0">
               <div className="mb-6">
                 <div className="w-16 h-16 flex items-center justify-center mb-4">
                   <img
@@ -176,7 +176,7 @@ const DataAIAnalytics: React.FC = () => {
             </div>
 
             {/* Right Image Container */}
-            <div className="w-full md:basis-1/2 flex justify-center relative">
+            <div className="w-full md:basis-1/2 flex justify-center items-center relative mt-6 md:mt-0">
               {/* Elliptical Blue Blur */}
               <div className="absolute w-[200px] h-[200px] bg-[#E29400] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 right-0 z-0" />
 
@@ -191,10 +191,10 @@ const DataAIAnalytics: React.FC = () => {
         </div>
 
         {/* Data Governance Section */}
-        <div className="w-full bg-white px-6 md:px-10 py-16">
-          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row-reverse items-stretch md:items-center gap-10 md:gap-20">
+        <div className="w-full bg-white px-4 sm:px-6 md:px-10 py-12 md:py-16">
+          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row-reverse items-center md:items-center gap-8 md:gap-20">
             {/* Left Text Content */}
-            <div className="w-full md:basis-1/2 flex flex-col items-start">
+            <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-center md:text-left mb-8 md:mb-0">
               <div className="mb-6">
                 <div className="w-16 h-16 flex items-center justify-center mb-4">
                   <img
@@ -226,7 +226,7 @@ const DataAIAnalytics: React.FC = () => {
               </div>
             </div>
             {/* Left Image */}
-            <div className="w-full md:basis-1/2 flex flex-col items-start min-h-[300px] justify-center relative">
+            <div className="w-full md:basis-1/2 flex justify-center items-center relative mt-6 md:mt-0 min-h-[200px]">
               <div className="absolute w-[200px] h-[200px] bg-[#023ED6] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 left-0 z-0" />
               <img
                 src="/data_gov_banner.jpg"
@@ -238,10 +238,10 @@ const DataAIAnalytics: React.FC = () => {
         </div>
 
         {/* Data Science Section */}
-        <div className="w-full px-6 md:px-10 py-16 relative ">
-          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-20 relative z-10">
+        <div className="w-full px-4 sm:px-6 md:px-10 py-12 md:py-16 relative ">
+          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center md:items-center gap-8 md:gap-20 relative z-10">
             {/* Left Text Content */}
-            <div className="w-full md:basis-1/2 flex flex-col items-start">
+            <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-center md:text-left mb-8 md:mb-0">
               <div className="mb-6">
                 <div className="w-16 h-16 flex items-center justify-center mb-4">
                   <img
@@ -278,7 +278,7 @@ const DataAIAnalytics: React.FC = () => {
             </div>
 
             {/* Right Image Container */}
-            <div className="w-full md:basis-1/2 flex justify-center relative">
+            <div className="w-full md:basis-1/2 flex justify-center items-center relative mt-6 md:mt-0">
               {/* Elliptical Blue Blur */}
               <div className="absolute w-[200px] h-[200px] bg-[#E29400] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 right-0 z-0" />
 
@@ -293,10 +293,10 @@ const DataAIAnalytics: React.FC = () => {
         </div>
 
         {/* Fusefy Section */}
-        <div className="w-full bg-white px-6 md:px-10 py-16">
-          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row-reverse items-stretch md:items-center gap-10 md:gap-20">
+        <div className="w-full bg-white px-4 sm:px-6 md:px-10 py-12 md:py-16">
+          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row-reverse items-center md:items-center gap-8 md:gap-20">
             {/* Left Text Content */}
-            <div className="w-full md:basis-1/2 flex flex-col items-start">
+            <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-center md:text-left mb-8 md:mb-0">
               <div className="mb-6">
                 <div className="w-16 h-16 flex items-center justify-center mb-4">
                   <img
@@ -366,7 +366,7 @@ const DataAIAnalytics: React.FC = () => {
               </div>
             </div>
             {/* Left Image */}
-            <div className="w-full md:basis-1/2 flex flex-col items-start min-h-[300px] justify-center relative">
+            <div className="w-full md:basis-1/2 flex justify-center items-center relative mt-6 md:mt-0 min-h-[200px]">
               <div className="absolute w-[200px] h-[200px] bg-[#023ED6] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 left-0 z-0" />
               <img
                 src="/fusefy_banner.jpg"
