@@ -15,7 +15,7 @@ const ContactHeaderMenu: React.FC = () => {
         <div className="relative z-10 text-center pb-8">
           <h1 className="text-3xl md:text-4xl font-bold mb-2">Contact Us</h1>
           <p className="text-md text-white/80">
-            <Link href="/home" className="text-[#6490FE]">
+            <Link href="/" className="text-[#6490FE]">
               Home
             </Link>{" "}
             /{" "}
