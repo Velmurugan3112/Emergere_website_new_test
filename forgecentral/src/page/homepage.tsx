@@ -151,22 +151,29 @@ const TestimonialCard = ({
   inView = true,
   index = 0,
 }: Testimonial) => {
-  // Animation: from translateY(120px), opacity 0 to translateY(0), opacity 1
-  // Always show on mobile, animate on desktop
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
-  const style = isMobile
-    ? {}
-    : {
+  // Only animate on desktop (window width >= 640px)
+  const [isDesktop, setIsDesktop] = useState(false);
+  useEffect(() => {
+    const checkDesktop = () => {
+      setIsDesktop(window.innerWidth >= 640);
+    };
+    checkDesktop();
+    window.addEventListener('resize', checkDesktop);
+    return () => window.removeEventListener('resize', checkDesktop);
+  }, []);
+  const style = isDesktop
+    ? {
         opacity: inView ? 1 : 0,
         transform: inView ? "translateY(0)" : "translateY(120px)",
         transition: `opacity 0.9s cubic-bezier(0.4,0,0.2,1) ${
           index * 0.18
         }s, transform 0.9s cubic-bezier(0.4,0,0.2,1) ${index * 0.18}s`,
-      };
+      }
+    : {};
   return (
     <div
       className="bg-[#F2F2F2] rounded-[20px] shadow-sm hover:shadow-xl p-6 flex flex-col justify-between transition-shadow duration-300 min-h-[220px]"
-      style={style}
+      style={isDesktop ? style : {}}
     >
       {/* Star Rating */}
       <div
@@ -372,6 +379,17 @@ const HeroSection = () => {
   });
   const [response, setResponse] = React.useState<string | null>(null);
 
+  // Mobile detection for testimonials
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   // Service Animation
   useEffect(() => {
     const section = serviceValuesRef.current;
@@ -419,7 +437,7 @@ const HeroSection = () => {
             observer.disconnect();
           }
         },
-        { threshold: 0.5 }
+        { threshold: 0.2 }
       );
       observer.observe(section);
       return () => observer.disconnect();
@@ -765,7 +783,7 @@ const HeroSection = () => {
                 title={service.title}
                 desc={service.description}
                 href={service.href}
-                inView={serviceValuesInView}
+                inView={isMobile ? true : serviceValuesInView}
                 index={service.index}
               />
             ))}
@@ -804,7 +822,7 @@ const HeroSection = () => {
                 icon={industry.icon}
                 title={industry.title}
                 href={industry.href}
-                inView={industryValuesInView}
+                inView={isMobile ? true : industryValuesInView}
                 index={industry.index}
               />
             ))}
@@ -886,7 +904,7 @@ const HeroSection = () => {
                   message={testimonial.message}
                   role={testimonial.role}
                   company={testimonial.company}
-                  inView={testimonialValuesInView}
+                  inView={isMobile ? true : testimonialValuesInView}
                   index={testimonial.index}
                 />
               ))}
