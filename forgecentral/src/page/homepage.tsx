@@ -52,24 +52,26 @@ const ServiceCard = ({
   };
   return (
     <div
-      className="bg-white rounded-[32px] p-4 sm:p-6 shadow-sm flex flex-col h-[225px] transform transition-transform shadow-sm hover:shadow-xl items-center sm:items-start text-center sm:text-left"
+      className="bg-white rounded-[32px] p-4 sm:p-6 shadow-sm flex flex-col h-full min-h-[260px] sm:min-h-[260px] md:min-h-[240px] lg:min-h-[225px] transform transition-transform hover:shadow-xl items-center sm:items-start text-center sm:text-left"
       style={style}
     >
-      <div
-        className="w-12 h-12 flex items-center justify-center rounded-xl mb-4"
-        style={{ backgroundColor: bg }}
-      >
-        <img src={icon} alt={title} />
+      <div className="flex-1 w-full flex flex-col items-center sm:items-start">
+        <div
+          className="w-12 h-12 flex items-center justify-center rounded-xl mb-4"
+          style={{ backgroundColor: bg }}
+        >
+          <img src={icon} alt={title} />
+        </div>
+        <h3 className="text-[#393939] font-extrabold text-[18px] mb-2 leading-snug w-full">
+          {title}
+        </h3>
+        <p className="text-[#3E3E59] text-md leading-relaxed w-full">
+          {desc}
+        </p>
       </div>
-      <h3 className="text-[#393939] font-extrabold text-[18px] mb-2 leading-snug w-full">
-        {title}
-      </h3>
-      <p className="text-[#3E3E59] text-md leading-relaxed flex-grow w-full">
-        {desc}
-      </p>
-      <div className="mt-4 w-full flex justify-center sm:justify-start">
+      <div className="mt-6 w-full flex justify-center sm:justify-start">
         <Link href={href}>
-          <button className="inline-flex items-center gap-2 text-md font-semibold text-gray-700 border border-gray-200 rounded-full px-5 py-3 hover:scale-105">
+          <button className="inline-flex items-center gap-2 text-md font-semibold text-gray-700 border border-gray-200 rounded-full px-5 py-3 hover:scale-105 transition-transform">
             Know more
             <img
               src="/arrow-right-black.svg"
@@ -150,16 +152,20 @@ const TestimonialCard = ({
   index = 0,
 }: Testimonial) => {
   // Animation: from translateY(120px), opacity 0 to translateY(0), opacity 1
-  const style = {
-    opacity: inView ? 1 : 0,
-    transform: inView ? "translateY(0)" : "translateY(120px)",
-    transition: `opacity 0.9s cubic-bezier(0.4,0,0.2,1) ${
-      index * 0.18
-    }s, transform 0.9s cubic-bezier(0.4,0,0.2,1) ${index * 0.18}s`,
-  };
+  // Always show on mobile, animate on desktop
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
+  const style = isMobile
+    ? {}
+    : {
+        opacity: inView ? 1 : 0,
+        transform: inView ? "translateY(0)" : "translateY(120px)",
+        transition: `opacity 0.9s cubic-bezier(0.4,0,0.2,1) ${
+          index * 0.18
+        }s, transform 0.9s cubic-bezier(0.4,0,0.2,1) ${index * 0.18}s`,
+      };
   return (
     <div
-      className="bg-[#F2F2F2] rounded-[20px] shadow-sm hover:shadow-xl p-6 flex flex-col justify-between transition-shadow duration-300"
+      className="bg-[#F2F2F2] rounded-[20px] shadow-sm hover:shadow-xl p-6 flex flex-col justify-between transition-shadow duration-300 min-h-[220px]"
       style={style}
     >
       {/* Star Rating */}
@@ -343,7 +349,7 @@ const testimonials = [
   },
 ];
 
-const HERO_HEIGHT = 100; // px, adjust as needed for your hero section height
+const HERO_HEIGHT = 700; // px, adjust as needed for your hero section height
 
 const HeroSection = () => {
   const [loading, setLoading] = React.useState(false);
@@ -431,7 +437,9 @@ const HeroSection = () => {
   // Scroll
   useEffect(() => {
     const onScroll = () => {
-      if (window.scrollY >= HERO_HEIGHT) {
+      console.log("Scroll position:", window.scrollY);
+      console.log("Hero height:", HERO_HEIGHT);
+      if (window.scrollY >= HERO_HEIGHT + 200) {
         setShowHero(false);
       } else {
         setShowHero(true);
@@ -503,11 +511,11 @@ const HeroSection = () => {
       {/* Fixed Hero Section: only visible at the top */}
       {showHero && (
         <div
-          className="fixed top-0 left-0 w-full z-20 pointer-events-none"
+          className="fixed top-0 left-0 w-full z-20 pointer-events-none test"
           style={{
-            height: "70vh",
-            minHeight: 400,
-            maxHeight: "900px",
+            height: "100vh",
+            minHeight: 800,
+            maxHeight: "1400px",
             overflow: "hidden",
           }}
         >
@@ -524,7 +532,7 @@ const HeroSection = () => {
                 objectFit: "cover",
                 height: "100%",
                 width: "100%",
-                minHeight: "400px",
+                minHeight: "800px",
               }}
             />
             {/* Gradient Overlay */}
@@ -533,15 +541,13 @@ const HeroSection = () => {
             <div
               className={`
                 absolute z-20 w-full h-full flex flex-col
-                items-center justify-center
+                items-start justify-start
                 md:items-start md:justify-start
                 md:pl-70 md:pr-16 md:pt-32
                 px-4
+                pt-32 sm:pt-40 md:pt-[150px]
                 pointer-events-auto
               `}
-              style={{
-                paddingTop: "150px", // Keeps space under navbar
-              }}
             >
               <div className="w-full max-w-3xl flex flex-col items-center md:items-start text-center md:text-left md:mx-0">
                 <h1 className="text-2xl sm:text-3xl md:text-[40px] font-bold leading-tight w-full mb-4">
@@ -591,7 +597,7 @@ const HeroSection = () => {
           position: "relative",
           zIndex: 30,
         }}
-        className="mt-[70vh] md:mt-[70vh]"
+        className="mt-[100vh] md:mt-[100vh]"
       >
         {/* Who We Are Section */}
         <div className="relative px-4 sm:px-6 md:px-10 z-10">
@@ -750,7 +756,7 @@ const HeroSection = () => {
 
           {/* Services Cards */}
           <div
-            className="p-15 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="w-full px-2 sm:px-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
             ref={serviceValuesRef}
           >
             {services.map((service) => (
@@ -872,7 +878,7 @@ const HeroSection = () => {
 
             {/* Testimonials Cards */}
             <div
-              className="grid gap-10 px-10 sm:grid-cols-2 lg:grid-cols-3"
+              className="grid grid-cols-1 gap-8 px-2 sm:grid-cols-2 lg:grid-cols-3 sm:px-10"
               ref={testimonialValuesRef}
             >
               {testimonials.map((testimonial, idx) => (
