@@ -52,12 +52,12 @@ export const DigitalServices = () => (
       </section>
 
       {/* Digital Service Row Section */}
-      <div className="relative items-center justify-center px-26">
+  <div className="relative items-center justify-center px-2 md:px-26">
         {/* Application Development Section */}
-        <section className="w-full bg-white px-6 md:px-10 py-16 relative">
-          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-20 relative z-10">
+        <section className="w-full bg-white px-2 md:px-6 lg:px-10 py-10 md:py-16 relative">
+          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-20 relative z-10">
             {/* Left Text Content */}
-            <div className="w-full md:basis-1/2 flex mb-6 flex-col items-start">
+            <div className="w-full md:basis-1/2 flex flex-col items-start md:items-start mb-4 md:mb-6">
               <div className="w-16 h-16 flex items-center justify-center mb-4">
                 <img
                   src="/digitalservice_icon_2.svg"
@@ -65,10 +65,10 @@ export const DigitalServices = () => (
                   className="w-16 h-16"
                 />
               </div>
-              <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] mb-4">
+              <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] mb-4 text-left">
                 Application Development
               </h2>
-              <p className="text-[#535353] text-lg md:text-[18px] font-medium leading-relaxed">
+              <p className="text-[#535353] text-lg md:text-[18px] font-medium leading-relaxed text-left w-full md:max-w-[585px]">
                 We deliver high-performance enterprise and mobile applications
                 that support
                 <span className="font-bold text-[#161616]">
@@ -80,7 +80,7 @@ export const DigitalServices = () => (
             </div>
 
             {/* Right Image Container */}
-            <div className="w-full md:basis-1/2 flex justify-center relative">
+            <div className="w-full md:basis-1/2 flex justify-start md:justify-center items-start md:items-center mt-2 md:mt-0 relative min-h-[120px] md:min-h-0">
               {/* Blurred Ellipse */}
               <div className="absolute w-[200px] h-[200px] bg-[#023ED6] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 right-0 z-0" />
 
@@ -88,82 +88,78 @@ export const DigitalServices = () => (
               <img
                 src="/digitalservice_img_1.svg"
                 alt="Application Dev"
-                className="w-full max-w-[585px] h-auto object-contain relative z-10"
+                className="w-full max-w-[340px] md:max-w-[585px] h-auto object-contain relative z-10 rounded-xl shadow-sm md:w-full"
               />
             </div>
           </div>
         </section>
 
         {/* Product Engineering Section */}
-        <section className="w-full bg-white px-6 md:px-10 py-16">
-          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row-reverse items-stretch md:items-center gap-10 md:gap-20">
+        <section className="w-full bg-white px-2 md:px-6 lg:px-10 py-10 md:py-16">
+          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row-reverse items-stretch md:items-center gap-6 md:gap-20">
             {/* Left Text Content */}
-            <div className="w-full md:basis-1/2 flex flex-col items-start">
-              <div className="mb-6">
-                <div className="w-16 h-16 flex items-center justify-center mb-4">
-                  <img
-                    src="/digitalservice_icon_3.svg"
-                    alt="Product Engineering Icon"
-                    className="w-16 h-16"
-                  />
-                </div>
-                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#E29400] mb-4">
-                  Product Engineering
-                </h2>
-                <p className="text-[#535353] text-lg md:text-[18px]  font-medium leading-relaxed">
-                  From ideation to market launch, we partner with you to
-                  engineer innovative digital products that create
-                  <span className="font-bold text-[#161616]">
-                    {" "}
-                    competitive advantage and future-proof your business.
-                  </span>
-                </p>
+            <div className="w-full md:basis-1/2 flex flex-col items-start md:items-start mb-4 md:mb-6">
+              <div className="mb-6 w-16 h-16 flex items-center justify-center mb-4">
+                <img
+                  src="/digitalservice_icon_3.svg"
+                  alt="Product Engineering Icon"
+                  className="w-16 h-16"
+                />
               </div>
+              <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#E29400] mb-4 text-left">
+                Product Engineering
+              </h2>
+              <p className="text-[#535353] text-lg md:text-[18px] font-medium leading-relaxed text-left w-full md:max-w-[585px]">
+                From ideation to market launch, we partner with you to engineer
+                innovative digital products that create
+                <span className="font-bold text-[#161616]">
+                  {" "}
+                  competitive advantage and future-proof your business.
+                </span>
+              </p>
             </div>
             {/* Left Image */}
-            <div className="w-full md:basis-1/2 flex flex-col items-start min-h-[300px] justify-center relative z-10">
+            <div className="w-full md:basis-1/2 flex flex-col md:items-center items-start min-h-[100px] md:min-h-[300px] justify-center mt-2 md:mt-0 relative z-10">
               <div className="absolute w-[200px] h-[200px] bg-[#E29400] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 left-0 z-0" />
               <img
                 src="/digitalservice_img_2.svg"
                 alt="Product Engineering"
-                className="w-full max-w-[585px] h-auto min-h-[300px] object-contain relative z-10"
+                className="w-full max-w-[340px] md:max-w-[585px] h-auto md:min-h-[300px] object-contain relative z-10 rounded-xl shadow-sm md:w-full"
               />
             </div>
           </div>
         </section>
 
         {/* Custom Software Section */}
-        <section className="w-full bg-white px-6 md:px-10 py-16 relative ">
-          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-20 relative z-10">
+        <section className="w-full bg-white px-2 md:px-6 lg:px-10 py-10 md:py-16 relative ">
+          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-20 relative z-10">
             {/* Left Text Content */}
-            <div className="w-full md:basis-1/2 flex flex-col items-start">
-              <div className="mb-6">
-                <div className="w-16 h-16 flex items-center justify-center mb-4">
-                  <img
-                    src="/digitalservice_icon_4.svg"
-                    alt="Custom Software Icon"
-                    className="w-16 h-16"
-                  />
-                </div>
-                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] mb-4">
-                  Custom Software
-                </h2>
-                <p className="text-[#535353] text-lg md:text-[18px] font-medium leading-relaxed">
-                  We build purpose-driven software solutions tailored to your
-                  <span className="font-bold text-[#161616]">
-                    {" "}
-                    operational workflows and industry requirements
-                  </span>
-                  , enhancing{" "}
-                  <span className="font-bold text-[#161616]">
-                    productivity and enabling seamless digital transformation.
-                  </span>
-                </p>
+            <div className="w-full md:basis-1/2 flex flex-col items-start md:items-start mb-4 md:mb-6">
+              <div className="mb-6 w-16 h-16 flex items-center justify-center mb-4">
+                <img
+                  src="/digitalservice_icon_4.svg"
+                  alt="Custom Software Icon"
+                  className="w-16 h-16"
+                />
               </div>
+              <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] mb-4 text-left">
+                Custom Software
+              </h2>
+              <p className="text-[#535353] text-lg md:text-[18px] font-medium leading-relaxed text-left w-full md:max-w-[585px]">
+                We build purpose-driven software solutions tailored to your
+                <span className="font-bold text-[#161616]">
+                  {" "}
+                  operational workflows and industry requirements
+                </span>
+                , enhancing{" "}
+                <span className="font-bold text-[#161616]">
+                  productivity and enabling seamless digital transformation.
+                </span>
+              </p>
             </div>
 
             {/* Right Image Container */}
-            <div className="w-full md:basis-1/2 flex justify-center relative">
+            <div className="w-full md:basis-1/2 flex justify-start md:justify-center items-start md:items-center mt-2 md:mt-0 relative min-h-[120px] md:min-h-0">
               {/* Elliptical Blue Blur */}
               <div className="absolute w-[200px] h-[200px] bg-[#023ED6] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 right-0 z-0" />
 
@@ -171,47 +167,45 @@ export const DigitalServices = () => (
               <img
                 src="/digitalservice_img_3.svg"
                 alt="Custom Software"
-                className="w-full max-w-[585px] h-auto min-h-[300px] object-contain relative z-10"
+                className="w-full max-w-[340px] md:max-w-[585px] h-auto md:min-h-[300px] object-contain relative z-10 rounded-xl shadow-sm md:w-full"
               />
             </div>
           </div>
         </section>
 
         {/* Intelligent Automation Section */}
-        <section className="w-full bg-white px-6 md:px-10 py-16">
-          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row-reverse items-stretch md:items-center gap-10 md:gap-20">
+        <section className="w-full bg-white px-2 md:px-6 lg:px-10 py-10 md:py-16">
+          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row-reverse items-stretch md:items-center gap-6 md:gap-20">
             {/* Left Text Content */}
-            <div className="w-full md:basis-1/2 flex flex-col items-start">
-              <div className="mb-6">
-                <div className="w-16 h-16 flex items-center justify-center mb-4">
-                  <img
-                    src="/digitalservice_icon_5.svg"
-                    alt="Intelligent Automation Icon"
-                    className="w-16 h-16"
-                  />
-                </div>
-                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#E29400] mb-4">
-                  Intelligent Automation
-                </h2>
-                <p className="text-[#535353] text-lg md:text-[18px]  font-medium leading-relaxed">
-                  By automating manual and repetitive processes, we help you
-                  unlock
-                  <span className="font-bold text-[#161616]">
-                    {" "}
-                    workforce capacity, reduce operational costs, and improve
-                    turnaround time{" "}
-                  </span>
-                  across departments.
-                </p>
+            <div className="w-full md:basis-1/2 flex flex-col items-start md:items-start mb-4 md:mb-6">
+              <div className="mb-6 w-16 h-16 flex items-center justify-center mb-4">
+                <img
+                  src="/digitalservice_icon_5.svg"
+                  alt="Intelligent Automation Icon"
+                  className="w-16 h-16"
+                />
               </div>
+              <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#E29400] mb-4 text-left">
+                Intelligent Automation
+              </h2>
+              <p className="text-[#535353] text-lg md:text-[18px] font-medium leading-relaxed text-left w-full md:max-w-[585px]">
+                By automating manual and repetitive processes, we help you
+                unlock
+                <span className="font-bold text-[#161616]">
+                  {" "}
+                  workforce capacity, reduce operational costs, and improve
+                  turnaround time{" "}
+                </span>
+                across departments.
+              </p>
             </div>
             {/* Left Image */}
-            <div className="w-full md:basis-1/2 flex flex-col items-start min-h-[300px] justify-center relative">
+            <div className="w-full md:basis-1/2 flex flex-col md:items-center items-start min-h-[100px] md:min-h-[300px] justify-center mt-2 md:mt-0 relative">
               <div className="absolute w-[200px] h-[200px] bg-[#E29400] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 left-0 z-0" />
               <img
                 src="/digitalservice_img_5.svg"
                 alt="Intelligent Automation"
-                className="w-full max-w-[585px] h-auto min-h-[300px] object-contain relative z-10"
+                className="w-full max-w-[340px] md:max-w-[585px] h-auto md:min-h-[300px] object-contain relative z-10 rounded-xl shadow-sm md:w-full"
               />
             </div>
           </div>
