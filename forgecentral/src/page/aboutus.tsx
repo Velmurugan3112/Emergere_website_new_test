@@ -123,7 +123,7 @@ export default function AboutUs() {
                 data-driven era
               </span>
             </h3>
-            <div className="justify-center pr-24">
+            <div className="justify-center md:pr-24">
               <p className="text-gray-700 leading-relaxed font-medium text-justify">
                 We specialize in transforming complex IT ecosystems into agile,
                 intelligent platforms that drive measurable business value.
@@ -417,10 +417,10 @@ export default function AboutUs() {
         </div>
       </section>
       {/* OUR VISION & MISSION Section */}
-      <section className="w-full relative bg-white px-4 md:px-10 py-20 mt-0">
+      <section className="w-full relative bg-white px-4 md:px-10 md:py-10">
         <div className="max-w-[1440px] mx-auto flex flex-col items-center">
           {/* Header */}
-          <div className="w-full max-w-3xl mx-auto flex flex-col items-center">
+          <div className="w-full max-w-3xl mx-auto flex flex-col items-center mt-8 md:mt-0">
             <div className="flex flex-col items-center mb-2">
               <span className="uppercase text-[16px] font-black tracking-[0.15em] text-[#023ED6] block">
                 Our Vision & Mission
@@ -456,7 +456,7 @@ export default function AboutUs() {
                   Vision and Mission
                 </span>
               </h2>
-              <p className="text-[#535353] text-base md:text-lg text-center max-w-2xl font-medium mb-10">
+              <p className="text-[#535353] text-base md:text-lg text-center max-w-2xl font-medium md:mb-10">
                 Guiding Principles That Shape Our Strategy and Service Delivery
               </p>
             </div>
@@ -542,10 +542,10 @@ export default function AboutUs() {
         </div>
       </section>
       {/*CORE VALUES SECTION*/}
-      <section className="bg-[#f4f5f7] py-16 px-4 md:px-24" ref={coreValuesRef}>
+  <section className="bg-[#f4f5f7] pt-6 md:pt-16 pb-16 px-4 md:px-24" ref={coreValuesRef}>
         <div className="max-w-7xl mx-auto">
           {/* Section Title */}
-          <div className="mb-12 text-center md:text-left">
+          <div className="mb-8 md:mb-12 text-center md:text-left">
             <p className="text-blue-700 font-bold uppercase tracking-widest text-md">
               Core Values
             </p>
@@ -559,8 +559,8 @@ export default function AboutUs() {
             </div>
             <h2 className="text-3xl md:text-4xl font-bold leading-snug mt-2">
               Vision-Led. Mission-Focused. <br />
-              Customer-Centric.{" "}
-              <span className="bg-gradient-to-r from-[#023ED6] via-[#6B7AD7] to-[#F5B037] bg-clip-text text-transparent">
+              Customer-Centric.{' '}
+              <span className="whitespace-nowrap md:whitespace-normal bg-gradient-to-r from-[#023ED6] via-[#6B7AD7] to-[#F5B037] bg-clip-text text-transparent">
                 The Emergere Way
               </span>
             </h2>
