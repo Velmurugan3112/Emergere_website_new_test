@@ -128,8 +128,8 @@ const Footer = () => {
       </div>
 
       {/* Office Locations */}
-      <div className="mt-16 ml-25 grid grid-cols-1 md:grid-cols-3 gap-20 text-indigo-200">
-        <div className="flex items-center gap-4">
+      <div className="mt-16 ml-0 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-20 text-indigo-200 text-center md:text-left">
+        <div className="flex flex-col items-center md:flex-row md:items-center gap-4">
           <img
             src="/US_Flag.svg"
             alt="US"
@@ -145,7 +145,7 @@ const Footer = () => {
             </p>
           </div>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex flex-col items-center md:flex-row md:items-center gap-4">
           <img
             src="/Dubai_Flag.svg"
             alt="AI"
@@ -159,7 +159,7 @@ const Footer = () => {
             </p>
           </div>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex flex-col items-center md:flex-row md:items-center gap-4">
           <img
             src="/India_Flag.svg"
             alt="IND"
@@ -176,7 +176,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom bar */}
-      <div className="mt-16 pt-8 border-t border-indigo-900 text-md text-center flex justify-center items-center gap-3 text-[#7E97D6]">
+      <div className="mt-16 pt-8 border-t border-indigo-900 text-xs md:text-md text-center flex justify-center items-center gap-3 text-[#7E97D6]">
         <p>© 2025 Emergere Technologies. All Rights Reserved.</p>
         <span className="w-px h-4 bg-white/50"></span>
         <Link href="#" className="hover:underline text-[#7E97D6]">

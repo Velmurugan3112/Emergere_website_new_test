@@ -10,7 +10,7 @@ const SubscribeSection = () => {
     >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="text-center md:text-left">
-          <h2 className="text-2xl md:text-3xl font-semibold text-black mb-2 flex items-center gap-2">
+          <h2 className="text-xl md:text-3xl font-semibold text-black mb-2 flex items-center gap-2">
             Subscribe
             <img
               src="/Emergere-Logo.png"
@@ -20,7 +20,7 @@ const SubscribeSection = () => {
             />
             <span className="font-bold">Emergere</span>
           </h2>
-          <h2 className="text-2xl md:text-3xl font-semibold text-black mb-2">
+          <h2 className="text-xl md:text-3xl font-semibold text-black mb-2">
             for exclusive content &amp; news !
           </h2>
         </div>
