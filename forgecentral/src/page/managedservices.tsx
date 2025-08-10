@@ -63,7 +63,7 @@ const ServiceCard: React.FC<ServiceCardProps & { inView: boolean; index: number 
       <div className="w-12 h-12 mb-2 flex items-center justify-center">
         <img src={icon} alt={title} className="w-[64px] h-[64px]" />
       </div>
-      <h3 className="text-[18px] font-extrabold text-[#161616] mt-4 mb-8">
+      <h3 className="text-[18px] font-extrabold text-[#161616] mt-4 mb-1">
         {title}
       </h3>
       <p className="text-[15px] text-[#535353] font-medium leading-relaxed">
@@ -271,7 +271,7 @@ export const ManagedServices = () => {
             backgroundRepeat: "no-repeat",
           }}
         >
-          <div className="max-w-[1440px] mx-auto w-full flex flex-col px-2 sm:px-8 md:px-16 pt-16 gap-12 items-center">
+          <div className="max-w-[1440px] mx-auto w-full flex flex-col px-2 sm:px-8 md:px-16 md:pt-2 gap-12 items-center">
             {/* First Row: 4 Columns */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-center w-full place-items-center">
               {servicesRowOne.map((card, idx) => (
@@ -396,7 +396,7 @@ export const ManagedServices = () => {
                     className="w-[53px] h-[53px]"
                   />
                 </div>
-                <h3 className="text-lg font-bold text-[#161616] mb-[16px] leading-snug">
+                <h3 className="text-lg font-bold text-[#161616] md:mb-2 leading-snug">
                   Dedicated On-Premise
                   <br />
                   Servers
@@ -423,7 +423,7 @@ export const ManagedServices = () => {
                     className="w-[53px] h-[53px]"
                   />
                 </div>
-                <h3 className="text-lg font-bold text-[#161616] mb-[16px] leading-snug">
+                <h3 className="text-lg font-bold text-[#161616] md:mb-2 leading-snug">
                   High-Performance &<br />
                   High-Availability Architecture
                 </h3>
@@ -449,7 +449,7 @@ export const ManagedServices = () => {
                     className="w-[53px] h-[53px]"
                   />
                 </div>
-                <h3 className="text-lg font-bold text-[#161616] mb-[16px] leading-snug">
+                <h3 className="text-lg font-bold text-[#161616] md:mb-2 leading-snug">
                   Hardware Optimization
                   <br />
                   for Specialized Workloads
