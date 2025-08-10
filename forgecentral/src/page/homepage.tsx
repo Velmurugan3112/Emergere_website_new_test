@@ -124,7 +124,9 @@ const IndustryCard = ({
       <br />
 
       {/* Title */}
-      <h3 className="font-extrabold text-2xl text-gray-900 mb-6">{title}</h3>
+      <h3 className="font-extrabold text-lg md:text-2xl text-gray-900 mb-6">
+        {title}
+      </h3>
 
       {/* Know More Button */}
       <Link href={href}>
