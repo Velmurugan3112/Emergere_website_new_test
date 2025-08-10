@@ -3,9 +3,9 @@ import Link from "next/link";
 
 const Industries: React.FC = () => {
   return (
-    <section className="bg-white">
+    <section>
       <div
-        className="relative w-full h-[280px] bg-cover bg-center flex items-end justify-center text-white"
+        className="relative w-full h-[280px] bg-white bg-cover bg-center flex items-end justify-center text-white"
         style={{ backgroundImage: "url('/our_service_cover_img.jpg')" }}
       >
         {/* Overlay Gradient */}
@@ -19,12 +19,13 @@ const Industries: React.FC = () => {
               Home
             </Link>{" "}
             /{" "}
-            <Link href="/" className="text-[#EFEFEF]">
+            <Link href="/industries" className="text-[#EFEFEF]">
               Industries
             </Link>
           </p>
         </div>
       </div>
+
       {/* Hero Section */}
       <div className="relative bg-gradient-to-b from-[#0047ab] to-blue-900 text-white py-20 px-6 md:px-20">
         {/* Background Image Overlay */}
@@ -43,52 +44,51 @@ const Industries: React.FC = () => {
             alt="Data, AI & Analytics icon"
             className="w-20 h-20 mb-2"
           />
-          <h1 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-[#023ED6] to-[#E29400] bg-clip-text text-transparent leading-tight">
-            Industries
-          </h1>
+
+          {/* Headline + Paragraph */}
           <div className="px-4 md:px-8 py-4 max-w-3xl mt-4 flex flex-col items-center text-center">
-            <h2 className="text-md md:text-[20px] font-extrabold text-[#161616] leading-[38px] mb-4">
+            <h2 className="text-lg md:text-[24px] font-extrabold text-[#161616] leading-[38px] mb-4">
               Tailored Solutions for Your Unique Challenges
             </h2>
 
-            <p className="text-md md:text-[16px] text-center text-[#161616] leading-[32px] font-normal max-w-2xl">
+            <p className="text-lg md:text-[16px] text-center text-[#161616] leading-[32px] font-normal max-w-2xl">
               Emergere provides experienced experts from many industries. We aim
               to build long-term relationships with our clients by offering{" "}
-              <span className="font-bold text-[#161616]">
+              <strong>
                 quality, complete solutions and innovative business consulting
                 to improve their projects.
-              </span>
+              </strong>
             </p>
           </div>
         </div>
       </div>
 
       {/* Industries Row Section */}
-      <div className="relative items-center justify-center px-26">
+      <div className="bg-white relative flex flex-col items-center justify-center px-2 md:px-26">
         {/* Customer & Retail Section */}
-        <div className="w-full px-6 md:px-10 py-16 relative">
-          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-20 relative z-10">
+        <div className="w-full px-4 sm:px-6 md:px-10 py-12 md:py-16 relative">
+          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center md:items-center gap-8 md:gap-20 relative z-10">
             {/* Left Text Content */}
-            <div className="w-full md:basis-1/2 flex mb-6 flex-col items-start">
-              <div className="w-16 h-16 flex items-center justify-center mb-4">
+            <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-left md:text-left mb-8 md:mb-0">
+              <div className="w-16 h-16 flex items-center justify-center mb-4 self-start md:self-start">
                 <img
                   src="/consumer_retail_icon y.png"
                   alt="Consumer Retail Icon"
                   className="w-16 h-16"
                 />
               </div>
-              <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#E29400] mb-4">
+              <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#E29400] mb-4 text-left w-full">
                 Consumer & Retail
               </h2>
               <p className="text-[#535353] text-lg md:text-[18px] font-medium leading-relaxed">
                 Empowering retailers and consumer brands to optimize operations,
                 enhance customer experiences, and drive growth through digital
-                innovation and data-driven insights
+                innovation and data-driven insights.
               </p>
             </div>
 
             {/* Right Image Container */}
-            <div className="w-full md:basis-1/2 flex justify-center relative">
+            <div className="w-full md:basis-1/2 flex justify-center items-center relative mt-6 md:mt-0">
               {/* Blurred Ellipse */}
               <div className="absolute w-[200px] h-[200px] bg-[#E29400] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 right-0 z-0" />
 
@@ -103,19 +103,19 @@ const Industries: React.FC = () => {
         </div>
 
         {/* Financial Services Section */}
-        <div className="w-full px-6 md:px-10 py-16">
-          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row-reverse items-stretch md:items-center gap-10 md:gap-20">
+        <div className="w-full px-4 sm:px-6 md:px-10 py-12 md:py-16">
+          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row-reverse items-center md:items-center gap-8 md:gap-20">
             {/* Left Text Content */}
-            <div className="w-full md:basis-1/2 flex flex-col items-start">
+            <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-left md:text-left mb-8 md:mb-0">
               <div className="mb-6">
-                <div className="w-16 h-16 flex items-center justify-center mb-4">
+                <div className="w-16 h-16 flex items-center justify-center mb-4 self-start md:self-start">
                   <img
                     src="/financial_services_icon b.png"
                     alt="Financial Services Icon"
                     className="w-16 h-16"
                   />
                 </div>
-                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] mb-4">
+                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] mb-4 text-left w-full">
                   Financial Services
                 </h2>
                 <p className="text-[#535353] text-lg md:text-[18px]  font-medium leading-relaxed">
@@ -128,7 +128,7 @@ const Industries: React.FC = () => {
               </div>
             </div>
             {/* Left Image */}
-            <div className="w-full md:basis-1/2 flex flex-col items-start min-h-[300px] justify-center relative z-10">
+            <div className="w-full md:basis-1/2 flex justify-center items-center relative mt-6 md:mt-0 min-h-[200px]">
               <div className="absolute w-[200px] h-[200px] bg-[#023ED6] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 left-0 z-0" />
               <img
                 src="/financial_services_banner.jpg"
@@ -140,20 +140,20 @@ const Industries: React.FC = () => {
         </div>
 
         {/* Healthcare & Lifesciences Section */}
-        <div className="w-full px-6 md:px-10 py-16 relative ">
-          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-20 relative z-10">
+        <div className="w-full px-4 sm:px-6 md:px-10 py-12 md:py-16 relative ">
+          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center md:items-center gap-8 md:gap-20 relative z-10">
             {/* Left Text Content */}
-            <div className="w-full md:basis-1/2 flex flex-col items-start">
+            <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-left md:text-left mb-8 md:mb-0">
               <div className="mb-6">
-                <div className="w-16 h-16 flex items-center justify-center mb-4">
+                <div className="w-16 h-16 flex items-center justify-center mb-4 self-start md:self-start">
                   <img
                     src="/hc_ls_icon y.png"
                     alt="Healthcare & Lifesciences icon"
                     className="w-16 h-16"
                   />
                 </div>
-                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#E29400] mb-4">
-                  Healthcare & Lifescience
+                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#E29400] mb-4 text-left w-full">
+                  Healthcare & Lifesciences
                 </h2>
                 <p className="text-[#535353] text-lg md:text-[18px] font-medium leading-relaxed">
                   Enabling healthcare providers and life sciences organizations
@@ -167,7 +167,7 @@ const Industries: React.FC = () => {
             </div>
 
             {/* Right Image Container */}
-            <div className="w-full md:basis-1/2 flex justify-center relative">
+            <div className="w-full md:basis-1/2 flex justify-center items-center relative mt-6 md:mt-0">
               {/* Elliptical Blue Blur */}
               <div className="absolute w-[200px] h-[200px] bg-[#E29400] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 right-0 z-0" />
 
@@ -182,19 +182,19 @@ const Industries: React.FC = () => {
         </div>
 
         {/* Banking & Capital Markets Section */}
-        <div className="w-full px-6 md:px-10 py-16">
-          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row-reverse items-stretch md:items-center gap-10 md:gap-20">
+        <div className="w-full px-4 sm:px-6 md:px-10 py-12 md:py-16">
+          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row-reverse items-center md:items-center gap-8 md:gap-20">
             {/* Left Text Content */}
-            <div className="w-full md:basis-1/2 flex flex-col items-start">
+            <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-left md:text-left mb-8 md:mb-0">
               <div className="mb-6">
-                <div className="w-16 h-16 flex items-center justify-center mb-4">
+                <div className="w-16 h-16 flex items-center justify-center mb-4 self-start md:self-start">
                   <img
                     src="/banking_capital_icon b.png"
                     alt="Banking Capital icon"
                     className="w-16 h-16"
                   />
                 </div>
-                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] mb-4">
+                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] mb-4 text-left w-full">
                   Banking & Capital Markets
                 </h2>
                 <p className="text-[#535353] text-lg md:text-[18px]  font-medium leading-relaxed">
@@ -207,7 +207,7 @@ const Industries: React.FC = () => {
               </div>
             </div>
             {/* Left Image */}
-            <div className="w-full md:basis-1/2 flex flex-col items-start min-h-[300px] justify-center relative">
+            <div className="w-full md:basis-1/2 flex justify-center items-center relative mt-6 md:mt-0 min-h-[200px]">
               <div className="absolute w-[200px] h-[200px] bg-[#023ED6] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 left-0 z-0" />
               <img
                 src="/banking_capital_banner.jpg"
@@ -219,19 +219,19 @@ const Industries: React.FC = () => {
         </div>
 
         {/* Industrial Manufacturing Section */}
-        <div className="w-full px-6 md:px-10 py-16 relative ">
-          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-20 relative z-10">
+        <div className="w-full px-4 sm:px-6 md:px-10 py-12 md:py-16 relative ">
+          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center md:items-center gap-8 md:gap-20 relative z-10">
             {/* Left Text Content */}
-            <div className="w-full md:basis-1/2 flex flex-col items-start">
+            <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-left md:text-left mb-8 md:mb-0">
               <div className="mb-6">
-                <div className="w-16 h-16 flex items-center justify-center mb-4">
+                <div className="w-16 h-16 flex items-center justify-center mb-4 self-start md:self-start">
                   <img
                     src="/industrial_manufacturing_icon y.png"
                     alt="Industrial Manufacturing icon"
                     className="w-16 h-16"
                   />
                 </div>
-                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#E29400] mb-4">
+                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#E29400] mb-4 text-left w-full">
                   Industrial Manufacturing
                 </h2>
                 <p className="text-[#535353] text-lg md:text-[18px] font-medium leading-relaxed">
@@ -245,7 +245,7 @@ const Industries: React.FC = () => {
             </div>
 
             {/* Right Image Container */}
-            <div className="w-full md:basis-1/2 flex justify-center relative">
+            <div className="w-full md:basis-1/2 flex justify-center items-center relative mt-6 md:mt-0">
               {/* Elliptical Blue Blur */}
               <div className="absolute w-[200px] h-[200px] bg-[#E29400] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 right-0 z-0" />
 
@@ -260,19 +260,19 @@ const Industries: React.FC = () => {
         </div>
 
         {/* Technology, Media & Telecom Section */}
-        <div className="w-full px-6 md:px-10 py-16">
-          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row-reverse items-stretch md:items-center gap-10 md:gap-20">
+        <div className="w-full px-4 sm:px-6 md:px-10 py-12 md:py-16">
+          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row-reverse items-center md:items-center gap-8 md:gap-20">
             {/* Left Text Content */}
-            <div className="w-full md:basis-1/2 flex flex-col items-start">
+            <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-left md:text-left mb-8 md:mb-0">
               <div className="mb-6">
-                <div className="w-16 h-16 flex items-center justify-center mb-4">
+                <div className="w-16 h-16 flex items-center justify-center mb-4 self-start md:self-start">
                   <img
                     src="/tech_media_telecom_icon b.png"
                     alt="Tech Media Telecom Icon"
                     className="w-16 h-16"
                   />
                 </div>
-                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] mb-4">
+                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] mb-4 text-left w-full">
                   Technology, Media & Telecom
                 </h2>
                 <p className="text-[#535353] text-lg md:text-[18px]  font-medium leading-relaxed">
@@ -285,11 +285,11 @@ const Industries: React.FC = () => {
               </div>
             </div>
             {/* Left Image */}
-            <div className="w-full md:basis-1/2 flex flex-col items-start min-h-[300px] justify-center relative">
+            <div className="w-full md:basis-1/2 flex justify-center items-center relative mt-6 md:mt-0 min-h-[200px]">
               <div className="absolute w-[200px] h-[200px] bg-[#023ED6] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 left-0 z-0" />
               <img
-                src="/tech_media_telecom_banner.jpg"
-                alt="Tech Media Telecom"
+                src="/fusefy_banner.jpg"
+                alt="Fusefy"
                 className="w-full max-w-[585px] h-auto min-h-[300px] object-contain relative z-10"
               />
             </div>

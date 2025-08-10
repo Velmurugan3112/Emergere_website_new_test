@@ -43,12 +43,12 @@ const DataAIAnalytics: React.FC = () => {
       </div>
 
       {/* Data AI Analytics Row Section */}
-  <div className="bg-white relative flex flex-col items-center justify-center px-2 md:px-26">
+      <div className="bg-white relative flex flex-col items-center justify-center px-2 md:px-26">
         {/* Data Management Solutions Section */}
-        <div className="w-full bg-white px-4 sm:px-6 md:px-10 py-12 md:py-16 relative">
+        <div className="w-full px-4 sm:px-6 md:px-10 py-12 md:py-16 relative">
           <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center md:items-center gap-8 md:gap-20 relative z-10">
             {/* Left Text Content */}
-            <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-center md:text-left mb-8 md:mb-0">
+            <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-left md:text-left mb-8 md:mb-0">
               <div className="w-16 h-16 flex items-center justify-center mb-4 self-start md:self-start">
                 <img src="/dms_icon.png" alt="App Icon" className="w-16 h-16" />
               </div>
@@ -91,10 +91,10 @@ const DataAIAnalytics: React.FC = () => {
         </div>
 
         {/* Data Engineering Section */}
-        <div className="w-full bg-white px-4 sm:px-6 md:px-10 py-12 md:py-16">
+        <div className="w-full px-4 sm:px-6 md:px-10 py-12 md:py-16">
           <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row-reverse items-center md:items-center gap-8 md:gap-20">
             {/* Left Text Content */}
-            <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-center md:text-left mb-8 md:mb-0">
+            <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-left md:text-left mb-8 md:mb-0">
               <div className="mb-6">
                 <div className="w-16 h-16 flex items-center justify-center mb-4 self-start md:self-start">
                   <img
@@ -140,10 +140,10 @@ const DataAIAnalytics: React.FC = () => {
         </div>
 
         {/* Data Visualization Section */}
-        <div className="w-full bg-white px-4 sm:px-6 md:px-10 py-12 md:py-16 relative ">
+        <div className="w-full px-4 sm:px-6 md:px-10 py-12 md:py-16 relative ">
           <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center md:items-center gap-8 md:gap-20 relative z-10">
             {/* Left Text Content */}
-            <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-center md:text-left mb-8 md:mb-0">
+            <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-left md:text-left mb-8 md:mb-0">
               <div className="mb-6">
                 <div className="w-16 h-16 flex items-center justify-center mb-4 self-start md:self-start">
                   <img
@@ -191,10 +191,10 @@ const DataAIAnalytics: React.FC = () => {
         </div>
 
         {/* Data Governance Section */}
-        <div className="w-full bg-white px-4 sm:px-6 md:px-10 py-12 md:py-16">
+        <div className="w-full px-4 sm:px-6 md:px-10 py-12 md:py-16">
           <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row-reverse items-center md:items-center gap-8 md:gap-20">
             {/* Left Text Content */}
-            <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-center md:text-left mb-8 md:mb-0">
+            <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-left md:text-left mb-8 md:mb-0">
               <div className="mb-6">
                 <div className="w-16 h-16 flex items-center justify-center mb-4 self-start md:self-start">
                   <img
@@ -241,7 +241,7 @@ const DataAIAnalytics: React.FC = () => {
         <div className="w-full px-4 sm:px-6 md:px-10 py-12 md:py-16 relative ">
           <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center md:items-center gap-8 md:gap-20 relative z-10">
             {/* Left Text Content */}
-            <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-center md:text-left mb-8 md:mb-0">
+            <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-left md:text-left mb-8 md:mb-0">
               <div className="mb-6">
                 <div className="w-16 h-16 flex items-center justify-center mb-4 self-start md:self-start">
                   <img
@@ -293,10 +293,10 @@ const DataAIAnalytics: React.FC = () => {
         </div>
 
         {/* Fusefy Section */}
-        <div className="w-full bg-white px-4 sm:px-6 md:px-10 py-12 md:py-16">
+        <div className="w-full px-4 sm:px-6 md:px-10 py-12 md:py-16">
           <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row-reverse items-center md:items-center gap-8 md:gap-20">
             {/* Left Text Content */}
-            <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-center md:text-left mb-8 md:mb-0">
+            <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-left md:text-left mb-8 md:mb-0">
               <div className="mb-6">
                 <div className="w-16 h-16 flex items-center justify-center mb-4 self-start md:self-start">
                   <img

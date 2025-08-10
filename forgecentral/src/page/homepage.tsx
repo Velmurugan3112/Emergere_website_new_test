@@ -65,21 +65,19 @@ const ServiceCard = ({
         <h3 className="text-[#393939] font-extrabold text-[18px] mb-2 leading-snug w-full">
           {title}
         </h3>
-        <p className="text-[#3E3E59] text-md leading-relaxed w-full">
-          {desc}
-        </p>
-      </div>
-      <div className="mt-6 w-full flex justify-center sm:justify-start">
-        <Link href={href}>
-          <button className="inline-flex items-center gap-2 text-md font-semibold text-gray-700 border border-gray-200 rounded-full px-5 py-3 hover:scale-105 transition-transform">
-            Know more
-            <img
-              src="/arrow-right-black.svg"
-              alt="arrow right"
-              className="w-5 h-5 object-contain"
-            />
-          </button>
-        </Link>
+        <p className="text-[#3E3E59] text-md leading-relaxed w-full">{desc}</p>
+        <div className="mt-6 w-full flex justify-center sm:justify-start">
+          <Link href={href}>
+            <button className="inline-flex items-center gap-2 text-md font-semibold text-gray-700 border border-gray-200 rounded-full px-5 py-3 hover:scale-105 transition-transform">
+              Know more
+              <img
+                src="/arrow-right-black.svg"
+                alt="arrow right"
+                className="w-5 h-5 object-contain"
+              />
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );
@@ -158,8 +156,8 @@ const TestimonialCard = ({
       setIsDesktop(window.innerWidth >= 640);
     };
     checkDesktop();
-    window.addEventListener('resize', checkDesktop);
-    return () => window.removeEventListener('resize', checkDesktop);
+    window.addEventListener("resize", checkDesktop);
+    return () => window.removeEventListener("resize", checkDesktop);
   }, []);
   const style = isDesktop
     ? {
@@ -386,8 +384,8 @@ const HeroSection = () => {
       setIsMobile(window.innerWidth < 640);
     };
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   // Service Animation
@@ -467,8 +465,8 @@ const HeroSection = () => {
 
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "/ET_Service_offerings-2025.pdf"; // path to your PDF in public folder
-    link.download = "ET_Service_offerings-2025.pdf";
+    link.href = "/Emergere Broucher.pdf"; // path to your PDF in public folder
+    link.download = "Emergere Broucher.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -867,7 +865,7 @@ const HeroSection = () => {
 
             {/* Right Icon: below text on mobile, right on desktop */}
             <div className="z-10 flex-1 flex justify-center relative mt-8 md:mt-0 w-full md:w-auto">
-              <div className="relative w-60 h-60 sm:w-56 sm:h-56 md:w-72 md:h-72 z-10 flex items-center justify-center">
+              <div className="relative w-80 h-80 sm:w-96 sm:h-96 md:w-[28rem] md:h-[28rem] z-10 flex items-center justify-center">
                 <img
                   src="/Brochure.png"
                   alt="Brochure Icon"

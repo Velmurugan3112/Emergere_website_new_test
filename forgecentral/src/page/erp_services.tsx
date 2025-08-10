@@ -56,7 +56,7 @@ const BenefitCard = ({
   return (
     <div className="flex justify-center items-center w-full h-full">
       <div
-        className="bg-white rounded-[32px] p-6 shadow-sm text-left flex flex-col h-full transform transition-transform hover:shadow-xl max-w-[280px] w-full"
+        className="bg-white rounded-[32px] p-4 sm:p-6 shadow-sm text-left flex flex-col h-full transform transition-transform hover:shadow-xl max-w-[280px] w-full"
         style={{
           ...style,
           backgroundImage: "url('/erp_card_bg.jpg')",
@@ -121,49 +121,52 @@ const ERPServices: React.FC = () => {
           <h1 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-[#023ED6] to-[#E29400] bg-clip-text text-transparent leading-tight">
             ERP Services
           </h1>
-          <h2 className="text-md md:text-[24px] font-extrabold text-[#161616] leading-[38px] mb-4">
-            Streamlining Business Operations with Scalable ERP Solutions
-          </h2>
-          <p className="text-md md:text-[16px] text-between text-[#161616] leading-[32px] font-normal max-w-2xl">
-            In today’s competitive business environment, seamless integration of
-            processes and data is crucial to achieving operational excellence.
-            At Emergere, our{" "}
-            <strong className="text-black font-semibold">
-              ERP (Enterprise Resource Planning)
-            </strong>{" "}
-            services are designed to unify your core{" "}
-            <strong className="text-black font-semibold">
-              business functions, from finance and HR to supply chain,
-              procurement, and customer service under
-            </strong>{" "}
-            one intelligent system. 
-          </p>
-          <p className="text-lg md:text-[16px] text-between text-[#161616] leading-[32px] font-normal max-w-2xl">
-            We help organizations across industries modernize their legacy
-            systems,{" "}
-            <strong className="text-black font-semibold">
-              implement leading ERP platforms, and optimize business performance
-              through automation, analytics, and real-time visibility.
-            </strong>
-          </p>
+          {/* Headline + Paragraph */}
+          <div className="px-4 md:px-8 py-4 max-w-3xl mt-4 flex flex-col items-center text-center">
+            <h2 className="text-lg md:text-[24px] font-extrabold text-[#161616] leading-[38px] mb-4">
+              Streamlining Business Operations with Scalable ERP Solutions
+            </h2>
+
+            <p className="text-lg md:text-[16px] text-center text-[#161616] leading-[32px] font-normal max-w-2xl">
+              In today’s competitive business environment, seamless integration
+              of processes and data is crucial to achieving operational
+              excellence. At Emergere, our{" "}
+              <strong>ERP (Enterprise Resource Planning)</strong> services are
+              designed to unify your core{" "}
+              <strong>
+                business functions, from finance and HR to supply chain,
+                procurement, and customer service under
+              </strong>{" "}
+              one intelligent system. 
+            </p>
+            <p className="text-lg md:text-[16px] text-center text-[#161616] leading-[32px] font-normal max-w-2xl">
+              We help organizations across industries modernize their legacy
+              systems,{" "}
+              <strong className="text-black font-semibold">
+                implement leading ERP platforms, and optimize business
+                performance through automation, analytics, and real-time
+                visibility.
+              </strong>
+            </p>
+          </div>
         </div>
       </div>
 
       {/* ERP Services Row Section */}
-      <div className="relative items-center justify-center px-26">
+      <div className="bg-white relative flex flex-col items-center justify-center px-2 md:px-26">
         {/* Workday & Support Section */}
-        <div className="w-full bg-white px-6 md:px-10 py-16 relative">
-          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-20 relative z-10">
+        <div className="w-full px-4 sm:px-6 md:px-10 py-12 md:py-16 relative">
+          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center md:items-center gap-8 md:gap-20 relative z-10">
             {/* Left Text Content */}
-            <div className="w-full md:basis-1/2 flex mb-6 flex-col items-start">
-              <div className="flex items-center justify-center mb-4">
+            <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-left md:text-left mb-8 md:mb-0">
+              <div className="w-16 h-16 flex items-center justify-center mb-4 self-start md:self-start">
                 <img
                   src="/workday_icon.png"
                   alt="App Icon"
                   className="w-full h-full"
                 />
               </div>
-              <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#0A6DAE] mb-4">
+              <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#0A6DAE] mb-4 text-left w-full">
                 Workday Implementation and <br />
                 Support
               </h2>
@@ -185,7 +188,7 @@ const ERPServices: React.FC = () => {
             </div>
 
             {/* Right Image Container */}
-            <div className="w-full md:basis-1/2 flex justify-center relative">
+            <div className="w-full md:basis-1/2 flex justify-center items-center relative mt-6 md:mt-0">
               {/* Blurred Ellipse */}
               <div className="absolute w-[200px] h-[200px] bg-[#0A6DAE] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 right-0 z-0" />
 
@@ -200,19 +203,19 @@ const ERPServices: React.FC = () => {
         </div>
 
         {/* UKG- Kronos Section */}
-        <div className="w-full bg-white px-6 md:px-10 py-16">
-          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row-reverse items-stretch md:items-center gap-10 md:gap-20">
+        <div className="w-full px-4 sm:px-6 md:px-10 py-12 md:py-16">
+          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row-reverse items-center md:items-center gap-8 md:gap-20">
             {/* Left Text Content */}
-            <div className="w-full md:basis-1/2 flex flex-col items-start">
+            <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-left md:text-left mb-8 md:mb-0">
               <div className="mb-6">
-                <div className="flex items-start justify-start mb-4">
+                <div className="w-16 h-16 flex items-center justify-center mb-4 self-start md:self-start">
                   <img
                     src="/ukg_icon.png"
                     alt="UKG Kronos Icon"
                     className="w-40 h-20"
                   />
                 </div>
-                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#005857] mb-4">
+                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#005857] mb-4 text-left w-full">
                   UKG - Kronos: <br />
                   Maximizing efficiency with solutions
                 </h2>
@@ -237,7 +240,7 @@ const ERPServices: React.FC = () => {
               </div>
             </div>
             {/* Left Image */}
-            <div className="w-full md:basis-1/2 flex flex-col items-start min-h-[300px] justify-center relative z-10">
+            <div className="w-full md:basis-1/2 flex justify-center items-center relative mt-6 md:mt-0 min-h-[200px]">
               <div className="absolute w-[200px] h-[200px] bg-[#005857] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 left-0 z-0" />
               <img
                 src="/UKG_Kronos.jpg"
@@ -248,20 +251,20 @@ const ERPServices: React.FC = () => {
           </div>
         </div>
 
-        {/* Implementation Section */}
-        <div className="w-full bg-white px-6 md:px-10 py-16 relative ">
-          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-20 relative z-10">
+        {/* ERP Implementation Section */}
+        <div className="w-full px-4 sm:px-6 md:px-10 py-12 md:py-16 relative ">
+          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center md:items-center gap-8 md:gap-20 relative z-10">
             {/* Left Text Content */}
-            <div className="w-full md:basis-1/2 flex flex-col items-start">
+            <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-left md:text-left mb-8 md:mb-0">
               <div className="mb-6">
-                <div className="w-16 h-16 flex items-center justify-center mb-4">
+                <div className="w-16 h-16 flex items-center justify-center mb-4 self-start md:self-start">
                   <img
                     src="/erp_implementation_icon.png"
                     alt="ERP Implementation Icon"
                     className="w-16 h-16"
                   />
                 </div>
-                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] mb-4">
+                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] mb-4 text-left w-full">
                   ERP Implementation
                 </h2>
                 <p className="text-[#535353] text-lg md:text-[18px] font-medium leading-relaxed">
@@ -285,7 +288,7 @@ const ERPServices: React.FC = () => {
             </div>
 
             {/* Right Image Container */}
-            <div className="w-full md:basis-1/2 flex justify-center relative">
+            <div className="w-full md:basis-1/2 flex justify-center items-center relative mt-6 md:mt-0">
               {/* Elliptical Blue Blur */}
               <div className="absolute w-[200px] h-[200px] bg-[#023ED6] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 right-0 z-0" />
 
@@ -299,20 +302,20 @@ const ERPServices: React.FC = () => {
           </div>
         </div>
 
-        {/* Customization & Integration Section */}
-        <div className="w-full bg-white px-6 md:px-10 py-16">
-          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row-reverse items-stretch md:items-center gap-10 md:gap-20">
+        {/* ERP Customization & Integration Section */}
+        <div className="w-full px-4 sm:px-6 md:px-10 py-12 md:py-16">
+          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row-reverse items-center md:items-center gap-8 md:gap-20">
             {/* Left Text Content */}
-            <div className="w-full md:basis-1/2 flex flex-col items-start">
+            <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-left md:text-left mb-8 md:mb-0">
               <div className="mb-6">
-                <div className="w-16 h-16 flex items-center justify-center mb-4">
+                <div className="w-16 h-16 flex items-center justify-center mb-4 self-start md:self-start">
                   <img
                     src="/erp_custom_icon.png"
                     alt="ERP Custom Icon"
                     className="w-16 h-16"
                   />
                 </div>
-                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#E29400] mb-4">
+                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#E29400] mb-4 text-left w-full">
                   ERP Customization & Integration
                 </h2>
                 <p className="text-[#535353] text-lg md:text-[18px]  font-medium leading-relaxed">
@@ -334,7 +337,7 @@ const ERPServices: React.FC = () => {
               </div>
             </div>
             {/* Left Image */}
-            <div className="w-full md:basis-1/2 flex flex-col items-start min-h-[300px] justify-center relative">
+            <div className="w-full md:basis-1/2 flex justify-center items-center relative mt-6 md:mt-0 min-h-[200px]">
               <div className="absolute w-[200px] h-[200px] bg-[#E29400] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 left-0 z-0" />
               <img
                 src="/erp_custom_banner.jpg"
@@ -345,20 +348,20 @@ const ERPServices: React.FC = () => {
           </div>
         </div>
 
-        {/* Migration & Upgrades Section */}
-        <div className="w-full px-6 md:px-10 py-16 relative ">
-          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-20 relative z-10">
+        {/* ERP Migration & Upgrades Section */}
+        <div className="w-full px-4 sm:px-6 md:px-10 py-12 md:py-16 relative ">
+          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center md:items-center gap-8 md:gap-20 relative z-10">
             {/* Left Text Content */}
-            <div className="w-full md:basis-1/2 flex flex-col items-start">
+            <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-left md:text-left mb-8 md:mb-0">
               <div className="mb-6">
-                <div className="w-16 h-16 flex items-center justify-center mb-4">
+                <div className="w-16 h-16 flex items-center justify-center mb-4 self-start md:self-start">
                   <img
                     src="/erp_migration_icon.png"
                     alt="ERP Migration Icon"
                     className="w-16 h-16"
                   />
                 </div>
-                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] mb-4">
+                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] mb-4 text-left w-full">
                   ERP Migration & Upgrades
                 </h2>
                 <p className="text-[#535353] text-lg md:text-[18px] font-medium leading-relaxed">
@@ -376,7 +379,7 @@ const ERPServices: React.FC = () => {
             </div>
 
             {/* Right Image Container */}
-            <div className="w-full md:basis-1/2 flex justify-center relative">
+            <div className="w-full md:basis-1/2 flex justify-center items-center relative mt-6 md:mt-0">
               {/* Elliptical Blue Blur */}
               <div className="absolute w-[200px] h-[200px] bg-[#023ED6] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 right-0 z-0" />
 
@@ -390,20 +393,20 @@ const ERPServices: React.FC = () => {
           </div>
         </div>
 
-        {/* Support & Maintenance Section */}
-        <div className="w-full bg-white px-6 md:px-10 py-16">
-          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row-reverse items-stretch md:items-center gap-10 md:gap-20">
+        {/* ERP Support & Maintenance Section */}
+        <div className="w-full px-4 sm:px-6 md:px-10 py-12 md:py-16">
+          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row-reverse items-center md:items-center gap-8 md:gap-20">
             {/* Left Text Content */}
-            <div className="w-full md:basis-1/2 flex flex-col items-start">
+            <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-left md:text-left mb-8 md:mb-0">
               <div className="mb-6">
-                <div className="w-16 h-16 flex items-center justify-center mb-4">
+                <div className="w-16 h-16 flex items-center justify-center mb-4 self-start md:self-start">
                   <img
                     src="/erp_support_icon.png"
                     alt="ERP Support Icon"
                     className="w-16 h-16"
                   />
                 </div>
-                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#E29400] mb-4">
+                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] mb-4 text-left w-full">
                   ERP Support & Maintenance
                 </h2>
                 <p className="text-[#535353] text-lg md:text-[18px]  font-medium leading-relaxed">
@@ -436,8 +439,8 @@ const ERPServices: React.FC = () => {
               </div>
             </div>
             {/* Left Image */}
-            <div className="w-full md:basis-1/2 flex flex-col items-start min-h-[300px] justify-center relative">
-              <div className="absolute w-[200px] h-[200px] bg-[#E29400] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 left-0 z-0" />
+            <div className="w-full md:basis-1/2 flex justify-center items-center relative mt-6 md:mt-0 min-h-[200px]">
+              <div className="absolute w-[200px] h-[200px] bg-[#023ED6] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 left-0 z-0" />
               <img
                 src="/erp_support_banner.jpg"
                 alt="ERP Support"
@@ -447,20 +450,20 @@ const ERPServices: React.FC = () => {
           </div>
         </div>
 
-        {/* Consulting & Strategy Section */}
-        <div className="w-full px-6 md:px-10 py-16 relative ">
-          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-20 relative z-10">
+        {/* ERP Consulting & Strategy Section */}
+        <div className="w-full px-4 sm:px-6 md:px-10 py-12 md:py-16 relative ">
+          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center md:items-center gap-8 md:gap-20 relative z-10">
             {/* Left Text Content */}
-            <div className="w-full md:basis-1/2 flex flex-col items-start">
+            <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-left md:text-left mb-8 md:mb-0">
               <div className="mb-6">
-                <div className="w-16 h-16 flex items-center justify-center mb-4">
+                <div className="w-16 h-16 flex items-center justify-center mb-4 self-start md:self-start">
                   <img
                     src="/erp_consulting_icon.png"
                     alt="ERP Consulting Icon"
                     className="w-16 h-16"
                   />
                 </div>
-                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] mb-4">
+                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] mb-4 text-left w-full">
                   ERP Consulting & Strategy
                 </h2>
                 <p className="text-[#535353] text-lg md:text-[18px] font-medium leading-relaxed">
@@ -484,9 +487,9 @@ const ERPServices: React.FC = () => {
             </div>
 
             {/* Right Image Container */}
-            <div className="w-full md:basis-1/2 flex justify-center relative">
+            <div className="w-full md:basis-1/2 flex justify-center items-center relative mt-6 md:mt-0">
               {/* Elliptical Blue Blur */}
-              <div className="absolute w-[200px] h-[200px] bg-[#E29400] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 right-0 z-0" />
+              <div className="absolute w-[200px] h-[200px] bg-[#023ED6] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 right-0 z-0" />
 
               {/* Main Image */}
               <img
@@ -530,7 +533,7 @@ const ERPServices: React.FC = () => {
           className="w-full px-4 py-10  flex flex-col items-center justify-center gap-10"
         >
           {/* Top Row - 3 Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-10 py-12 w-full max-w-6xl">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-10 w-full max-w-6xl">
             {benefits.slice(0, 3).map((benefit, idx) => (
               <BenefitCard
                 key={benefit.text}
@@ -543,7 +546,7 @@ const ERPServices: React.FC = () => {
           </div>
 
           {/* Bottom Row - 2 Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 px-10 py-12 w-full max-w-4xl">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 px-10 w-full max-w-4xl">
             {benefits.slice(3).map((benefit, idx) => (
               <BenefitCard
                 key={benefit.text}
@@ -566,9 +569,8 @@ const ERPServices: React.FC = () => {
           Whether you’re embarking on your first ERP journey or optimizing an
           existing system, we help you{" "}
           <strong className="text-black">
-            unlock the full potential of enterprise automation
+            unlock the full potential of enterprise automation.
           </strong>
-          .
         </p>
       </div>
     </div>

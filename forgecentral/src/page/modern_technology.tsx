@@ -42,20 +42,20 @@ const ModernTech: React.FC = () => {
       </div>
 
       {/* Modern technology Row Section */}
-      <div className="relative items-center justify-center px-26">
+      <div className="bg-white relative flex flex-col items-center justify-center px-2 md:px-26">
         {/* Low-Code Development Section */}
-        <div className="w-full bg-white px-6 md:px-10 py-16 relative">
-          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-20 relative z-10">
+        <div className="w-full px-4 sm:px-6 md:px-10 py-12 md:py-16 relative">
+          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center md:items-center gap-8 md:gap-20 relative z-10">
             {/* Left Text Content */}
-            <div className="w-full md:basis-1/2 flex mb-6 flex-col items-start">
-              <div className="w-16 h-16 flex items-center justify-center mb-4">
+            <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-left md:text-left mb-8 md:mb-0">
+              <div className="w-16 h-16 flex items-center justify-center mb-4 self-start md:self-start">
                 <img
                   src="/low_code_dev_icon.png"
                   alt="Low Code Dev Icon"
                   className="w-16 h-16"
                 />
               </div>
-              <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] mb-4">
+              <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] mb-4 text-left w-full">
                 Low-Code Development
               </h2>
               <p className="text-[#535353] text-lg md:text-[18px] font-medium leading-relaxed">
@@ -69,7 +69,7 @@ const ModernTech: React.FC = () => {
             </div>
 
             {/* Right Image Container */}
-            <div className="w-full md:basis-1/2 flex justify-center relative">
+            <div className="w-full md:basis-1/2 flex justify-center items-center relative mt-6 md:mt-0">
               {/* Blurred Ellipse */}
               <div className="absolute w-[200px] h-[200px] bg-[#023ED6] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 right-0 z-0" />
 
@@ -84,19 +84,19 @@ const ModernTech: React.FC = () => {
         </div>
 
         {/* Cybersecurity & Technology Risk Section */}
-        <div className="w-full bg-white px-6 md:px-10 py-16">
-          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row-reverse items-stretch md:items-center gap-10 md:gap-20">
+        <div className="w-full px-4 sm:px-6 md:px-10 py-12 md:py-16">
+          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row-reverse items-center md:items-center gap-8 md:gap-20">
             {/* Left Text Content */}
-            <div className="w-full md:basis-1/2 flex flex-col items-start">
+            <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-left md:text-left mb-8 md:mb-0">
               <div className="mb-6">
-                <div className="w-16 h-16 flex items-center justify-center mb-4">
+                <div className="w-16 h-16 flex items-center justify-center mb-4 self-start md:self-start">
                   <img
                     src="/cyber_tech_icon.png"
                     alt="Cyber Tech Icon"
                     className="w-16 h-16"
                   />
                 </div>
-                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#E29400] mb-4">
+                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#E29400] mb-4 text-left w-full">
                   Cybersecurity & Technology Risk
                 </h2>
                 <p className="text-[#535353] text-lg md:text-[18px]  font-medium leading-relaxed">
@@ -118,7 +118,7 @@ const ModernTech: React.FC = () => {
               </div>
             </div>
             {/* Left Image */}
-            <div className="w-full md:basis-1/2 flex flex-col items-start min-h-[300px] justify-center relative z-10">
+            <div className="w-full md:basis-1/2 flex justify-center items-center relative mt-6 md:mt-0 min-h-[200px]">
               <div className="absolute w-[200px] h-[200px] bg-[#E29400] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 left-0 z-0" />
               <img
                 src="/cyber_tech_banner.jpg"
@@ -130,19 +130,19 @@ const ModernTech: React.FC = () => {
         </div>
 
         {/* Cloud Services Section */}
-        <div className="w-full bg-white px-6 md:px-10 py-16 relative ">
-          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-20 relative z-10">
+        <div className="w-full px-4 sm:px-6 md:px-10 py-12 md:py-16 relative ">
+          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center md:items-center gap-8 md:gap-20 relative z-10">
             {/* Left Text Content */}
-            <div className="w-full md:basis-1/2 flex flex-col items-start">
+            <div className="w-full md:basis-1/2 flex flex-col items-center md:items-start text-left md:text-left mb-8 md:mb-0">
               <div className="mb-6">
-                <div className="w-16 h-16 flex items-center justify-center mb-4">
+                <div className="w-16 h-16 flex items-center justify-center mb-4 self-start md:self-start">
                   <img
                     src="/cloud_services_icon.png"
                     alt="Cloud Services Icon"
                     className="w-16 h-16"
                   />
                 </div>
-                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] mb-4">
+                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] mb-4 text-left w-full">
                   Cloud Services
                 </h2>
                 <p className="text-[#535353] text-lg md:text-[18px] font-medium leading-relaxed">
@@ -166,7 +166,7 @@ const ModernTech: React.FC = () => {
             </div>
 
             {/* Right Image Container */}
-            <div className="w-full md:basis-1/2 flex justify-center relative">
+            <div className="w-full md:basis-1/2 flex justify-center items-center relative mt-6 md:mt-0">
               {/* Elliptical Blue Blur */}
               <div className="absolute w-[200px] h-[200px] bg-[#023ED6] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 right-0 z-0" />
 

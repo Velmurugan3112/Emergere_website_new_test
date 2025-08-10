@@ -149,22 +149,11 @@ export const TechnologyStaffing = () => {
 
         {/* Cross-Domain Expertise Section */}
         <section className="w-full bg-white px-16 md:px-36 py-16">
-          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-stretch md:items-center gap-10 md:gap-20">
-            {/* Left: Image */}
-            <div className="w-full md:basis-1/2 flex justify-center items-center relative">
-              {/* Elliptical Blue Blur */}
-              <div className="absolute w-[200px] h-[200px] bg-[#E29400] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 left-0 z-0" />
-              <img
-                src="/cross_domain_expertise_image.svg" // ← update with your image path
-                alt="Cross-Domain Expertise"
-                className="w-full max-w-[560px] rounded-[40px] object-cover relative z-10"
-              />
-            </div>
-
-            {/* Right: Content */}
+          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row-reverse items-stretch md:items-center gap-10 md:gap-20">
+            {/* Left: Content (on right due to reverse) */}
             <div className="w-full md:basis-1/2 flex flex-col items-start justify-center">
               {/* Icon */}
-              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-5">
+              <div className="w-16 h-16 flex items-center justify-center mb-5">
                 <img
                   src="/expertise_icon.svg" // ← update with your actual icon path
                   alt="Expertise Icon"
@@ -178,7 +167,7 @@ export const TechnologyStaffing = () => {
               </h2>
 
               {/* Description */}
-              <p className="text-[#535353] text-lg md:text-[18px] font-medium leading-relaxed">
+              <p className="text-[#535353] text-lg md:text-[18px] font-normal leading-relaxed">
                 Our talent pool includes{" "}
                 <span className="font-bold text-[#161616]">
                   consultants and specialists
@@ -190,6 +179,17 @@ export const TechnologyStaffing = () => {
                   initiatives.
                 </span>
               </p>
+            </div>
+
+            {/* Right: Image (on left due to reverse) */}
+            <div className="w-full md:basis-1/2 flex justify-center items-center relative">
+              {/* Elliptical Blue Blur */}
+              <div className="absolute w-[200px] h-[200px] bg-[#E29400] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 left-0 z-0" />
+              <img
+                src="/cross_domain_expertise_image.svg" // ← update with your image path
+                alt="Cross-Domain Expertise"
+                className="w-full max-w-[560px] rounded-[40px] object-cover relative z-10"
+              />
             </div>
           </div>
         </section>
