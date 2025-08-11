@@ -552,12 +552,13 @@ const HeroSection = () => {
               className={`
                 absolute z-20 w-full h-full flex flex-col
                 items-start justify-start
-                md:items-start md:justify-start
-                md:pl-70 md:pr-16 md:pt-32
+                md:items-start md:justify-center
+                md:pl-70 md:pr-16
                 px-4
-                pt-32 sm:pt-40 md:pt-[150px]
+                pt-32 sm:pt-40 md:pt-0
                 pointer-events-auto
               `}
+              style={{ minHeight: '100vh' }}
             >
               <div className="w-full max-w-3xl flex flex-col items-center md:items-start text-center md:text-left md:mx-0">
                 <h1 className="text-2xl sm:text-3xl md:text-[40px] font-bold leading-tight w-full mb-4">

@@ -239,7 +239,7 @@ export default function AboutUs() {
           <div className="flex-1 relative w-full max-w-[490px] flex flex-col items-center mt-8 md:mt-0">
             {/* Main image */}
             <Image
-              src="/aboutUs_a1.svg"
+              src="/aboutUs_a1.png"
               width={600}
               height={400}
               alt="Tech"

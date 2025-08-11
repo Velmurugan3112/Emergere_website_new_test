@@ -8,7 +8,7 @@ export const AboutUsHeader = () => {
         className="relative max-w-full h-[319px] bg-cover bg-center mt-[0px] mx-auto"
         style={{
           backgroundImage:
-            "linear-gradient(0deg, #042474 0%, rgba(2, 62, 214, 0) 47.03%), url('/aboutUs_banner.png')",
+            "linear-gradient(0deg, #042474 0%, rgba(2, 62, 214, 0) 47.03%), url('/aboutUs_banner.jpg')",
         }}
       >
         <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-center text-white z-10 w-full px-4">
