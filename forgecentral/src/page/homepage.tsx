@@ -669,7 +669,7 @@ const HeroSection = () => {
               </p>
 
               <Link href="/about-us">
-                <button className="flex items-center gap-2 bg-blue-700 text-white px-5 sm:px-8 py-3 sm:py-4 rounded-full shadow-lg transition font-semibold w-fit text-xs sm:text-md hover:scale-105 mx-auto md:mx-0">
+                <button className="flex items-center gap-2 bg-blue-700 text-white px-5 sm:px-8 py-3 sm:py-4 rounded-full shadow-lg transition font-semibold w-fit text-sm sm:text-md hover:scale-105 mx-auto md:mx-0">
                   Know More
                   <img
                     src="/arrow-right-white.svg"

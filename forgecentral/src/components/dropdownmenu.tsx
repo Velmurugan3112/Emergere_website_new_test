@@ -22,21 +22,8 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
   anchorRef,
   isOpen,
 }) => {
-  const [position, setPosition] = useState({ left: 0, top: 0 });
+  const [position, setPosition] = useState({ left: 100, top: -7 });
   const menuRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (anchorRef.current && menuRef.current) {
-      const rect = anchorRef.current.getBoundingClientRect();
-      const scrollY = window.scrollY || document.documentElement.scrollTop;
-      const scrollX = window.scrollX || document.documentElement.scrollLeft;
-
-      setPosition({
-        left: rect.left + scrollX,
-        top: rect.bottom + scrollY + 100,
-      });
-    }
-  }, [anchorRef, isOpen]);
   if (!isOpen) return null;
 
   return (

@@ -166,7 +166,8 @@ const NavBar = () => {
             <div
               ref={servicesRef}
               className="relative"
-              onClick={() => toggleDropdown("services")}
+              onMouseEnter={() => setOpenDropdown("services")}
+              onMouseLeave={() => setOpenDropdown(null)}
             >
               <button
                 className={`group font-semibold flex items-center gap-1 transition-colors ${
@@ -197,13 +198,28 @@ const NavBar = () => {
                   />
                 </span>
               </button>
+              {openDropdown === "services" && (
+                <div
+                  onMouseEnter={() => setOpenDropdown("services")}
+                  onMouseLeave={() => setOpenDropdown(null)}
+                  className="absolute left-1/2 -translate-x-1/2 mt-2 z-[9999]"
+                  style={{ minWidth: 250 }}
+                >
+                  <DropdownMenu
+                    items={servicesItems}
+                    anchorRef={servicesRef}
+                    isOpen
+                  />
+                </div>
+              )}
             </div>
 
             {/* Industries Dropdown */}
             <div
               ref={industriesRef}
               className="relative"
-              onClick={() => toggleDropdown("industries")}
+              onMouseEnter={() => setOpenDropdown("industries")}
+              onMouseLeave={() => setOpenDropdown(null)}
             >
               <button
                 className={`group font-semibold flex items-center gap-1 transition-colors ${
@@ -234,13 +250,28 @@ const NavBar = () => {
                   />
                 </span>
               </button>
+              {openDropdown === "industries" && (
+                <div
+                  onMouseEnter={() => setOpenDropdown("industries")}
+                  onMouseLeave={() => setOpenDropdown(null)}
+                  className="absolute left-1/2 -translate-x-1/2 mt-2 z-[9999]"
+                  style={{ minWidth: 250 }}
+                >
+                  <DropdownMenu
+                    items={industriesItems}
+                    anchorRef={industriesRef}
+                    isOpen
+                  />
+                </div>
+              )}
             </div>
 
             {/* Insights Dropdown */}
             <div
               ref={insightsRef}
               className="relative"
-              onClick={() => toggleDropdown("insights")}
+              onMouseEnter={() => setOpenDropdown("insights")}
+              onMouseLeave={() => setOpenDropdown(null)}
             >
               <button
                 className={`group font-semibold flex items-center gap-1 transition-colors ${
@@ -271,6 +302,20 @@ const NavBar = () => {
                   />
                 </span>
               </button>
+              {openDropdown === "insights" && (
+                <div
+                  onMouseEnter={() => setOpenDropdown("insights")}
+                  onMouseLeave={() => setOpenDropdown(null)}
+                  className="absolute left-1/2 -translate-x-1/2 mt-2 z-[9999]"
+                  style={{ minWidth: 250 }}
+                >
+                  <DropdownMenu
+                    items={insightsItems}
+                    anchorRef={insightsRef}
+                    isOpen
+                  />
+                </div>
+              )}
             </div>
 
             <Link
@@ -546,21 +591,6 @@ const NavBar = () => {
             </Link>
           </div>
         </div>
-      )}
-
-      {/* DropDowns anchored to the correct button (desktop only) */}
-      {openDropdown === "services" && (
-        <DropdownMenu items={servicesItems} anchorRef={servicesRef} isOpen />
-      )}
-      {openDropdown === "industries" && (
-        <DropdownMenu
-          items={industriesItems}
-          anchorRef={industriesRef}
-          isOpen
-        />
-      )}
-      {openDropdown === "insights" && (
-        <DropdownMenu items={insightsItems} anchorRef={insightsRef} isOpen />
       )}
     </>
   );
