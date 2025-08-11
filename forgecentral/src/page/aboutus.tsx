@@ -57,8 +57,8 @@ export default function AboutUs() {
       setIsMobile(window.innerWidth < 640);
     };
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   useEffect(() => {
@@ -89,7 +89,7 @@ export default function AboutUs() {
 
       {/* Main Section */}
       <section
-        className="relative bg-white overflow-hidden px-6 md:px-20 pt-20 pb-50"
+        className="relative bg-white overflow-hidden px-4 lg:px-4 xl:px-6 pt-20 pb-50"
         style={{
           backgroundImage: "url('/About-Us-Bg.png')",
           backgroundSize: "cover",
@@ -97,9 +97,9 @@ export default function AboutUs() {
           marginBottom: "-150px",
         }}
       >
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-10 items-center relative z-10">
+        <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row md:gap-6 lg:gap-10 xl:gap-16 items-center relative z-10">
           {/* Left Content */}
-          <div className="basis-[50%] space-y-6 px-6 text-left">
+          <div className="basis-[50%] space-y-6 px-0 lg:px-2 xl:px-3 text-left lg:text-center mx-auto">
             <div className="inline-flex flex-col items-start mb-7">
               <span className="text-md text-[#023ED6] font-extrabold tracking-[0.19em] uppercase mb-1">
                 ABOUT US
@@ -236,7 +236,7 @@ export default function AboutUs() {
           </div>
 
           {/* Right Content */}
-          <div className="flex-1 relative w-full max-w-[490px] flex flex-col items-center mt-8 md:mt-0">
+          <div className="flex-1 relative w-full max-w-[490px] flex flex-col items-center mt-8 md:mt-0 md:pl-0 lg:pl-2 xl:pl-3">
             {/* Main image */}
             <Image
               src="/aboutUs_a1.png"
@@ -542,7 +542,10 @@ export default function AboutUs() {
         </div>
       </section>
       {/*CORE VALUES SECTION*/}
-  <section className="bg-[#f4f5f7] pt-6 md:pt-16 pb-16 px-4 md:px-24" ref={coreValuesRef}>
+      <section
+        className="bg-[#f4f5f7] pt-6 md:pt-16 pb-16 px-4 md:px-24"
+        ref={coreValuesRef}
+      >
         <div className="max-w-7xl mx-auto">
           {/* Section Title */}
           <div className="mb-8 md:mb-12 text-center md:text-left">
@@ -559,7 +562,7 @@ export default function AboutUs() {
             </div>
             <h2 className="text-3xl md:text-4xl font-bold leading-snug mt-2">
               Vision-Led. Mission-Focused. <br />
-              Customer-Centric.{' '}
+              Customer-Centric.{" "}
               <span className="whitespace-nowrap md:whitespace-normal bg-gradient-to-r from-[#023ED6] via-[#6B7AD7] to-[#F5B037] bg-clip-text text-transparent">
                 The Emergere Way
               </span>
