@@ -133,11 +133,13 @@ const NavBar = () => {
         <div className="flex items-center justify-between w-full">
           {/* Logo */}
           <div className="flex items-center">
-            <img
-              src="/Nav_Emg_Logo.svg"
-              alt="Emergere Logo"
-              className="w-full max-w-[240px]"
-            />
+            <Link href="/">
+              <img
+                src="/Nav_Emg_Logo.svg"
+                alt="Emergere Logo"
+                className="w-full max-w-[240px]"
+              />
+            </Link>
           </div>
 
           {/* Desktop Navigation */}

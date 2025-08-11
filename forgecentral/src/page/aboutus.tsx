@@ -91,7 +91,7 @@ export default function AboutUs() {
       <section
         className="relative bg-white overflow-hidden px-6 md:px-20 pt-20 pb-50"
         style={{
-          backgroundImage: "url('/About-Us-Bg.svg')",
+          backgroundImage: "url('/About-Us-Bg.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           marginBottom: "-150px",
@@ -239,7 +239,7 @@ export default function AboutUs() {
           <div className="flex-1 relative w-full max-w-[490px] flex flex-col items-center mt-8 md:mt-0">
             {/* Main image */}
             <Image
-              src="/aboutUs_a1.svg"
+              src="/aboutUs_a1.png"
               width={600}
               height={400}
               alt="Tech"
