@@ -91,7 +91,7 @@ export default function AboutUs() {
       <section
         className="relative bg-white overflow-hidden px-6 md:px-20 pt-20 pb-50"
         style={{
-          backgroundImage: "url('/About-Us-Bg.svg')",
+          backgroundImage: "url('/About-Us-Bg.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           marginBottom: "-150px",
