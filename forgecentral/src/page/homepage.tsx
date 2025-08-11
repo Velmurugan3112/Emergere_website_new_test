@@ -515,7 +515,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative">
+    <section className="relative overflow-x-hidden">
       <ToastContainer position="top-center" autoClose={3000} />
       {/* Fixed Hero Section: only visible at the top */}
       {showHero && (
@@ -609,12 +609,12 @@ const HeroSection = () => {
             }}
           />
 
-          <div className="max-w-7xl mx-auto py-10 md:py-20 flex flex-col md:flex-row items-center md:items-start gap-10 md:gap-20 lg:gap-40 relative z-10">
+          <div className="max-w-7xl mx-auto py-10 md:py-20 flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-10 lg:gap-16 relative z-10">
             {/* Image Stack - mobile: vertical, desktop: overlap */}
-            <div className="relative w-full md:w-1/2 flex flex-col md:flex-row items-center md:items-start justify-center md:justify-start gap-3 md:gap-0">
-              <div className="w-[180px] h-[180px] sm:w-[260px] sm:h-[260px] md:w-[300px] md:h-[300px] lg:w-[340px] lg:h-[340px] mx-auto md:mx-0">
+            <div className="relative w-full md:w-1/2 flex flex-col md:flex-row items-center md:items-start justify-center md:justify-start gap-3 md:gap-4">
+              <div className="w-[260px] h-[260px] sm:w-[340px] sm:h-[340px] md:w-[420px] md:h-[420px] lg:w-[500px] lg:h-[500px] mx-auto md:mx-0 md:ml-8">
                 <img
-                  src="/who_we_are_banner.svg"
+                  src="/who_we_are_banner.png"
                   alt="Who We Are"
                   className="w-full h-full object-cover"
                 />
