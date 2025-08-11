@@ -124,7 +124,7 @@ const IndustryCard = ({
       <br />
 
       {/* Title */}
-      <h3 className="font-extrabold text-lg md:text-2xl text-gray-900 mb-6">
+      <h3 className="font-extrabold text-lg md:text-xl text-gray-900 mb-6">
         {title}
       </h3>
 
@@ -356,10 +356,13 @@ const testimonials = [
   },
 ];
 
+const videos = ["/BN1-C.mp4", "/BN2-C.mp4", "/BN3-C.mp4"];
+
 const HERO_HEIGHT = 700; // px, adjust as needed for your hero section height
 
 const HeroSection = () => {
   const [loading, setLoading] = React.useState(false);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const videoSrc = "/Video-Banner-V3-C.mp4"; // Use your single video file here
   const [showHero, setShowHero] = useState(true);
   // Animation logic for Core Values section
@@ -443,8 +446,6 @@ const HeroSection = () => {
     }
   }, []);
 
-
-
   // Scroll
   useEffect(() => {
     const onScroll = () => {
@@ -460,8 +461,8 @@ const HeroSection = () => {
 
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "/Emergere Broucher.pdf"; // path to your PDF in public folder
-    link.download = "Emergere Broucher.pdf";
+    link.href = "/Emergere_Brochure.pdf"; // path to your PDF in public folder
+    link.download = "Emergere Brochure.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -558,7 +559,7 @@ const HeroSection = () => {
                 pt-32 sm:pt-40 md:pt-0
                 pointer-events-auto
               `}
-              style={{ minHeight: '100vh' }}
+              style={{ minHeight: "100vh" }}
             >
               <div className="w-full max-w-3xl flex flex-col items-center md:items-start text-center md:text-left md:mx-0">
                 <h1 className="text-2xl sm:text-3xl md:text-[40px] font-bold leading-tight w-full mb-4">

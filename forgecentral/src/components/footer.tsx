@@ -128,7 +128,7 @@ const Footer = () => {
       </div>
 
       {/* Office Locations */}
-      <div className="mt-16 ml-0 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-20 text-indigo-200 text-center md:text-left">
+      <div className="mt-16 ml-0 md:ml-25 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-20 text-indigo-200 text-center md:text-left">
         <div className="flex flex-col items-center md:flex-row md:items-center gap-4">
           <img
             src="/US_Flag.svg"

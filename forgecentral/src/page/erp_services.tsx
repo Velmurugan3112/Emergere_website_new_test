@@ -76,6 +76,13 @@ const BenefitCard = ({
   );
 };
 
+const supportmaintenanceList = [
+  "Performance monitoring",
+  "Issue resolution",
+  "User training",
+  "Periodic system audits",
+];
+
 const ERPServices: React.FC = () => {
   const benefitValuesRef = useRef<HTMLDivElement>(null);
   const [benefitValuesInView, setBenefitValuesInView] = useState(false);
@@ -406,19 +413,14 @@ const ERPServices: React.FC = () => {
                     className="w-16 h-16"
                   />
                 </div>
-                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#023ED6] mb-4 text-left w-full">
+                <h2 className="text-[28px] md:text-[30px] font-extrabold text-[#E29400] mb-4 text-left w-full">
                   ERP Support & Maintenance
                 </h2>
                 <p className="text-[#535353] text-lg md:text-[18px]  font-medium leading-relaxed">
-                  Our approach is anchored in the FUSE Framework—
+                  Our support services include
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 text-[#161616] text-lg md:text-md  font-bold leading-relaxed font-bold mb-4 text-left">
-                  {[
-                    "Performance monitoring",
-                    "Issue resolution",
-                    "User training",
-                    "Periodic system audits",
-                  ].map((item) => (
+                  {supportmaintenanceList.map((item) => (
                     <div
                       key={item}
                       className="flex items-center gap-2 justify-start"
@@ -440,7 +442,7 @@ const ERPServices: React.FC = () => {
             </div>
             {/* Left Image */}
             <div className="w-full md:basis-1/2 flex justify-center items-center relative mt-6 md:mt-0 min-h-[200px]">
-              <div className="absolute w-[200px] h-[200px] bg-[#023ED6] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 left-0 z-0" />
+              <div className="absolute w-[200px] h-[200px] bg-[#E29400] opacity-90 blur-[150px] rounded-full rotate-[30deg] bottom-2 left-0 z-0" />
               <img
                 src="/erp_support_banner.jpg"
                 alt="ERP Support"
