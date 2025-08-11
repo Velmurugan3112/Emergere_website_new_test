@@ -129,7 +129,7 @@ const NavBar = () => {
 
   return (
     <>
-      <header className="sticky top-[20px] z-[9999] bg-[#FBFBFB]/80 backdrop-blur-md px-4 py-4 sm:w-[90%] lg:w-[85%] mx-auto mt-3 mb-3 rounded-[14px] shadow-lg">
+      <header className="sticky top-[20px] z-[9999] bg-[#FBFBFB]/80 backdrop-blur-md px-4 py-4 w-[80%] sm:w-[90%] mx-auto mt-3 mb-3 rounded-[14px] shadow-lg">
         <div className="flex items-center justify-between w-full">
           {/* Logo */}
           <div className="flex items-center">

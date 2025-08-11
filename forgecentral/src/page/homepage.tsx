@@ -124,7 +124,7 @@ const IndustryCard = ({
       <br />
 
       {/* Title */}
-      <h3 className="font-extrabold text-lg md:text-2xl text-gray-900 mb-6">
+      <h3 className="font-extrabold text-lg md:text-xl text-gray-900 mb-6">
         {title}
       </h3>
 
@@ -356,11 +356,14 @@ const testimonials = [
   },
 ];
 
+const Emergere_Brochure = "/Emergere_Brochure.pdf";
+
+const videos = ["/BN1-C.mp4", "/BN2-C.mp4", "/BN3-C.mp4"];
+
 const HERO_HEIGHT = 700; // px, adjust as needed for your hero section height
 
 const HeroSection = () => {
   const [loading, setLoading] = React.useState(false);
-  const videos = ["/BN1-C.mp4", "/BN2-C.mp4", "/BN3-C.mp4"];
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [showHero, setShowHero] = useState(true);
   // Animation logic for Core Values section
@@ -467,8 +470,8 @@ const HeroSection = () => {
 
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "/Emergere Broucher.pdf"; // path to your PDF in public folder
-    link.download = "Emergere Broucher.pdf";
+    link.href = Emergere_Brochure; // path to your PDF in public folder
+    link.download = "Emergere Brochure.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

@@ -692,7 +692,7 @@ const Careers: React.FC = () => {
 
                         <hr className="border-t border-gray-200" />
 
-                        <div className="flex flex-col gap-3 text-sm text-black font-medium sm:flex-row sm:items-center sm:gap-10 sm:text-md">
+                        <div className="flex flex-col gap-3 text-sm text-black font-medium items-between sm:flex-row sm:items-center sm:gap-10 sm:text-md">
                           <div className="flex items-center gap-2">
                             <img
                               src="/job_icon.png"
@@ -771,7 +771,9 @@ const Careers: React.FC = () => {
                     </div>
                   ))
                 ) : (
-                  <p>No jobs found for {selectedCategory}.</p>
+                  <p className="text-lg font-semibold text-gray-500">
+                    No jobs found for {selectedCategory}.
+                  </p>
                 )}
               </>
             )}

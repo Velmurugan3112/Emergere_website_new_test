@@ -2,6 +2,8 @@ import React from "react";
 import ServicesMenu from "./servicemenu";
 import Link from "next/link";
 
+const fusefyList = ["Feasible", "Usable", "Secure", "Explainable"];
+
 const DataAIAnalytics: React.FC = () => {
   return (
     <div>
@@ -158,6 +160,7 @@ const DataAIAnalytics: React.FC = () => {
                 <p className="text-[#535353] text-lg md:text-[18px] font-medium leading-relaxed">
                   Bring your data to life with
                   <span className="font-bold text-[#161616]">
+                    {" "}
                     intuitive, interactive visualizations that empower faster,
                     more informed decisions.
                   </span>
@@ -336,21 +339,19 @@ const DataAIAnalytics: React.FC = () => {
                   Our approach is anchored in the FUSE Framework—
                 </p>
                 <div className="grid grid-cols-2 sm:grid-cols-4 text-[#161616] text-base sm:text-lg md:text-[18px] font-medium leading-relaxed font-bold mb-4 text-left gap-x-4 gap-y-2">
-                  {["Feasible", "Usable", "Secure", "Explainable"].map(
-                    (item) => (
-                      <div
-                        key={item}
-                        className="flex items-center gap-2 justify-start"
-                      >
-                        <img
-                          src="/star.png"
-                          alt="Star"
-                          className="w-5 h-5 object-contain"
-                        />
-                        {item}
-                      </div>
-                    )
-                  )}
+                  {fusefyList.map((item) => (
+                    <div
+                      key={item}
+                      className="flex items-center gap-2 justify-start"
+                    >
+                      <img
+                        src="/star.png"
+                        alt="Star"
+                        className="w-5 h-5 object-contain"
+                      />
+                      {item}
+                    </div>
+                  ))}
                 </div>
                 <p className="text-[#535353] text-lg md:text-[18px]  font-medium leading-relaxed">
                   ensuring every AI solution is practical, user-friendly,
