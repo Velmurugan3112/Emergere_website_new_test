@@ -61,6 +61,8 @@ const Careers: React.FC = () => {
   const [successOpen, setSuccessOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("Full Time");
   const [filteredJobs, setFilteredJobs] = useState<JobPost[]>([]);
+  const [searchText, setSearchText] = useState("");
+
   // Form state
   const [formInput, setFormInput] = useState({
     name: "",
@@ -401,12 +403,31 @@ const Careers: React.FC = () => {
               />
               <input
                 type="text"
+                value={searchText}
+                onChange={(e) => setSearchText(e.target.value)}
                 placeholder="Search Job title / Technology"
                 className="w-full text-md text-gray-600 placeholder-gray-400 focus:outline-none bg-transparent"
               />
             </div>
             {/* Button */}
-            <button className="bg-[#023ED6] hover:bg-blue-700 text-white text-md font-semibold px-5 py-2 rounded-[8px]">
+            <button
+              className="bg-[#023ED6] hover:bg-blue-700 text-white text-md font-semibold px-5 py-2 rounded-[8px]"
+              onClick={() => {
+                const filtered = jobs.filter(
+                  (job) =>
+                    job.title.rendered
+                      .toLowerCase()
+                      .includes(searchText.toLowerCase()) ||
+                    job.meta?.job_location
+                      ?.toLowerCase()
+                      .includes(searchText.toLowerCase()) ||
+                    job.content.rendered
+                      .toLowerCase()
+                      .includes(searchText.toLowerCase())
+                );
+                setFilteredJobs(filtered);
+              }}
+            >
               Find Job
             </button>
           </div>
@@ -692,7 +713,8 @@ const Careers: React.FC = () => {
 
                         <hr className="border-t border-gray-200" />
 
-                        <div className="flex flex-col gap-3 text-sm text-black font-medium items-between sm:flex-row sm:items-center sm:gap-10 sm:text-md">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-20 text-black text-left md:text-left">
+                          {/* <div className="flex flex-col gap-3 text-sm text-black font-medium items-center sm:flex-row sm:items-center sm:gap-10 sm:text-md justify-center"> */}
                           <div className="flex items-center gap-2">
                             <img
                               src="/job_icon.png"
