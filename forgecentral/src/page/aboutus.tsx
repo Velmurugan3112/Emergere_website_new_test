@@ -100,18 +100,20 @@ export default function AboutUs() {
         <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row md:gap-6 lg:gap-10 xl:gap-16 items-center relative z-10">
           {/* Left Content */}
           <div className="basis-[50%] space-y-6 px-0 lg:px-2 xl:px-3 text-left lg:text-center mx-auto">
-            <div className="inline-flex flex-col items-start mb-7">
-              <span className="text-md text-[#023ED6] font-extrabold tracking-[0.19em] uppercase mb-1">
+            <div className="mb-7">
+              <span className="text-md text-[#023ED6] font-extrabold tracking-[0.19em] uppercase mb-1 text-left block">
                 ABOUT US
               </span>
               {/* Line icon or SVG under the text */}
-              <Image
-                src="/aboutus_Line_34.svg" // Replace with your actual SVG path
-                alt="line icon"
-                width={40} // Adjust width/height as needed
-                height={6}
-                className="ml-20"
-              />
+              <div className="flex justify-start">
+                <Image
+                  src="/aboutus_Line_34.svg" // Replace with your actual SVG path
+                  alt="line icon"
+                  width={40} // Adjust width/height as needed
+                  height={6}
+                  className="ml-20"
+                />
+              </div>
             </div>
 
             <h3 className="text-[28px] md:text-[28px] font-semibold leading-[1.2] tracking-tight text-left text-gray-900 text-left mb-2">
@@ -463,9 +465,9 @@ export default function AboutUs() {
           </div>
 
           {/* OUR VISION SECTION (left text, right image, vertically centered) */}
-          <div className="w-full max-w-[1440px] mx-auto flex flex-col-reverse md:flex-row items-stretch md:items-center gap-8 md:gap-20 px-4 sm:px-8 md:px-24 py-8 md:py-10">
-            {/* Left: Vision Content */}
-            <div className="w-full md:basis-1/2 flex flex-col justify-center items-start md:pr-8 mt-8 md:mt-0">
+          <div className="w-full max-w-[1440px] mx-auto flex flex-col md:flex-row items-stretch md:items-center gap-8 md:gap-20 px-4 sm:px-8 md:px-24 py-8 md:py-10">
+            {/* Left: Vision Content (always first on mobile) */}
+            <div className="w-full md:basis-1/2 flex flex-col justify-center items-start md:pr-8 mt-8 md:mt-0 order-1">
               <div className="w-14 h-14 flex items-center justify-center mb-4">
                 <Image
                   src="/aboutus_our_vision.svg"
@@ -488,7 +490,7 @@ export default function AboutUs() {
               </p>
             </div>
             {/* Right: Vision Image (on mobile: below content, on desktop: right) */}
-            <div className="w-full md:basis-1/2 flex items-center justify-center">
+            <div className="w-full md:basis-1/2 flex items-center justify-center order-2">
               <Image
                 src="/aboutus_ourvision_1.svg"
                 alt="Technology Vision"
@@ -501,9 +503,9 @@ export default function AboutUs() {
           </div>
 
           {/* OUR MISSION SECTION (right text, left image, vertically centered) */}
-          <div className="w-full max-w-[1440px] mx-auto flex flex-col-reverse md:flex-row-reverse items-stretch md:items-center gap-8 md:gap-20 px-4 sm:px-8 md:px-24 py-8 md:py-10">
-            {/* Right: Mission Content */}
-            <div className="w-full md:basis-1/2 flex flex-col justify-center items-start mt-8 md:mt-0 ">
+          <div className="w-full max-w-[1440px] mx-auto flex flex-col md:flex-row-reverse items-stretch md:items-center gap-8 md:gap-20 px-4 sm:px-8 md:px-24 py-8 md:py-10">
+            {/* Right: Mission Content (always first on mobile) */}
+            <div className="w-full md:basis-1/2 flex flex-col justify-center items-start mt-8 md:mt-0 order-1">
               <div className="w-14 h-14 flex items-center justify-center mb-4">
                 <Image
                   src="/aboutus_ourmission_icon.svg"
@@ -528,7 +530,7 @@ export default function AboutUs() {
               </p>
             </div>
             {/* Left: Mission Image (on mobile: below content, on desktop: left) */}
-            <div className="w-full md:basis-1/2 flex items-center justify-center">
+            <div className="w-full md:basis-1/2 flex items-center justify-center order-2">
               <Image
                 src="/aboutus_ourmission_1.svg"
                 alt="Mission Target"
