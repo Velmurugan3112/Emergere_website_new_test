@@ -461,7 +461,7 @@ const HeroSection = () => {
 
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "/Emergere_Brochure.pdf"; // path to your PDF in public folder
+    link.href = "/Emergere Brochure.pdf"; // path to your PDF in public folder
     link.download = "Emergere Brochure.pdf";
     document.body.appendChild(link);
     link.click();
