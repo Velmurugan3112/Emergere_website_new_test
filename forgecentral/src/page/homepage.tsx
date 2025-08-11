@@ -360,8 +360,7 @@ const HERO_HEIGHT = 700; // px, adjust as needed for your hero section height
 
 const HeroSection = () => {
   const [loading, setLoading] = React.useState(false);
-  const videos = ["/BN1-C.mp4", "/BN2-C.mp4", "/BN3-C.mp4"];
-  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const videoSrc = "/Video-Banner-V3-C.mp4"; // Use your single video file here
   const [showHero, setShowHero] = useState(true);
   // Animation logic for Core Values section
   const serviceValuesRef = useRef<HTMLDivElement>(null);
@@ -444,13 +443,7 @@ const HeroSection = () => {
     }
   }, []);
 
-  // Video Loop
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videos.length);
-    }, 8000);
-    return () => clearInterval(interval);
-  }, []);
+
 
   // Scroll
   useEffect(() => {
@@ -538,12 +531,13 @@ const HeroSection = () => {
           <div className="relative text-white px-0 md:px-0 h-full flex items-stretch overflow-hidden pointer-events-auto">
             {/* Background Video */}
             <video
-              key={currentVideoIndex}
               className="absolute top-0 left-0 w-full h-full object-cover z-0 pointer-events-none transition-opacity duration-1000"
-              src={videos[currentVideoIndex]}
+              src={videoSrc}
               autoPlay
               muted
               playsInline
+              loop
+              poster="/First frame.jpg"
               style={{
                 objectFit: "cover",
                 height: "100%",
@@ -589,19 +583,6 @@ const HeroSection = () => {
                   </button>
                 </Link>
               </div>
-            </div>
-            {/* Video Slider Dots */}
-            <div className="absolute bottom-8 left-0 right-0 z-30 flex justify-center space-x-2">
-              {videos.map((_, index) => (
-                <span
-                  key={index}
-                  className={`w-2 h-2 rounded-full transition-all ${
-                    index === currentVideoIndex
-                      ? "bg-white opacity-80 scale-110"
-                      : "bg-white/50"
-                  }`}
-                ></span>
-              ))}
             </div>
           </div>
         </div>
