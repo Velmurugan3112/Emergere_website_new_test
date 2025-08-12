@@ -51,7 +51,12 @@ export const ContactUs = () => {
       setModalLoading(false);
       setModalResponse("Thank you! We will contact you soon.");
       setModalInput({ email: "", phone: "" });
-      setTimeout(() => setShowPhoneModal(false), 1500);
+      // Wait 1.5s, then reload the page (modal will close and Contact Us page will show)
+      setTimeout(() => {
+        setShowPhoneModal(false);
+        setModalResponse(null);
+        window.location.reload();
+      }, 1500);
     } catch (error) {
       setModalLoading(false);
       setModalResponse("Sorry, something went wrong.");
