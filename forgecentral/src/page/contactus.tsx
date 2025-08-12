@@ -18,13 +18,30 @@ export const ContactUs = () => {
     e.preventDefault();
     setModalLoading(true);
     setModalResponse(null);
-    // Simulate API call (replace with real endpoint if needed)
-    setTimeout(() => {
+    const payload = {
+      contactName: "Contact US Page", // or get from another input if needed
+      contactEmail: modalInput.email,
+      contactPhone: modalInput.phone,
+      contactMessage: "Request a call from modal",
+    };
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}ContactUs/AddContact`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }
+      );
+      const data = await res.json();
       setModalLoading(false);
       setModalResponse("Thank you! We will contact you soon.");
       setModalInput({ email: "", phone: "" });
       setTimeout(() => setShowPhoneModal(false), 1500);
-    }, 1200);
+    } catch (error) {
+      setModalLoading(false);
+      setModalResponse("Sorry, something went wrong.");
+    }
   };
   // Form state and response message
   const [formInput, setFormInput] = React.useState({
