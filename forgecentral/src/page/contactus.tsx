@@ -19,7 +19,7 @@ export const ContactUs = () => {
     setModalLoading(true);
     setModalResponse(null);
     const payload = {
-      contactName: "Contact US Page", // or get from another input if needed
+      contactName: "Contact US Page",
       contactEmail: modalInput.email,
       contactPhone: modalInput.phone,
       contactMessage: "Request a call from modal",
@@ -33,7 +33,21 @@ export const ContactUs = () => {
           body: JSON.stringify(payload),
         }
       );
-      const data = await res.json();
+      const text = await res.text();
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch {
+        data = text;
+      }
+      console.log("API Response:", data);
+
+      if (!res.ok) {
+        setModalLoading(false);
+        setModalResponse(data?.message || "Sorry, something went wrong.");
+        return;
+      }
+
       setModalLoading(false);
       setModalResponse("Thank you! We will contact you soon.");
       setModalInput({ email: "", phone: "" });
@@ -41,6 +55,7 @@ export const ContactUs = () => {
     } catch (error) {
       setModalLoading(false);
       setModalResponse("Sorry, something went wrong.");
+      console.log("API Error:", error);
     }
   };
   // Form state and response message
