@@ -7,6 +7,25 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export const ContactUs = () => {
+  // Modal state for phone number/email (desktop only)
+  const [showPhoneModal, setShowPhoneModal] = React.useState(false);
+  const [modalInput, setModalInput] = React.useState({ email: "", phone: "" });
+  const [modalLoading, setModalLoading] = React.useState(false);
+  const [modalResponse, setModalResponse] = React.useState<string | null>(null);
+
+  // Modal submit handler (simulate sending details)
+  const handleModalSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setModalLoading(true);
+    setModalResponse(null);
+    // Simulate API call (replace with real endpoint if needed)
+    setTimeout(() => {
+      setModalLoading(false);
+      setModalResponse("Thank you! We will contact you soon.");
+      setModalInput({ email: "", phone: "" });
+      setTimeout(() => setShowPhoneModal(false), 1500);
+    }, 1200);
+  };
   // Form state and response message
   const [formInput, setFormInput] = React.useState({
     name: "",
@@ -97,7 +116,22 @@ export const ContactUs = () => {
             </p>
             {/* Email & Phone */}
             <div className="flex flex-col md:flex-row justify-center items-center gap-y-4 gap-x-8 md:gap-x-40 text-gray-800 mt-15 mb-4">
-              <div className="flex items-center gap-2">
+              {/* Email clickable */}
+              <button
+                className="flex items-center gap-2 focus:outline-none"
+                style={{
+                  background: "none",
+                  border: "none",
+                  padding: 0,
+                  cursor: "pointer",
+                }}
+                onClick={() => {
+                  if (typeof window !== "undefined") {
+                    window.location.href = "mailto:hello@emergertech.com";
+                  }
+                }}
+                aria-label="Send Email"
+              >
                 <Image
                   src="/mail-icon.svg"
                   alt="Email"
@@ -105,8 +139,27 @@ export const ContactUs = () => {
                   height={42}
                 />
                 <span className="font-medium">hello@emergertech.com</span>
-              </div>
-              <div className="flex items-center gap-2">
+              </button>
+              {/* Phone clickable: mobile = call, desktop = open modal */}
+              <button
+                className="flex items-center gap-2 focus:outline-none"
+                style={{
+                  background: "none",
+                  border: "none",
+                  padding: 0,
+                  cursor: "pointer",
+                }}
+                onClick={() => {
+                  if (typeof window !== "undefined") {
+                    if (window.innerWidth < 640) {
+                      window.location.href = "tel:+14694017117";
+                    } else {
+                      setShowPhoneModal(true);
+                    }
+                  }
+                }}
+                aria-label="Call or Send Phone Number"
+              >
                 <Image
                   src="/phone-icon.svg"
                   alt="Phone"
@@ -114,8 +167,73 @@ export const ContactUs = () => {
                   height={42}
                 />
                 <span className="font-medium">+1 469 401 7117</span>
-              </div>
+              </button>
             </div>
+            {/* Phone Modal (desktop only) */}
+            {showPhoneModal && (
+              <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/10 backdrop-blur-sm">
+                <div className="bg-white rounded-2xl shadow-xl p-6 w-full max-w-md relative">
+                  <button
+                    className="absolute top-2 right-2 text-gray-500 hover:text-gray-800 text-2xl font-bold"
+                    onClick={() => setShowPhoneModal(false)}
+                    aria-label="Close"
+                    style={{
+                      background: "none",
+                      border: "none",
+                      cursor: "pointer",
+                    }}
+                  >
+                    ×
+                  </button>
+                  <h3 className="text-xl font-bold mb-2 text-[#023ED6]">
+                    Request a Call
+                  </h3>
+                  <p className="text-gray-700 mb-4">
+                    Enter your email and phone number. We'll get in touch with
+                    you soon.
+                  </p>
+                  <form
+                    onSubmit={handleModalSubmit}
+                    className="flex flex-col gap-4"
+                  >
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Your Email"
+                      className="border border-gray-300 rounded-lg px-4 py-2 outline-none"
+                      value={modalInput.email}
+                      onChange={(e) =>
+                        setModalInput({ ...modalInput, email: e.target.value })
+                      }
+                      required
+                    />
+                    <input
+                      type="tel"
+                      name="phone"
+                      placeholder="Your Phone Number"
+                      className="border border-gray-300 rounded-lg px-4 py-2 outline-none"
+                      value={modalInput.phone}
+                      onChange={(e) =>
+                        setModalInput({ ...modalInput, phone: e.target.value })
+                      }
+                      required
+                    />
+                    <button
+                      type="submit"
+                      className="bg-[#023ED6] text-white font-semibold rounded-lg px-6 py-2 mt-2 hover:bg-[#0056d6] transition"
+                      disabled={modalLoading}
+                    >
+                      {modalLoading ? "Submitting..." : "Send Request"}
+                    </button>
+                    {modalResponse && (
+                      <div className="text-green-600 text-center font-medium mt-2">
+                        {modalResponse}
+                      </div>
+                    )}
+                  </form>
+                </div>
+              </div>
+            )}
             <hr className="border-t border-gray-200 w-full max-w-3xl mx-auto mt-6 mb-0" />
           </div>
 
@@ -214,7 +332,10 @@ export const ContactUs = () => {
                   We’d love to help! Let us <br /> know how
                 </span>
               </div>
-              <form className="grid grid-cols-1 md:grid-cols-2 gap-10 pt-4" onSubmit={handleSubmit}>
+              <form
+                className="grid grid-cols-1 md:grid-cols-2 gap-10 pt-4"
+                onSubmit={handleSubmit}
+              >
                 <div className="flex items-center gap-3 border-b border-white py-2">
                   <Image
                     src="/user-icon.svg"
@@ -284,11 +405,22 @@ export const ContactUs = () => {
                     <span className="text-white font-medium">
                       {loading ? (
                         <span className="flex items-center">
-                          <span className="spinner-border mr-2" style={{ display: 'inline-block', width: 20, height: 20, border: '2px solid #fff', borderTop: '2px solid transparent', borderRadius: '50%', animation: 'spin 1s linear infinite' }}></span>
+                          <span
+                            className="spinner-border mr-2"
+                            style={{
+                              display: "inline-block",
+                              width: 20,
+                              height: 20,
+                              border: "2px solid #fff",
+                              borderTop: "2px solid transparent",
+                              borderRadius: "50%",
+                              animation: "spin 1s linear infinite",
+                            }}
+                          ></span>
                           Submitting...
                         </span>
                       ) : (
-                        'Submit'
+                        "Submit"
                       )}
                     </span>
                     <span className="w-[40px] h-[40px] rounded-full flex items-center justify-center ml-3">
@@ -309,7 +441,9 @@ export const ContactUs = () => {
                   `}</style>
                 </div>
                 {response && (
-                  <div className="md:col-span-2 text-center text-white">{response}</div>
+                  <div className="md:col-span-2 text-center text-white">
+                    {response}
+                  </div>
                 )}
               </form>
             </div>
